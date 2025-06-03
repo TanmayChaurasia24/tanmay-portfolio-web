@@ -1,40 +1,13 @@
 
 import React, { useRef, useEffect } from 'react';
-import { Canvas, useFrame } from '@react-three/fiber';
-import { OrbitControls, Sphere, MeshDistortMaterial, Float } from '@react-three/drei';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { Button } from '@/components/ui/button';
 import { ChevronDown, Download } from 'lucide-react';
 import SocialLinks from './SocialLinks';
 import portfolioData from '../data/portfolio.json';
-import * as THREE from 'three';
 
 gsap.registerPlugin(ScrollTrigger);
-
-const AnimatedSphere = () => {
-  const meshRef = useRef<THREE.Mesh>(null);
-
-  useFrame((state) => {
-    if (meshRef.current) {
-      meshRef.current.rotation.x = state.clock.elapsedTime * 0.2;
-      meshRef.current.rotation.y = state.clock.elapsedTime * 0.3;
-    }
-  });
-
-  return (
-    <Float speed={2} rotationIntensity={1} floatIntensity={2}>
-      <Sphere ref={meshRef} args={[1, 100, 200]} scale={2}>
-        <MeshDistortMaterial
-          color="#9945FF"
-          distort={0.5}
-          speed={2}
-          roughness={0}
-        />
-      </Sphere>
-    </Float>
-  );
-};
 
 const Hero = () => {
   const heroRef = useRef<HTMLDivElement>(null);
@@ -99,14 +72,11 @@ const Hero = () => {
       {/* Background gradient */}
       <div className="absolute inset-0 solana-gradient opacity-20"></div>
       
-      {/* 3D Background */}
+      {/* Animated background pattern */}
       <div className="absolute inset-0 z-0">
-        <Canvas camera={{ position: [0, 0, 5], fov: 75 }}>
-          <ambientLight intensity={0.5} />
-          <pointLight position={[10, 10, 10]} />
-          <AnimatedSphere />
-          <OrbitControls enableZoom={false} enablePan={false} autoRotate autoRotateSpeed={0.5} />
-        </Canvas>
+        <div className="absolute inset-0 bg-gradient-to-r from-purple-400/10 via-pink-500/10 to-red-500/10 animate-pulse"></div>
+        <div className="absolute top-1/4 left-1/4 w-64 h-64 bg-purple-500/20 rounded-full blur-3xl animate-bounce"></div>
+        <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-blue-500/20 rounded-full blur-3xl animate-pulse"></div>
       </div>
 
       {/* Content */}

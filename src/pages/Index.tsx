@@ -9,7 +9,6 @@ import Skills from '../components/Skills';
 import Experience from '../components/Experience';
 import Contact from '../components/Contact';
 import Footer from '../components/Footer';
-import SolanaModel from '../components/SolanaModel';
 
 const Index = () => {
   // Initialize GSAP plugins
@@ -62,13 +61,8 @@ const Index = () => {
       {/* Projects Section */}
       <Projects />
       
-      {/* Skills Section with 3D model */}
-      <div className="relative">
-        <div className="absolute inset-0 opacity-20 z-0">
-          <SolanaModel />
-        </div>
-        <Skills />
-      </div>
+      {/* Skills Section */}
+      <Skills />
       
       {/* Experience Section */}
       <Experience />
