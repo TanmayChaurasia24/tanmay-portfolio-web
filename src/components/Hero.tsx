@@ -70,13 +70,13 @@ const Hero = () => {
   return (
     <section ref={heroRef} className="relative min-h-screen flex items-center justify-center overflow-hidden">
       {/* Background gradient */}
-      <div className="absolute inset-0 solana-gradient opacity-20"></div>
+      <div className="absolute inset-0 solana-gradient opacity-20 dark:opacity-10"></div>
       
       {/* Animated background pattern */}
       <div className="absolute inset-0 z-0">
-        <div className="absolute inset-0 bg-gradient-to-r from-purple-400/10 via-pink-500/10 to-red-500/10 animate-pulse"></div>
-        <div className="absolute top-1/4 left-1/4 w-64 h-64 bg-purple-500/20 rounded-full blur-3xl animate-bounce"></div>
-        <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-blue-500/20 rounded-full blur-3xl animate-pulse"></div>
+        <div className="absolute inset-0 bg-gradient-to-r from-purple-400/10 via-pink-500/10 to-red-500/10 dark:from-purple-400/5 dark:via-pink-500/5 dark:to-red-500/5 animate-pulse"></div>
+        <div className="absolute top-1/4 left-1/4 w-64 h-64 bg-purple-500/20 dark:bg-purple-500/10 rounded-full blur-3xl animate-bounce"></div>
+        <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-blue-500/20 dark:bg-blue-500/10 rounded-full blur-3xl animate-pulse"></div>
       </div>
 
       {/* Content */}
@@ -90,12 +90,12 @@ const Hero = () => {
         
         <p 
           ref={subtitleRef}
-          className="text-xl md:text-2xl text-gray-600 mb-8 max-w-2xl mx-auto"
+          className="text-xl md:text-2xl text-gray-600 dark:text-gray-300 mb-8 max-w-2xl mx-auto"
         >
           {portfolioData.personal.title} • {portfolioData.personal.subtitle}
         </p>
 
-        <p className="text-lg text-gray-500 mb-12 max-w-xl mx-auto">
+        <p className="text-lg text-gray-500 dark:text-gray-400 mb-12 max-w-xl mx-auto">
           {portfolioData.personal.bio}
         </p>
 
@@ -109,7 +109,7 @@ const Hero = () => {
           
           <Button 
             variant="outline" 
-            className="px-8 py-3 text-lg border-2 hover:bg-purple-50"
+            className="px-8 py-3 text-lg border-2 hover:bg-purple-50 dark:hover:bg-purple-950 transition-colors"
           >
             <Download className="mr-2 h-5 w-5" />
             Download Resume
@@ -120,7 +120,7 @@ const Hero = () => {
 
         {/* Scroll indicator */}
         <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
-          <ChevronDown className="h-8 w-8 text-gray-400" />
+          <ChevronDown className="h-8 w-8 text-gray-400 dark:text-gray-500" />
         </div>
       </div>
     </section>
