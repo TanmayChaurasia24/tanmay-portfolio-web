@@ -5,18 +5,18 @@ import { Sphere, MeshDistortMaterial, Float } from '@react-three/drei';
 import * as THREE from 'three';
 
 const SolanaLogo = () => {
-  const meshRef = useRef<THREE.Mesh>(null);
+  const groupRef = useRef<THREE.Group>(null);
 
   useFrame((state) => {
-    if (meshRef.current) {
-      meshRef.current.rotation.x = state.clock.elapsedTime * 0.1;
-      meshRef.current.rotation.y = state.clock.elapsedTime * 0.15;
+    if (groupRef.current) {
+      groupRef.current.rotation.x = state.clock.elapsedTime * 0.1;
+      groupRef.current.rotation.y = state.clock.elapsedTime * 0.15;
     }
   });
 
   return (
     <Float speed={1.5} rotationIntensity={0.5} floatIntensity={1.5}>
-      <group ref={meshRef}>
+      <group ref={groupRef}>
         {/* Main purple sphere */}
         <Sphere args={[1, 32, 32]} scale={1}>
           <MeshDistortMaterial 
