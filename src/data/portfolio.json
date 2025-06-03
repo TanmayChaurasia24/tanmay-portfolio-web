@@ -1,0 +1,111 @@
+
+{
+  "personal": {
+    "name": "Tanmay Kumar Chaurasia",
+    "title": "Full Stack Developer",
+    "subtitle": "Learning Solana Blockchain Development",
+    "email": "tanmay@example.com",
+    "phone": "+91 12345 67890",
+    "location": "India",
+    "bio": "Passionate full-stack developer currently diving deep into Solana blockchain development. I love building innovative web applications and exploring the decentralized future.",
+    "avatar": "/placeholder.svg",
+    "resume": "/resume.pdf"
+  },
+  "social": [
+    {
+      "name": "GitHub",
+      "url": "https://github.com/tanmaykumar",
+      "icon": "github"
+    },
+    {
+      "name": "LinkedIn",
+      "url": "https://linkedin.com/in/tanmaykumar",
+      "icon": "linkedin"
+    },
+    {
+      "name": "Twitter",
+      "url": "https://twitter.com/tanmaykumar",
+      "icon": "twitter"
+    },
+    {
+      "name": "Email",
+      "url": "mailto:tanmay@example.com",
+      "icon": "mail"
+    }
+  ],
+  "skills": [
+    {
+      "category": "Frontend",
+      "items": ["React", "Next.js", "TypeScript", "Tailwind CSS", "JavaScript"]
+    },
+    {
+      "category": "Backend",
+      "items": ["Node.js", "Express", "Python", "PostgreSQL", "MongoDB"]
+    },
+    {
+      "category": "Blockchain",
+      "items": ["Solana", "Web3.js", "Anchor Framework", "Rust", "Smart Contracts"]
+    },
+    {
+      "category": "Tools",
+      "items": ["Git", "Docker", "AWS", "Vercel", "Figma"]
+    }
+  ],
+  "projects": [
+    {
+      "id": 1,
+      "title": "Solana DeFi Dashboard",
+      "description": "A comprehensive DeFi dashboard built on Solana with real-time data visualization and portfolio tracking.",
+      "image": "/placeholder.svg",
+      "technologies": ["React", "Solana", "Web3.js", "TypeScript"],
+      "github": "https://github.com/tanmaykumar/solana-defi",
+      "live": "https://solana-defi.vercel.app",
+      "featured": true
+    },
+    {
+      "id": 2,
+      "title": "NFT Marketplace",
+      "description": "A modern NFT marketplace with minting, trading, and auction features built on Solana blockchain.",
+      "image": "/placeholder.svg",
+      "technologies": ["Next.js", "Rust", "Anchor", "Metaplex"],
+      "github": "https://github.com/tanmaykumar/nft-marketplace",
+      "live": "https://nft-marketplace.vercel.app",
+      "featured": true
+    },
+    {
+      "id": 3,
+      "title": "Full Stack E-commerce",
+      "description": "Complete e-commerce solution with payment integration, admin panel, and inventory management.",
+      "image": "/placeholder.svg",
+      "technologies": ["React", "Node.js", "MongoDB", "Stripe"],
+      "github": "https://github.com/tanmaykumar/ecommerce",
+      "live": "https://ecommerce-demo.vercel.app",
+      "featured": false
+    }
+  ],
+  "experience": [
+    {
+      "company": "Tech Startup",
+      "position": "Full Stack Developer",
+      "duration": "2023 - Present",
+      "description": "Developing scalable web applications and exploring blockchain integration opportunities.",
+      "location": "Remote"
+    },
+    {
+      "company": "Freelance",
+      "position": "Web Developer",
+      "duration": "2022 - 2023",
+      "description": "Built custom websites and web applications for various clients using modern technologies.",
+      "location": "Remote"
+    }
+  ],
+  "education": [
+    {
+      "degree": "Bachelor of Technology",
+      "field": "Computer Science",
+      "school": "University Name",
+      "year": "2024",
+      "location": "India"
+    }
+  ]
+}
