@@ -21,7 +21,6 @@ const SolanaLogo = () => {
         <Sphere args={[1, 32, 32]} scale={1}>
           <MeshDistortMaterial 
             color="#9945FF" 
-            attach="material" 
             distort={0.4} 
             speed={2} 
             roughness={0.1} 
@@ -33,7 +32,6 @@ const SolanaLogo = () => {
         <Sphere args={[0.5, 32, 32]} position={[1.2, 0.5, 0]}>
           <MeshDistortMaterial 
             color="#14F195" 
-            attach="material" 
             distort={0.2} 
             speed={3} 
             roughness={0.3}
@@ -44,7 +42,6 @@ const SolanaLogo = () => {
         <Sphere args={[0.3, 32, 32]} position={[-1, -0.7, 0.5]}>
           <MeshDistortMaterial 
             color="#00C2FF" 
-            attach="material" 
             distort={0.4} 
             speed={4} 
             roughness={0.2}
