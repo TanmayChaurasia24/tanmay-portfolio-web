@@ -8,11 +8,12 @@ import { Button } from '@/components/ui/button';
 import { ChevronDown, Download } from 'lucide-react';
 import SocialLinks from './SocialLinks';
 import portfolioData from '../data/portfolio.json';
+import * as THREE from 'three';
 
 gsap.registerPlugin(ScrollTrigger);
 
 const AnimatedSphere = () => {
-  const meshRef = useRef<any>();
+  const meshRef = useRef<THREE.Mesh>(null);
 
   useFrame((state) => {
     if (meshRef.current) {

@@ -2,9 +2,10 @@
 import React, { useRef } from 'react';
 import { Canvas, useFrame } from '@react-three/fiber';
 import { Sphere, MeshDistortMaterial, Float } from '@react-three/drei';
+import * as THREE from 'three';
 
 const SolanaLogo = () => {
-  const meshRef = useRef<any>();
+  const meshRef = useRef<THREE.Mesh>(null);
 
   useFrame((state) => {
     if (meshRef.current) {
@@ -15,7 +16,7 @@ const SolanaLogo = () => {
 
   return (
     <Float speed={1.5} rotationIntensity={0.5} floatIntensity={1.5}>
-      <mesh ref={meshRef}>
+      <group ref={meshRef}>
         {/* Main purple sphere */}
         <Sphere args={[1, 32, 32]} scale={1}>
           <MeshDistortMaterial 
@@ -49,7 +50,7 @@ const SolanaLogo = () => {
             roughness={0.2}
           />
         </Sphere>
-      </mesh>
+      </group>
     </Float>
   );
 };
