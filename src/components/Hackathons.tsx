@@ -9,8 +9,9 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { Trophy, Users, Calendar, Award } from "lucide-react";
+import { Trophy, Github, ExternalLink } from "lucide-react";
 import portfolioData from "../data/portfolio.json";
 
 gsap.registerPlugin(ScrollTrigger);
@@ -81,12 +82,12 @@ const Hackathons = () => {
 
         <div
           ref={hackathonsRef}
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+          className="flex flex-wrap gap-8 justify-center"
         >
           {portfolioData.hackathons.map((hackathon) => (
             <Card
               key={hackathon.id}
-              className="group hover:shadow-xl transition-shadow duration-200 glass-card border-0 animated-border"
+              className="group hover:shadow-xl transition-shadow duration-200 glass-card border-0 animated-border max-w-sm w-full"
             >
               <CardHeader>
                 <div className="flex items-center justify-between mb-2">
@@ -114,6 +115,36 @@ const Hackathons = () => {
                       {tech}
                     </Badge>
                   ))}
+                </div>
+
+                <div className="flex gap-3">
+                  <Button size="sm" variant="outline" asChild>
+                    <a
+                      href={hackathon.github}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <Github className="h-4 w-4 mr-2" />
+                      Code
+                    </a>
+                  </Button>
+
+                  {hackathon.live && hackathon.live.length > 0 && (
+                    <Button
+                      size="sm"
+                      className="solana-gradient text-white"
+                      asChild
+                    >
+                      <a
+                        href={hackathon.live}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        <ExternalLink className="h-4 w-4 mr-2" />
+                        Live Demo
+                      </a>
+                    </Button>
+                  )}
                 </div>
               </CardContent>
             </Card>

@@ -1,6 +1,6 @@
 
 import React, { useState, useEffect } from 'react';
-import { Menu, X } from 'lucide-react';
+import { Menu } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
 import ThemeToggle from './ThemeToggle';
@@ -27,7 +27,8 @@ const NavBar = () => {
     { name: 'Home', href: '#home' },
     { name: 'Projects', href: '#projects' },
     { name: 'Skills', href: '#skills' },
-    { name: 'Experience', href: '#experience' },
+    { name: 'Hackathons', href: '#hackathons' },
+    { name: 'Freelance', href: '#freelance' },
     { name: 'Contact', href: '#contact' },
   ];
 

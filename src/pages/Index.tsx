@@ -1,3 +1,4 @@
+
 import React, { useEffect } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
@@ -10,7 +11,6 @@ import FreelanceClients from '../components/FreelanceClients';
 import Achievements from '../components/Achievements';
 import Experience from '../components/Experience';
 import Contact from '../components/Contact';
-import Footer from '../components/Footer';
 
 const Index = () => {
   // Initialize GSAP plugins with performance optimizations
@@ -78,16 +78,13 @@ const Index = () => {
       <FreelanceClients />
       
       {/* Achievements Section */}
-      {/* <Achievements /> */}
+      <Achievements />
       
       {/* Experience Section */}
       {/* <Experience /> */}
       
       {/* Contact Section */}
       <Contact />
-      
-      {/* Footer */}
-      <Footer />
     </div>
   );
 };

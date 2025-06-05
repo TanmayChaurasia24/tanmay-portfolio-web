@@ -1,3 +1,4 @@
+
 import React, { useRef, useEffect } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -83,12 +84,12 @@ const Projects = () => {
 
         <div
           ref={projectsRef}
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+          className="flex flex-wrap gap-8 justify-center"
         >
           {portfolioData.projects.map((project) => (
             <Card
               key={project.id}
-              className="group hover:shadow-xl transition-shadow duration-200 glass-card border-0"
+              className="group hover:shadow-xl transition-shadow duration-200 glass-card border-0 animated-border max-w-sm w-full"
             >
               <CardHeader>
                 <div className="aspect-video bg-gradient-to-br from-purple-400 to-blue-500 rounded-lg mb-4 overflow-hidden">

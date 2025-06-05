@@ -92,7 +92,7 @@
       "id": 1,
       "title": "Achiverr",
       "description": "Developed an AI-powered goal-setting and tracking platform, helping users with smart roadmaps, increasing goal completion rates.",
-      "image": "/placeholder.svg",
+      "image": "/projects/achiverr.jpg",
       "technologies": [
         "React.js",
         "Prisma",
@@ -110,7 +110,7 @@
       "id": 2,
       "title": "Place-tale Teller",
       "description": "An AI agent that tells you about the past of a particular place. Implemented CI/CD with Jenkins, reverse proxy with Nginx, and used Docker for containerization.",
-      "image": "/placeholder.svg",
+      "image": "/projects/place-tale.jpg",
       "technologies": [
         "React.js",
         "MongoDB",
@@ -128,7 +128,7 @@
       "id": 3,
       "title": "HashMap.ai",
       "description": "Built the backend for an AI-powered job application platform using a monorepo structure, Kafka for real-time messaging between Golang and Node.js microservices.",
-      "image": "/placeholder.svg",
+      "image": "/projects/hashmap-ai.jpg",
       "technologies": [
         "React.js",
         "Node.js",
@@ -147,7 +147,7 @@
       "id": 4,
       "title": "HashStream",
       "description": "A video streaming platform in development. Uses TRPC for type-safe API calls, Mux for video handling, Clerk for auth, and a feature-rich Creator Studio.",
-      "image": "/placeholder.svg",
+      "image": "/projects/hashstream.jpg",
       "technologies": [
         "Next.js",
         "PostgreSQL",
@@ -165,7 +165,7 @@
       "id": 5,
       "title": "Solana Voting Smart contract",
       "description": "Built an Solana smart contract for an Voting application using anchor framework",
-      "image": "/placeholder.svg",
+      "image": "/projects/solana-voting.jpg",
       "technologies": [
         "Solana",
         "Anchor",
@@ -179,7 +179,7 @@
       "id": 6,
       "title": "Solana CRUD application",
       "description": "Built an Solana smart contract for an CRUD application",
-      "image": "/placeholder.svg",
+      "image": "/projects/solana-crud.jpg",
       "technologies": [
         "Solana",
         "Anchor",
@@ -197,7 +197,9 @@
       "position": "Finalist",
       "project": "E-commerce platform",
       "description": "Developed a frontend focused e-Commerce website for an electronics store.Implemented key features including cart management, product filtering, demo payment processing, and appointment booking via a dynamic calendar system. Integrated Google Maps navigation, allowing users to locate the store easily, improving store visits by 40%.",
-      "technologies": ["React", "TypeScript", "Tailwind CSS"]
+      "technologies": ["React", "TypeScript", "Tailwind CSS"],
+      "github": "https://github.com/TanmayChaurasia24/ecommerce-frontend",
+      "live": "https://ecommerce-demo.vercel.app/"
     },
     {
       "id": 2,
@@ -205,7 +207,9 @@
       "position": "Top 10",
       "project": "Full Stack Website",
       "description": "Debuged and optimize the full stack website built in react and node.",
-      "technologies": ["React", "TypeScript", "Tailwind CSS", "Node.js" ]
+      "technologies": ["React", "TypeScript", "Tailwind CSS", "Node.js"],
+      "github": "https://github.com/TanmayChaurasia24/bug-fix-hackathon",
+      "live": ""
     }
   ],
   "freelanceClients": [
@@ -218,9 +222,10 @@
       "duration": "7 days",
       "year": "2025",
       "rating": 5,
-      "testimonial": "A fabulous working website like really audacious serving seamlessly and a lot thank to Tanmay kumar Chaurasia very tallented person who just not perceived the working but also implemented my vision with his UI & UX skills... it's been an amazing experience to work with you and get this done for my venture to achieve new heights !"
+      "testimonial": "A fabulous working website like really audacious serving seamlessly and a lot thank to Tanmay kumar Chaurasia very tallented person who just not perceived the working but also implemented my vision with his UI & UX skills... it's been an amazing experience to work with you and get this done for my venture to achieve new heights !",
+      "github": "https://github.com/TanmayChaurasia24/mangalam-events",
+      "live": "https://mangalam-events.vercel.app/"
     }
-
   ],
   "achievements": [
     {

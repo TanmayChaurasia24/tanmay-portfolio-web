@@ -9,8 +9,9 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { Star, Clock, Calendar, Quote } from "lucide-react";
+import { Star, Clock, Quote, Github, ExternalLink } from "lucide-react";
 import portfolioData from "../data/portfolio.json";
 
 gsap.registerPlugin(ScrollTrigger);
@@ -92,12 +93,12 @@ const FreelanceClients = () => {
 
         <div
           ref={clientsRef}
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+          className="flex flex-wrap gap-8 justify-center"
         >
           {portfolioData.freelanceClients.map((client) => (
             <Card
               key={client.id}
-              className="group hover:shadow-xl transition-shadow duration-200 glass-card border-0 animated-border"
+              className="group hover:shadow-xl transition-shadow duration-200 glass-card border-0 animated-border max-w-sm w-full"
             >
               <CardHeader>
                 <div className="flex items-center justify-between mb-2">
@@ -132,13 +133,43 @@ const FreelanceClients = () => {
                   <span>{client.duration}</span>
                 </div>
 
-                <div className="bg-gray-50 dark:bg-gray-800 p-3 rounded-lg">
+                <div className="bg-gray-50 dark:bg-gray-800 p-3 rounded-lg mb-4">
                   <div className="flex items-start gap-2">
                     <Quote className="h-4 w-4 text-purple-600 mt-1 flex-shrink-0" />
                     <p className="text-sm italic text-gray-700 dark:text-gray-300">
                       "{client.testimonial}"
                     </p>
                   </div>
+                </div>
+
+                <div className="flex gap-3">
+                  <Button size="sm" variant="outline" asChild>
+                    <a
+                      href={client.github}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <Github className="h-4 w-4 mr-2" />
+                      Code
+                    </a>
+                  </Button>
+
+                  {client.live && client.live.length > 0 && (
+                    <Button
+                      size="sm"
+                      className="solana-gradient text-white"
+                      asChild
+                    >
+                      <a
+                        href={client.live}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        <ExternalLink className="h-4 w-4 mr-2" />
+                        Live Demo
+                      </a>
+                    </Button>
+                  )}
                 </div>
               </CardContent>
             </Card>
