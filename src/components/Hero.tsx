@@ -16,11 +16,22 @@ const Hero = () => {
   const buttonsRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    
+    if (prefersReducedMotion) {
+      // Skip animations for users who prefer reduced motion
+      gsap.set([titleRef.current, subtitleRef.current, buttonsRef.current], {
+        opacity: 1,
+        y: 0
+      });
+      return;
+    }
+
     const ctx = gsap.context(() => {
-      // Initial animations
+      // Initial animations with better performance
       gsap.set([titleRef.current, subtitleRef.current, buttonsRef.current], {
         opacity: 0,
-        y: 50
+        y: 30
       });
 
       const tl = gsap.timeline();
@@ -28,34 +39,34 @@ const Hero = () => {
       tl.to(titleRef.current, {
         opacity: 1,
         y: 0,
-        duration: 1,
-        ease: "power3.out"
+        duration: 0.8,
+        ease: "power2.out"
       })
       .to(subtitleRef.current, {
         opacity: 1,
         y: 0,
-        duration: 0.8,
-        ease: "power3.out"
-      }, "-=0.5")
+        duration: 0.6,
+        ease: "power2.out"
+      }, "-=0.4")
       .to(buttonsRef.current, {
         opacity: 1,
         y: 0,
-        duration: 0.8,
-        ease: "power3.out"
-      }, "-=0.3");
+        duration: 0.6,
+        ease: "power2.out"
+      }, "-=0.2");
 
-      // Scroll-triggered animations
+      // Optimized scroll-triggered animation
       ScrollTrigger.create({
         trigger: heroRef.current,
         start: "top top",
         end: "bottom top",
         scrub: 1,
+        invalidateOnRefresh: true,
         onUpdate: (self) => {
           const progress = self.progress;
-          gsap.to(heroRef.current, {
-            yPercent: -50 * progress,
-            duration: 0.3
-          });
+          if (heroRef.current) {
+            heroRef.current.style.transform = `translateY(${-30 * progress}%)`;
+          }
         }
       });
     }, heroRef);
@@ -69,14 +80,14 @@ const Hero = () => {
 
   return (
     <section ref={heroRef} className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      {/* Background gradient */}
+      {/* Simplified background gradient */}
       <div className="absolute inset-0 solana-gradient opacity-20 dark:opacity-10"></div>
       
-      {/* Animated background pattern */}
+      {/* Optimized animated background pattern */}
       <div className="absolute inset-0 z-0">
-        <div className="absolute inset-0 bg-gradient-to-r from-purple-400/10 via-pink-500/10 to-red-500/10 dark:from-purple-400/5 dark:via-pink-500/5 dark:to-red-500/5 animate-pulse"></div>
-        <div className="absolute top-1/4 left-1/4 w-64 h-64 bg-purple-500/20 dark:bg-purple-500/10 rounded-full blur-3xl animate-bounce"></div>
-        <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-blue-500/20 dark:bg-blue-500/10 rounded-full blur-3xl animate-pulse"></div>
+        <div className="absolute inset-0 bg-gradient-to-r from-purple-400/10 via-pink-500/10 to-red-500/10 dark:from-purple-400/5 dark:via-pink-500/5 dark:to-red-500/5"></div>
+        <div className="absolute top-1/4 left-1/4 w-64 h-64 bg-purple-500/20 dark:bg-purple-500/10 rounded-full blur-3xl animate-pulse-soft"></div>
+        <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-blue-500/20 dark:bg-blue-500/10 rounded-full blur-3xl animate-float"></div>
       </div>
 
       {/* Content */}

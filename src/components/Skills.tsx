@@ -14,40 +14,43 @@ const Skills = () => {
   const skillsRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    
+    if (prefersReducedMotion) {
+      return;
+    }
+
     const ctx = gsap.context(() => {
-      // Title animation
+      // Optimized title animation
       gsap.fromTo(titleRef.current, 
-        { opacity: 0, y: 50 },
+        { opacity: 0, y: 30 },
         {
           opacity: 1,
           y: 0,
-          duration: 1,
+          duration: 0.6,
           scrollTrigger: {
             trigger: titleRef.current,
-            start: "top 80%",
-            end: "bottom 20%",
-            toggleActions: "play none none reverse"
+            start: "top 85%",
+            toggleActions: "play none none none"
           }
         }
       );
 
-      // Skills cards animation
+      // Optimized skills cards animation
       const skillCards = skillsRef.current?.children;
       if (skillCards) {
         gsap.fromTo(skillCards,
-          { opacity: 0, x: -50, rotation: -5 },
+          { opacity: 0, y: 30 },
           {
             opacity: 1,
-            x: 0,
-            rotation: 0,
-            duration: 0.8,
-            stagger: 0.15,
-            ease: "power3.out",
+            y: 0,
+            duration: 0.5,
+            stagger: 0.08,
+            ease: "power2.out",
             scrollTrigger: {
               trigger: skillsRef.current,
-              start: "top 80%",
-              end: "bottom 20%",
-              toggleActions: "play none none reverse"
+              start: "top 85%",
+              toggleActions: "play none none none"
             }
           }
         );
@@ -58,7 +61,7 @@ const Skills = () => {
   }, []);
 
   return (
-    <section ref={sectionRef} className="py-20 px-4 bg-gray-50">
+    <section ref={sectionRef} className="py-20 px-4 bg-gray-50 dark:bg-gray-900/50">
       <div className="max-w-6xl mx-auto">
         <h2 
           ref={titleRef}
@@ -69,7 +72,7 @@ const Skills = () => {
         
         <div ref={skillsRef} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           {portfolioData.skills.map((skillCategory, index) => (
-            <Card key={index} className="glass-card border-0 hover:shadow-lg transition-shadow duration-300">
+            <Card key={index} className="glass-card border-0 hover:shadow-lg transition-shadow duration-200">
               <CardHeader>
                 <CardTitle className="text-lg font-semibold text-center">
                   {skillCategory.category}
@@ -82,7 +85,7 @@ const Skills = () => {
                     <Badge 
                       key={skillIndex} 
                       variant="secondary" 
-                      className="hover:bg-purple-100 transition-colors cursor-default"
+                      className="hover:bg-purple-100 dark:hover:bg-purple-900 transition-colors cursor-default"
                     >
                       {skill}
                     </Badge>

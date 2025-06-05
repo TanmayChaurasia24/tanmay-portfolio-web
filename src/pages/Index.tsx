@@ -11,42 +11,47 @@ import Contact from '../components/Contact';
 import Footer from '../components/Footer';
 
 const Index = () => {
-  // Initialize GSAP plugins
+  // Initialize GSAP plugins with performance optimizations
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
     
-    // Smooth scroll setup
-    gsap.to('body', { 
-      duration: 0.3, 
-      scrollBehavior: 'smooth',
-      ease: 'power2.inOut'
+    // Configure ScrollTrigger for better performance
+    ScrollTrigger.config({
+      limitCallbacks: true,
+      syncInterval: 150,
     });
     
-    // Scroll trigger for parallax effects
-    ScrollTrigger.matchMedia({
-      "(min-width: 768px)": function() {
-        // Parallax effect for large screens
-        const sections = document.querySelectorAll('section');
-        sections.forEach((section) => {
-          const background = section.querySelector('.background');
-          if (background) {
-            gsap.to(background, {
-              y: '30%',
-              ease: 'none',
-              scrollTrigger: {
-                trigger: section,
-                start: 'top bottom',
-                end: 'bottom top',
-                scrub: true
-              }
-            });
-          }
-        });
-      }
-    });
+    // Reduce motion for users who prefer it
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    
+    if (!prefersReducedMotion) {
+      // Only add parallax effects on desktop and if user doesn't prefer reduced motion
+      ScrollTrigger.matchMedia({
+        "(min-width: 1024px)": function() {
+          // Simplified parallax effect with better performance
+          const sections = document.querySelectorAll('section');
+          sections.forEach((section) => {
+            const background = section.querySelector('.background');
+            if (background) {
+              gsap.to(background, {
+                y: '20%',
+                ease: 'none',
+                scrollTrigger: {
+                  trigger: section,
+                  start: 'top bottom',
+                  end: 'bottom top',
+                  scrub: 1,
+                  invalidateOnRefresh: true
+                }
+              });
+            }
+          });
+        }
+      });
+    }
     
     return () => {
-      // Clean up ScrollTrigger instances to prevent memory leaks
+      // Clean up ScrollTrigger instances
       ScrollTrigger.getAll().forEach(t => t.kill());
     };
   }, []);
