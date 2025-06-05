@@ -78,7 +78,7 @@ const Index = () => {
       <FreelanceClients />
       
       {/* Achievements Section */}
-      <Achievements />
+      {/* <Achievements /> */}
       
       {/* Experience Section */}
       {/* <Experience /> */}

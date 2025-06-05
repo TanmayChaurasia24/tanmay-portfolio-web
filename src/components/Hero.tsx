@@ -1,11 +1,10 @@
-
-import React, { useRef, useEffect } from 'react';
-import { gsap } from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { Button } from '@/components/ui/button';
-import { ChevronDown, Download } from 'lucide-react';
-import SocialLinks from './SocialLinks';
-import portfolioData from '../data/portfolio.json';
+import React, { useRef, useEffect } from "react";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { Button } from "@/components/ui/button";
+import { ChevronDown, Download } from "lucide-react";
+import SocialLinks from "./SocialLinks";
+import portfolioData from "../data/portfolio.json";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -16,13 +15,15 @@ const Hero = () => {
   const buttonsRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    
+    const prefersReducedMotion = window.matchMedia(
+      "(prefers-reduced-motion: reduce)"
+    ).matches;
+
     if (prefersReducedMotion) {
       // Skip animations for users who prefer reduced motion
       gsap.set([titleRef.current, subtitleRef.current, buttonsRef.current], {
         opacity: 1,
-        y: 0
+        y: 0,
       });
       return;
     }
@@ -31,29 +32,37 @@ const Hero = () => {
       // Initial animations with better performance
       gsap.set([titleRef.current, subtitleRef.current, buttonsRef.current], {
         opacity: 0,
-        y: 30
+        y: 30,
       });
 
       const tl = gsap.timeline();
-      
+
       tl.to(titleRef.current, {
         opacity: 1,
         y: 0,
         duration: 0.8,
-        ease: "power2.out"
+        ease: "power2.out",
       })
-      .to(subtitleRef.current, {
-        opacity: 1,
-        y: 0,
-        duration: 0.6,
-        ease: "power2.out"
-      }, "-=0.4")
-      .to(buttonsRef.current, {
-        opacity: 1,
-        y: 0,
-        duration: 0.6,
-        ease: "power2.out"
-      }, "-=0.2");
+        .to(
+          subtitleRef.current,
+          {
+            opacity: 1,
+            y: 0,
+            duration: 0.6,
+            ease: "power2.out",
+          },
+          "-=0.4"
+        )
+        .to(
+          buttonsRef.current,
+          {
+            opacity: 1,
+            y: 0,
+            duration: 0.6,
+            ease: "power2.out",
+          },
+          "-=0.2"
+        );
 
       // Optimized scroll-triggered animation
       ScrollTrigger.create({
@@ -67,7 +76,7 @@ const Hero = () => {
           if (heroRef.current) {
             heroRef.current.style.transform = `translateY(${-30 * progress}%)`;
           }
-        }
+        },
       });
     }, heroRef);
 
@@ -75,14 +84,17 @@ const Hero = () => {
   }, []);
 
   const scrollToProjects = () => {
-    document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' });
+    document.getElementById("projects")?.scrollIntoView({ behavior: "smooth" });
   };
 
   return (
-    <section ref={heroRef} className="relative min-h-screen flex items-center justify-center overflow-hidden">
+    <section
+      ref={heroRef}
+      className="relative min-h-screen flex items-center justify-center overflow-hidden"
+    >
       {/* Simplified background gradient */}
       <div className="absolute inset-0 solana-gradient opacity-20 dark:opacity-10"></div>
-      
+
       {/* Optimized animated background pattern */}
       <div className="absolute inset-0 z-0">
         <div className="absolute inset-0 bg-gradient-to-r from-purple-400/10 via-pink-500/10 to-red-500/10 dark:from-purple-400/5 dark:via-pink-500/5 dark:to-red-500/5"></div>
@@ -92,14 +104,14 @@ const Hero = () => {
 
       {/* Content */}
       <div className="relative z-10 text-center px-4 max-w-4xl mx-auto">
-        <h1 
+        <h1
           ref={titleRef}
           className="text-5xl md:text-7xl font-bold mb-6 solana-gradient-text"
         >
           {portfolioData.personal.name}
         </h1>
-        
-        <p 
+
+        <p
           ref={subtitleRef}
           className="text-xl md:text-2xl text-gray-600 dark:text-gray-300 mb-8 max-w-2xl mx-auto"
         >
@@ -110,21 +122,30 @@ const Hero = () => {
           {portfolioData.personal.bio}
         </p>
 
-        <div ref={buttonsRef} className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12">
-          <Button 
+        <div
+          ref={buttonsRef}
+          className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12"
+        >
+          <Button
             onClick={scrollToProjects}
             className="solana-gradient text-white px-8 py-3 text-lg hover:opacity-90 transition-opacity"
           >
             View My Work
           </Button>
-          
-          <Button 
-            variant="outline" 
-            className="px-8 py-3 text-lg border-2 hover:bg-purple-50 dark:hover:bg-purple-950 transition-colors"
+
+          <a
+            href="https://drive.google.com/file/d/1NSZEuoYvxj-P_KfPpxg_zbTacAHzjTOF/view"
+            target="_blank"
+            rel="noopener noreferrer"
           >
-            <Download className="mr-2 h-5 w-5" />
-            Download Resume
-          </Button>
+            <Button
+              variant="outline"
+              className="px-8 py-3 text-lg border-2 hover:bg-purple-50 dark:hover:bg-purple-950 transition-colors"
+            >
+              <Download className="mr-2 h-5 w-5" />
+              Download Resume
+            </Button>
+          </a>
         </div>
 
         <SocialLinks />

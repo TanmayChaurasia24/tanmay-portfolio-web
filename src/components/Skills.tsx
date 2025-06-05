@@ -106,7 +106,7 @@ const Skills = () => {
 
   return (
     <section ref={sectionRef} className="py-20 px-4 bg-gray-50 dark:bg-gray-900/50">
-      <div className="max-w-6xl mx-auto">
+      <div className="max-w-10xl mx-auto">
         <h2 
           ref={titleRef}
           className="text-4xl md:text-5xl font-bold text-center mb-16 solana-gradient-text"
@@ -114,12 +114,12 @@ const Skills = () => {
           Skills & Technologies
         </h2>
         
-        <div ref={skillsRef} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div ref={skillsRef} className="flex justify-center gap-8 flex-wrap">
           {portfolioData.skills.map((skillCategory, index) => {
             const CategoryIcon = categoryIcons[skillCategory.category as keyof typeof categoryIcons] || Code;
             
             return (
-              <Card key={index} className="glass-card border-0 hover:shadow-lg transition-shadow duration-200">
+              <Card key={index} className="glass-card border-0 hover:shadow-lg transition-shadow duration-200 max-w-sm w-full">
                 <CardHeader>
                   <div className="flex items-center justify-center mb-2">
                     <CategoryIcon className="h-8 w-8 text-purple-600 dark:text-purple-400" />
