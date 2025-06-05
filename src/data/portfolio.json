@@ -193,36 +193,11 @@
   "hackathons": [
     {
       "id": 1,
-      "name": "HackTheChain 2024",
-      "position": "1st Place",
-      "project": "DeFi Trading Bot",
-      "description": "Built a decentralized trading bot using Solana blockchain that automatically executes trades based on market conditions.",
-      "technologies": ["Solana", "Rust", "React", "TypeScript"],
-      "date": "March 2024",
-      "participants": "4",
-      "prize": "$5,000"
-    },
-    {
-      "id": 2,
-      "name": "Web3 BuildSpace",
-      "position": "2nd Place",
-      "project": "NFT Marketplace",
-      "description": "Created a full-featured NFT marketplace with minting, trading, and auction capabilities.",
-      "technologies": ["Ethereum", "Solidity", "Next.js", "Web3.js"],
-      "date": "January 2024",
-      "participants": "3",
-      "prize": "$3,000"
-    },
-    {
-      "id": 3,
-      "name": "TechCrunch Disrupt",
-      "position": "Top 10",
-      "project": "AI Code Assistant",
-      "description": "Developed an AI-powered code assistant that helps developers write better code with real-time suggestions.",
-      "technologies": ["Python", "OpenAI", "React", "FastAPI"],
-      "date": "September 2023",
-      "participants": "2",
-      "prize": "Recognition"
+      "name": "Frontend UI Hackathon",
+      "position": "Finalist",
+      "project": "E-commerce platform",
+      "description": "Developed a frontend focused e-Commerce website for an electronics store.Implemented key features including cart management, product filtering, demo payment processing, and appointment booking via a dynamic calendar system. Integrated Google Maps navigation, allowing users to locate the store easily, improving store visits by 40%.",
+      "technologies": ["React", "TypeScript", "Tailwind CSS"]
     }
   ],
   "freelanceClients": [
