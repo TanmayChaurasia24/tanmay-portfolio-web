@@ -1,3 +1,4 @@
+
 {
   "personal": {
     "name": "Tanmay Kumar Chaurasia",
@@ -187,6 +188,110 @@
       "github": "https://github.com/TanmayChaurasia24/txCRUD",
       "live": "",
       "featured": true
+    }
+  ],
+  "hackathons": [
+    {
+      "id": 1,
+      "name": "HackTheChain 2024",
+      "position": "1st Place",
+      "project": "DeFi Trading Bot",
+      "description": "Built a decentralized trading bot using Solana blockchain that automatically executes trades based on market conditions.",
+      "technologies": ["Solana", "Rust", "React", "TypeScript"],
+      "date": "March 2024",
+      "participants": "4",
+      "prize": "$5,000"
+    },
+    {
+      "id": 2,
+      "name": "Web3 BuildSpace",
+      "position": "2nd Place",
+      "project": "NFT Marketplace",
+      "description": "Created a full-featured NFT marketplace with minting, trading, and auction capabilities.",
+      "technologies": ["Ethereum", "Solidity", "Next.js", "Web3.js"],
+      "date": "January 2024",
+      "participants": "3",
+      "prize": "$3,000"
+    },
+    {
+      "id": 3,
+      "name": "TechCrunch Disrupt",
+      "position": "Top 10",
+      "project": "AI Code Assistant",
+      "description": "Developed an AI-powered code assistant that helps developers write better code with real-time suggestions.",
+      "technologies": ["Python", "OpenAI", "React", "FastAPI"],
+      "date": "September 2023",
+      "participants": "2",
+      "prize": "Recognition"
+    }
+  ],
+  "freelanceClients": [
+    {
+      "id": 1,
+      "clientName": "TechStartup Inc.",
+      "projectType": "Full Stack Web Application",
+      "description": "Built a complete SaaS platform for project management with real-time collaboration features.",
+      "technologies": ["React", "Node.js", "PostgreSQL", "Socket.io"],
+      "duration": "3 months",
+      "year": "2024",
+      "rating": 5,
+      "testimonial": "Exceptional work quality and timely delivery. Highly recommended!"
+    },
+    {
+      "id": 2,
+      "clientName": "E-commerce Solutions",
+      "projectType": "E-commerce Platform",
+      "description": "Developed a modern e-commerce platform with payment integration and inventory management.",
+      "technologies": ["Next.js", "Stripe", "MongoDB", "Tailwind CSS"],
+      "duration": "2 months",
+      "year": "2024",
+      "rating": 5,
+      "testimonial": "Outstanding developer with great communication skills."
+    },
+    {
+      "id": 3,
+      "clientName": "Digital Agency",
+      "projectType": "Portfolio Website",
+      "description": "Created a stunning portfolio website with 3D animations and interactive elements.",
+      "technologies": ["React", "Three.js", "GSAP", "Tailwind CSS"],
+      "duration": "1 month",
+      "year": "2023",
+      "rating": 4,
+      "testimonial": "Creative and innovative approach to web development."
+    }
+  ],
+  "achievements": [
+    {
+      "id": 1,
+      "title": "Google Developer Student Club Lead",
+      "organization": "Google",
+      "date": "2023-2024",
+      "description": "Led a community of 200+ developers, organized 15+ workshops and hackathons.",
+      "icon": "award"
+    },
+    {
+      "id": 2,
+      "title": "Microsoft Azure Fundamentals",
+      "organization": "Microsoft",
+      "date": "2024",
+      "description": "Certified in Azure cloud services and infrastructure management.",
+      "icon": "award"
+    },
+    {
+      "id": 3,
+      "title": "Open Source Contributor",
+      "organization": "GitHub",
+      "date": "2023-Present",
+      "description": "Contributed to 10+ open source projects with 500+ stars combined.",
+      "icon": "star"
+    },
+    {
+      "id": 4,
+      "title": "Solana Summer Camp Graduate",
+      "organization": "Solana Foundation",
+      "date": "2024",
+      "description": "Completed intensive blockchain development program focused on Solana ecosystem.",
+      "icon": "award"
     }
   ],
   "experience": [

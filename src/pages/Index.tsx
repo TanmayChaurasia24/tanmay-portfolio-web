@@ -1,4 +1,3 @@
-
 import React, { useEffect } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
@@ -6,6 +5,9 @@ import NavBar from '../components/NavBar';
 import Hero from '../components/Hero';
 import Projects from '../components/Projects';
 import Skills from '../components/Skills';
+import Hackathons from '../components/Hackathons';
+import FreelanceClients from '../components/FreelanceClients';
+import Achievements from '../components/Achievements';
 import Experience from '../components/Experience';
 import Contact from '../components/Contact';
 import Footer from '../components/Footer';
@@ -68,6 +70,15 @@ const Index = () => {
       
       {/* Skills Section */}
       <Skills />
+      
+      {/* Hackathons Section */}
+      <Hackathons />
+      
+      {/* Freelance Clients Section */}
+      <FreelanceClients />
+      
+      {/* Achievements Section */}
+      <Achievements />
       
       {/* Experience Section */}
       {/* <Experience /> */}
