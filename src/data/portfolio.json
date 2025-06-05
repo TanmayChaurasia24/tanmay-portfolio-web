@@ -1,4 +1,3 @@
-
 {
   "personal": {
     "name": "Tanmay Kumar Chaurasia",
@@ -14,73 +13,180 @@
   "social": [
     {
       "name": "GitHub",
-      "url": "https://github.com/tanmaykumar",
+      "url": "https://github.com/TanmayChaurasia24",
       "icon": "github"
     },
     {
       "name": "LinkedIn",
-      "url": "https://linkedin.com/in/tanmaykumar",
+      "url": "https://www.linkedin.com/in/tanmay-kumar-chaurasia-851806245/",
       "icon": "linkedin"
     },
     {
       "name": "Twitter",
-      "url": "https://twitter.com/tanmaykumar",
+      "url": "https://x.com/tanmayKumar2026",
       "icon": "twitter"
     },
     {
       "name": "Email",
-      "url": "mailto:tanmay@example.com",
+      "url": "mailto:tanmaykumar.kanpur@gmail.com",
       "icon": "mail"
     }
   ],
   "skills": [
     {
       "category": "Frontend",
-      "items": ["React", "Next.js", "TypeScript", "Tailwind CSS", "JavaScript"]
+      "items": [
+        "React",
+        "Next.js",
+        "TypeScript",
+        "Tailwind CSS",
+        "JavaScript",
+        "Three.js",
+        "GSAP"
+      ]
     },
     {
       "category": "Backend",
-      "items": ["Node.js", "Express", "Python", "PostgreSQL", "MongoDB"]
+      "items": [
+        "Node.js",
+        "Express",
+        "Golang",
+        "kafka",
+        "Pub Subs",
+        "Message queues"
+      ]
+    },
+    {
+      "category": "Database",
+      "items": [
+        "PostgreSQL",
+        "MongoDB",
+        "Mongoose",
+        "Prisma",
+        "Firebase"
+      ]
     },
     {
       "category": "Blockchain",
-      "items": ["Solana", "Web3.js", "Anchor Framework", "Rust", "Smart Contracts"]
+      "items": [
+        "Solana",
+        "Anchor Framework",
+        "Rust",
+        "Smart Contracts"
+      ]
     },
     {
-      "category": "Tools",
-      "items": ["Git", "Docker", "AWS", "Vercel", "Figma"]
+      "category": "Devops",
+      "items": [
+        "Docker",
+        "Nigix",
+        "CI/CD",
+        "Jenkins",
+        "AWS"
+      ]
     }
   ],
   "projects": [
     {
       "id": 1,
-      "title": "Solana DeFi Dashboard",
-      "description": "A comprehensive DeFi dashboard built on Solana with real-time data visualization and portfolio tracking.",
+      "title": "Achiverr",
+      "description": "Developed an AI-powered goal-setting and tracking platform, helping users with smart roadmaps, increasing goal completion rates.",
       "image": "/placeholder.svg",
-      "technologies": ["React", "Solana", "Web3.js", "TypeScript"],
-      "github": "https://github.com/tanmaykumar/solana-defi",
-      "live": "https://solana-defi.vercel.app",
+      "technologies": [
+        "React.js",
+        "Prisma",
+        "PostgreSQL",
+        "TypeScript",
+        "Express.js",
+        "GenAI",
+        "Supabase"
+      ],
+      "github": "https://github.com/TanmayChaurasia24/achiverr-saas",
+      "live": "https://achiverr.vercel.app/",
       "featured": true
     },
     {
       "id": 2,
-      "title": "NFT Marketplace",
-      "description": "A modern NFT marketplace with minting, trading, and auction features built on Solana blockchain.",
+      "title": "Place-tale Teller",
+      "description": "An AI agent that tells you about the past of a particular place. Implemented CI/CD with Jenkins, reverse proxy with Nginx, and used Docker for containerization.",
       "image": "/placeholder.svg",
-      "technologies": ["Next.js", "Rust", "Anchor", "Metaplex"],
-      "github": "https://github.com/tanmaykumar/nft-marketplace",
-      "live": "https://nft-marketplace.vercel.app",
+      "technologies": [
+        "React.js",
+        "MongoDB",
+        "Docker",
+        "Nginx",
+        "Express.js",
+        "AWS",
+        "Jenkins"
+      ],
+      "github": "https://github.com/TanmayChaurasia24/place-tale-weaver",
+      "live": "",
       "featured": true
     },
     {
       "id": 3,
-      "title": "Full Stack E-commerce",
-      "description": "Complete e-commerce solution with payment integration, admin panel, and inventory management.",
+      "title": "HashMap.ai",
+      "description": "Built the backend for an AI-powered job application platform using a monorepo structure, Kafka for real-time messaging between Golang and Node.js microservices.",
       "image": "/placeholder.svg",
-      "technologies": ["React", "Node.js", "MongoDB", "Stripe"],
-      "github": "https://github.com/tanmaykumar/ecommerce",
-      "live": "https://ecommerce-demo.vercel.app",
-      "featured": false
+      "technologies": [
+        "React.js",
+        "Node.js",
+        "MongoDB",
+        "Firebase",
+        "Cloudinary",
+        "Generative AI",
+        "Kafka",
+        "Golang"
+      ],
+      "github": "https://github.com/TanmayChaurasia24/Hashmap.ai",
+      "live": "",
+      "featured": true
+    },
+    {
+      "id": 4,
+      "title": "HashStream",
+      "description": "A video streaming platform in development. Uses TRPC for type-safe API calls, Mux for video handling, Clerk for auth, and a feature-rich Creator Studio.",
+      "image": "/placeholder.svg",
+      "technologies": [
+        "Next.js",
+        "PostgreSQL",
+        "TRPC",
+        "Upstash Redis",
+        "Mux",
+        "Drizzle ORM",
+        "Clerk"
+      ],
+      "github": "https://github.com/TanmayChaurasia24/Decentralized_HashStream",
+      "live": "",
+      "featured": true
+    },
+    {
+      "id": 5,
+      "title": "Solana Voting Smart contract",
+      "description": "Built an Solana smart contract for an Voting application using anchor framework",
+      "image": "/placeholder.svg",
+      "technologies": [
+        "Solana",
+        "Anchor",
+        "Rust"
+      ],
+      "github": "https://github.com/TanmayChaurasia24/BallotChain-smartcontract",
+      "live": "",
+      "featured": true
+    },
+    {
+      "id": 6,
+      "title": "Solana CRUD application",
+      "description": "Built an Solana smart contract for an CRUD application",
+      "image": "/placeholder.svg",
+      "technologies": [
+        "Solana",
+        "Anchor",
+        "Rust"
+      ],
+      "github": "https://github.com/TanmayChaurasia24/txCRUD",
+      "live": "",
+      "featured": true
     }
   ],
   "experience": [

@@ -58,7 +58,7 @@ const Index = () => {
 
   return (
     <div id="home" className="min-h-screen">
-      <NavBar />
+      {/* <NavBar /> */}
       
       {/* Hero Section */}
       <Hero />
@@ -70,7 +70,7 @@ const Index = () => {
       <Skills />
       
       {/* Experience Section */}
-      <Experience />
+      {/* <Experience /> */}
       
       {/* Contact Section */}
       <Contact />
