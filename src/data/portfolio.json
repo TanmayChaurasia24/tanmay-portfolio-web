@@ -198,47 +198,34 @@
       "project": "E-commerce platform",
       "description": "Developed a frontend focused e-Commerce website for an electronics store.Implemented key features including cart management, product filtering, demo payment processing, and appointment booking via a dynamic calendar system. Integrated Google Maps navigation, allowing users to locate the store easily, improving store visits by 40%.",
       "technologies": ["React", "TypeScript", "Tailwind CSS"]
+    },
+    {
+      "id": 2,
+      "name": "Breaking bug hackathon",
+      "position": "Top 10",
+      "project": "Full Stack Website",
+      "description": "Debuged and optimize the full stack website built in react and node.",
+      "technologies": ["React", "TypeScript", "Tailwind CSS", "Node.js" ]
     }
   ],
   "freelanceClients": [
     {
       "id": 1,
-      "clientName": "TechStartup Inc.",
-      "projectType": "Full Stack Web Application",
-      "description": "Built a complete SaaS platform for project management with real-time collaboration features.",
-      "technologies": ["React", "Node.js", "PostgreSQL", "Socket.io"],
-      "duration": "3 months",
-      "year": "2024",
+      "clientName": "Mangalam Events.",
+      "projectType": "Landing Page",
+      "description": "Built an landing page for an event managment firm.",
+      "technologies": ["React", "TypeScript", "Tailwind CSS"],
+      "duration": "7 days",
+      "year": "2025",
       "rating": 5,
-      "testimonial": "Exceptional work quality and timely delivery. Highly recommended!"
-    },
-    {
-      "id": 2,
-      "clientName": "E-commerce Solutions",
-      "projectType": "E-commerce Platform",
-      "description": "Developed a modern e-commerce platform with payment integration and inventory management.",
-      "technologies": ["Next.js", "Stripe", "MongoDB", "Tailwind CSS"],
-      "duration": "2 months",
-      "year": "2024",
-      "rating": 5,
-      "testimonial": "Outstanding developer with great communication skills."
-    },
-    {
-      "id": 3,
-      "clientName": "Digital Agency",
-      "projectType": "Portfolio Website",
-      "description": "Created a stunning portfolio website with 3D animations and interactive elements.",
-      "technologies": ["React", "Three.js", "GSAP", "Tailwind CSS"],
-      "duration": "1 month",
-      "year": "2023",
-      "rating": 4,
-      "testimonial": "Creative and innovative approach to web development."
+      "testimonial": "A fabulous working website like really audacious serving seamlessly and a lot thank to Tanmay kumar Chaurasia very tallented person who just not perceived the working but also implemented my vision with his UI & UX skills... it's been an amazing experience to work with you and get this done for my venture to achieve new heights !"
     }
+
   ],
   "achievements": [
     {
       "id": 1,
-      "title": "Google Developer Student Club Lead",
+      "title": "",
       "organization": "Google",
       "date": "2023-2024",
       "description": "Led a community of 200+ developers, organized 15+ workshops and hackathons.",

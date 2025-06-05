@@ -115,23 +115,6 @@ const Hackathons = () => {
                     </Badge>
                   ))}
                 </div>
-
-                <div className="space-y-2 text-sm">
-                  <div className="flex items-center gap-2">
-                    <Calendar className="h-4 w-4 text-purple-600" />
-                    <span>{hackathon.date}</span>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <Users className="h-4 w-4 text-purple-600" />
-                    <span>{hackathon.participants} participants</span>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <Award className="h-4 w-4 text-purple-600" />
-                    <span className="font-semibold text-green-600">
-                      {hackathon.prize}
-                    </span>
-                  </div>
-                </div>
               </CardContent>
             </Card>
           ))}
