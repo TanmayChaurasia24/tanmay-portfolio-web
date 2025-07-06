@@ -94,13 +94,8 @@
       "description": "Build an landing page for a gaming website using Three.js and GSAP animation.",
       "image": "https://ideogram.ai/assets/progressive-image/balanced/response/Oq96n85aSNS0npqfr9O51w",
       "technologies": [
-        "React.js",
-        "Prisma",
-        "PostgreSQL",
-        "TypeScript",
-        "Express.js",
-        "GenAI",
-        "Supabase"
+        "Three.js",
+        "GSAP"
       ],
       "github": "https://github.com/TanmayChaurasia24/achiverr-saas",
       "live": "https://redefine-gaming.onrender.com/",
