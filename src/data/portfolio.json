@@ -88,6 +88,24 @@
       "live": "https://achiverr.vercel.app/",
       "featured": true
     },
+        {
+      "id": 1,
+      "title": "Redefine Gaming",
+      "description": "Build an landing page for a gaming website using Three.js and GSAP animation.",
+      "image": "https://ideogram.ai/assets/progressive-image/balanced/response/Oq96n85aSNS0npqfr9O51w",
+      "technologies": [
+        "React.js",
+        "Prisma",
+        "PostgreSQL",
+        "TypeScript",
+        "Express.js",
+        "GenAI",
+        "Supabase"
+      ],
+      "github": "https://github.com/TanmayChaurasia24/achiverr-saas",
+      "live": "https://redefine-gaming.onrender.com/",
+      "featured": true
+    },
     {
       "id": 2,
       "title": "Place-tale Teller",
