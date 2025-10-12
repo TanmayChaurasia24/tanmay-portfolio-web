@@ -76,13 +76,16 @@ const Index = () => {
       
       {/* Freelance Clients Section */}
       <FreelanceClients />
-      
+
+      {/* Pricing Section */}
+      <Pricing />
+
       {/* Achievements Section */}
       {/* <Achievements /> */}
-      
+
       {/* Experience Section */}
       {/* <Experience /> */}
-      
+
       {/* Contact Section */}
       <Contact />
     </div>
