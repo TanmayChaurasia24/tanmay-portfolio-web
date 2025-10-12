@@ -1,4 +1,3 @@
-
 import React, { useEffect } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
@@ -11,6 +10,7 @@ import FreelanceClients from '../components/FreelanceClients';
 import Achievements from '../components/Achievements';
 import Experience from '../components/Experience';
 import Contact from '../components/Contact';
+import Pricing from '../components/Pricing';
 
 const Index = () => {
   // Initialize GSAP plugins with performance optimizations
