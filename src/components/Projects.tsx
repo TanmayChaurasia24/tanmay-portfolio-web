@@ -73,45 +73,54 @@ const Projects = () => {
   const renderCard = (project: any) => (
     <Card
       key={project.id}
-      className="group hover:shadow-xl transition-shadow duration-200 glass-card border-0 animated-border max-w-sm w-full mx-auto"
+      className="group glass-card max-w-sm w-full mx-auto h-full flex flex-col"
     >
-      <CardHeader>
-        <div className="aspect-video bg-gradient-to-br from-purple-400 to-blue-500 rounded-lg mb-4 overflow-hidden">
+      <CardHeader className="p-0">
+        <div className="aspect-video bg-gradient-to-br from-primary/20 to-accent/20 rounded-t-xl overflow-hidden">
           <img
             src={project.image}
             alt={project.title}
-            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-200"
+            className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
             loading="lazy"
           />
         </div>
-        <CardTitle className="text-xl font-bold">{project.title}</CardTitle>
-        <CardDescription className="text-gray-600 dark:text-gray-400">
+      </CardHeader>
+      <div className="p-6 flex flex-col flex-grow">
+        <CardTitle className="text-xl font-bold mb-2 group-hover:text-primary transition-colors">
+          {project.title}
+        </CardTitle>
+        <CardDescription className="text-muted-foreground mb-4 line-clamp-2">
           {project.description}
         </CardDescription>
-      </CardHeader>
-      <CardContent>
-        <div className="flex flex-wrap gap-2 mb-4">
-          {project.technologies.map((tech: string, index: number) => (
-            <Badge key={index} variant="secondary" className="text-xs">
+        
+        <div className="flex flex-wrap gap-2 mb-6">
+          {project.technologies.slice(0, 4).map((tech: string, index: number) => (
+            <Badge key={index} variant="secondary" className="text-xs font-medium">
               {tech}
             </Badge>
           ))}
+          {project.technologies.length > 4 && (
+            <Badge variant="secondary" className="text-xs font-medium">
+              +{project.technologies.length - 4}
+            </Badge>
+          )}
         </div>
-        <div className="flex gap-3">
-          <Button size="sm" variant="outline" asChild>
+        
+        <div className="flex gap-3 mt-auto">
+          <Button size="sm" variant="outline" className="flex-1" asChild>
             <a href={project.github} target="_blank" rel="noopener noreferrer">
-              <Github className="h-4 w-4 mr-2" /> Code
+              <Github className="h-4 w-4 mr-1" /> Code
             </a>
           </Button>
           {project.live && project.live.length > 0 ? (
-            <Button size="sm" className="solana-gradient text-white" asChild>
+            <Button size="sm" className="flex-1 professional-gradient text-white" asChild>
               <a href={project.live} target="_blank" rel="noopener noreferrer">
-                <ExternalLink className="h-4 w-4 mr-2" /> Live Demo
+                <ExternalLink className="h-4 w-4 mr-1" /> Live
               </a>
             </Button>
           ) : null}
         </div>
-      </CardContent>
+      </div>
     </Card>
   );
 
@@ -135,17 +144,27 @@ const Projects = () => {
   };
 
   return (
-    <section id="projects" ref={sectionRef} className="py-20 px-4">
-      <div className="max-w-6xl mx-auto">
-        <h2 ref={titleRef} className="text-4xl md:text-5xl font-bold text-center mb-10 solana-gradient-text">
-          Featured Projects
-        </h2>
+    <section id="projects" ref={sectionRef} className="py-24 px-4 bg-background">
+      <div className="max-w-7xl mx-auto">
+        <div className="text-center mb-16">
+          <span className="text-sm font-semibold text-primary uppercase tracking-wider">Portfolio</span>
+          <h2 ref={titleRef} className="font-heading text-4xl md:text-5xl lg:text-6xl font-bold mt-2 mb-4 solana-gradient-text">
+            Featured Projects
+          </h2>
+          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+            Explore my latest work in web development, blockchain, and mobile applications
+          </p>
+        </div>
 
         <Tabs defaultValue="All" className="w-full">
           <div className="flex flex-col items-center">
-            <TabsList className="mb-8">
+            <TabsList className="mb-12 bg-muted/50 p-1 rounded-xl">
               {categories.map((c) => (
-                <TabsTrigger key={c} value={c} className="capitalize">
+                <TabsTrigger 
+                  key={c} 
+                  value={c} 
+                  className="capitalize px-6 py-2.5 text-sm font-semibold rounded-lg data-[state=active]:bg-background data-[state=active]:shadow-sm"
+                >
                   {c}
                 </TabsTrigger>
               ))}

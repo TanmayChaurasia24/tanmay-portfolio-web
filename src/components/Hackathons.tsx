@@ -71,60 +71,68 @@ const Hackathons = () => {
   }, []);
 
   return (
-    <section id="hackathons" ref={sectionRef} className="py-20 px-4">
-      <div className="max-w-6xl mx-auto">
-        <h2
-          ref={titleRef}
-          className="text-4xl md:text-5xl font-bold text-center mb-16 solana-gradient-text"
-        >
-          Hackathons & Competitions
-        </h2>
+    <section id="hackathons" ref={sectionRef} className="py-24 px-4 bg-background">
+      <div className="max-w-7xl mx-auto">
+        <div className="text-center mb-16">
+          <span className="text-sm font-semibold text-primary uppercase tracking-wider">Achievements</span>
+          <h2
+            ref={titleRef}
+            className="font-heading text-4xl md:text-5xl lg:text-6xl font-bold mt-2 mb-4 solana-gradient-text"
+          >
+            Hackathons & Competitions
+          </h2>
+          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+            Award-winning projects from competitive coding challenges
+          </p>
+        </div>
 
         <div
           ref={hackathonsRef}
-          className="flex flex-wrap gap-8 justify-center"
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
         >
           {portfolioData.hackathons.map((hackathon) => (
             <Card
               key={hackathon.id}
-              className="group hover:shadow-xl transition-shadow duration-200 glass-card border-0 animated-border max-w-sm w-full"
+              className="group glass-card h-full flex flex-col"
             >
               <CardHeader>
-                <div className="flex items-center justify-between mb-2">
-                  <Trophy className="h-8 w-8 text-yellow-500" />
-                  <Badge variant="secondary" className="font-semibold">
+                <div className="flex items-center justify-between mb-3">
+                  <div className="p-3 bg-yellow-500/10 rounded-xl">
+                    <Trophy className="h-6 w-6 text-yellow-500" />
+                  </div>
+                  <Badge className="bg-primary/10 text-primary hover:bg-primary/20 font-semibold">
                     {hackathon.position}
                   </Badge>
                 </div>
-                <CardTitle className="text-xl font-bold">
+                <CardTitle className="text-xl font-bold group-hover:text-primary transition-colors">
                   {hackathon.name}
                 </CardTitle>
-                <CardDescription className="text-gray-600 dark:text-gray-400">
+                <CardDescription className="text-muted-foreground font-medium">
                   {hackathon.project}
                 </CardDescription>
               </CardHeader>
 
-              <CardContent>
-                <p className="text-sm text-gray-700 dark:text-gray-300 mb-4">
+              <CardContent className="flex-grow flex flex-col">
+                <p className="text-sm text-muted-foreground mb-4 leading-relaxed">
                   {hackathon.description}
                 </p>
 
-                <div className="flex flex-wrap gap-2 mb-4">
+                <div className="flex flex-wrap gap-2 mb-6">
                   {hackathon.technologies.map((tech, index) => (
-                    <Badge key={index} variant="outline" className="text-xs">
+                    <Badge key={index} variant="outline" className="text-xs font-medium">
                       {tech}
                     </Badge>
                   ))}
                 </div>
 
-                <div className="flex gap-3">
-                  <Button size="sm" variant="outline" asChild>
+                <div className="flex gap-3 mt-auto">
+                  <Button size="sm" variant="outline" className="flex-1" asChild>
                     <a
                       href={hackathon.github}
                       target="_blank"
                       rel="noopener noreferrer"
                     >
-                      <Github className="h-4 w-4 mr-2" />
+                      <Github className="h-4 w-4 mr-1" />
                       Code
                     </a>
                   </Button>
@@ -132,7 +140,7 @@ const Hackathons = () => {
                   {hackathon.live && hackathon.live.length > 0 && (
                     <Button
                       size="sm"
-                      className="solana-gradient text-white"
+                      className="flex-1 professional-gradient text-white"
                       asChild
                     >
                       <a
@@ -140,8 +148,8 @@ const Hackathons = () => {
                         target="_blank"
                         rel="noopener noreferrer"
                       >
-                        <ExternalLink className="h-4 w-4 mr-2" />
-                        Live Demo
+                        <ExternalLink className="h-4 w-4 mr-1" />
+                        Live
                       </a>
                     </Button>
                   )}

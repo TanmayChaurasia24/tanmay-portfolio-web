@@ -90,45 +90,52 @@ const Hero = () => {
   return (
     <section
       ref={heroRef}
-      className="relative min-h-screen flex items-center justify-center overflow-hidden"
+      className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20"
     >
-      {/* Simplified background gradient */}
-      <div className="absolute inset-0 solana-gradient opacity-20 dark:opacity-10"></div>
+      {/* Modern gradient background */}
+      <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-background to-accent/5"></div>
 
-      {/* Optimized animated background pattern */}
-      <div className="absolute inset-0 z-0">
-        <div className="absolute inset-0 bg-gradient-to-r from-purple-400/10 via-pink-500/10 to-red-500/10 dark:from-purple-400/5 dark:via-pink-500/5 dark:to-red-500/5"></div>
-        <div className="absolute top-1/4 left-1/4 w-64 h-64 bg-purple-500/20 dark:bg-purple-500/10 rounded-full blur-3xl animate-pulse-soft"></div>
-        <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-blue-500/20 dark:bg-blue-500/10 rounded-full blur-3xl animate-float"></div>
+      {/* Animated elements */}
+      <div className="absolute inset-0 z-0 overflow-hidden">
+        <div className="absolute top-1/4 -left-20 w-72 h-72 bg-primary/10 rounded-full blur-3xl animate-pulse-soft"></div>
+        <div className="absolute bottom-1/4 -right-20 w-96 h-96 bg-accent/10 rounded-full blur-3xl animate-float"></div>
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-primary/5 rounded-full blur-3xl"></div>
       </div>
 
       {/* Content */}
-      <div className="relative z-10 text-center px-4 max-w-4xl mx-auto">
+      <div className="relative z-10 text-center px-4 max-w-5xl mx-auto">
+        <div className="mb-6 inline-block">
+          <span className="text-sm font-semibold text-primary uppercase tracking-wider px-4 py-2 bg-primary/10 rounded-full">
+            Available for Freelance
+          </span>
+        </div>
+        
         <h1
           ref={titleRef}
-          className="text-5xl md:text-7xl font-bold mb-6 solana-gradient-text"
+          className="font-heading text-5xl sm:text-6xl lg:text-7xl xl:text-8xl font-bold mb-6 solana-gradient-text leading-tight"
         >
           {portfolioData.personal.name}
         </h1>
 
         <p
           ref={subtitleRef}
-          className="text-xl md:text-2xl text-gray-600 dark:text-gray-300 mb-8 max-w-2xl mx-auto"
+          className="text-xl sm:text-2xl lg:text-3xl text-muted-foreground mb-6 font-medium"
         >
           {portfolioData.personal.title} • {portfolioData.personal.subtitle}
         </p>
 
-        <p className="text-lg text-gray-500 dark:text-gray-400 mb-12 max-w-xl mx-auto">
+        <p className="text-base sm:text-lg text-muted-foreground mb-12 max-w-2xl mx-auto leading-relaxed">
           {portfolioData.personal.bio}
         </p>
 
         <div
           ref={buttonsRef}
-          className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12"
+          className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-16"
         >
           <Button
             onClick={scrollToProjects}
-            className="solana-gradient text-white px-8 py-3 text-lg hover:opacity-90 transition-opacity"
+            size="lg"
+            className="professional-gradient text-white px-8 py-6 text-base font-semibold shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1"
           >
             View My Work
           </Button>
@@ -139,8 +146,9 @@ const Hero = () => {
             rel="noopener noreferrer"
           >
             <Button
+              size="lg"
               variant="outline"
-              className="px-8 py-3 text-lg border-2 hover:bg-purple-50 dark:hover:bg-purple-950 transition-colors"
+              className="px-8 py-6 text-base font-semibold border-2 hover:bg-accent hover:text-accent-foreground transition-all duration-300 hover:-translate-y-1"
             >
               <Download className="mr-2 h-5 w-5" />
               Download Resume
@@ -151,8 +159,8 @@ const Hero = () => {
         <SocialLinks />
 
         {/* Scroll indicator */}
-        <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
-          <ChevronDown className="h-8 w-8 text-gray-400 dark:text-gray-500" />
+        <div className="absolute bottom-12 left-1/2 transform -translate-x-1/2 animate-bounce hidden md:block">
+          <ChevronDown className="h-6 w-6 text-muted-foreground" />
         </div>
       </div>
     </section>

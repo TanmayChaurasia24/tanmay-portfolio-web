@@ -82,74 +82,80 @@ const FreelanceClients = () => {
   };
 
   return (
-    <section id="freelance" ref={sectionRef} className="py-20 px-4">
-      <div className="max-w-6xl mx-auto">
-        <h2
-          ref={titleRef}
-          className="text-4xl md:text-5xl font-bold text-center mb-16 solana-gradient-text"
-        >
-          Freelance Clients
-        </h2>
+    <section id="freelance" ref={sectionRef} className="py-24 px-4 bg-muted/30">
+      <div className="max-w-7xl mx-auto">
+        <div className="text-center mb-16">
+          <span className="text-sm font-semibold text-primary uppercase tracking-wider">Testimonials</span>
+          <h2
+            ref={titleRef}
+            className="font-heading text-4xl md:text-5xl lg:text-6xl font-bold mt-2 mb-4 solana-gradient-text"
+          >
+            Freelance Clients
+          </h2>
+          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+            Trusted by clients worldwide to deliver high-quality solutions
+          </p>
+        </div>
 
         <div
           ref={clientsRef}
-          className="flex flex-wrap gap-8 justify-center"
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
         >
           {portfolioData.freelanceClients.map((client) => (
             <Card
               key={client.id}
-              className="group hover:shadow-xl transition-shadow duration-200 glass-card border-0 animated-border max-w-sm w-full"
+              className="group glass-card h-full flex flex-col"
             >
               <CardHeader>
-                <div className="flex items-center justify-between mb-2">
+                <div className="flex items-center justify-between mb-3">
                   <div className="flex items-center gap-1">
                     {renderStars(client.rating)}
                   </div>
-                  <Badge variant="secondary">{client.year}</Badge>
+                  <Badge variant="secondary" className="font-medium">{client.year}</Badge>
                 </div>
-                <CardTitle className="text-xl font-bold">
+                <CardTitle className="text-xl font-bold group-hover:text-primary transition-colors">
                   {client.clientName}
                 </CardTitle>
-                <CardDescription className="text-purple-600 font-medium">
+                <CardDescription className="text-primary font-semibold">
                   {client.projectType}
                 </CardDescription>
               </CardHeader>
 
-              <CardContent>
-                <p className="text-sm text-gray-700 dark:text-gray-300 mb-4">
+              <CardContent className="flex-grow flex flex-col">
+                <p className="text-sm text-muted-foreground mb-4 leading-relaxed">
                   {client.description}
                 </p>
 
                 <div className="flex flex-wrap gap-2 mb-4">
                   {client.technologies.map((tech, index) => (
-                    <Badge key={index} variant="outline" className="text-xs">
+                    <Badge key={index} variant="outline" className="text-xs font-medium">
                       {tech}
                     </Badge>
                   ))}
                 </div>
 
-                <div className="flex items-center gap-2 mb-4 text-sm">
-                  <Clock className="h-4 w-4 text-purple-600" />
-                  <span>{client.duration}</span>
+                <div className="flex items-center gap-2 mb-4 text-sm text-muted-foreground">
+                  <Clock className="h-4 w-4 text-primary" />
+                  <span className="font-medium">{client.duration}</span>
                 </div>
 
-                <div className="bg-gray-50 dark:bg-gray-800 p-3 rounded-lg mb-4">
+                <div className="bg-muted/50 p-4 rounded-xl mb-4 border border-border">
                   <div className="flex items-start gap-2">
-                    <Quote className="h-4 w-4 text-purple-600 mt-1 flex-shrink-0" />
-                    <p className="text-sm italic text-gray-700 dark:text-gray-300">
+                    <Quote className="h-4 w-4 text-primary mt-0.5 flex-shrink-0" />
+                    <p className="text-sm italic text-foreground leading-relaxed">
                       "{client.testimonial}"
                     </p>
                   </div>
                 </div>
 
-                <div className="flex gap-3">
-                  <Button size="sm" variant="outline" asChild>
+                <div className="flex gap-3 mt-auto">
+                  <Button size="sm" variant="outline" className="flex-1" asChild>
                     <a
                       href={client.github}
                       target="_blank"
                       rel="noopener noreferrer"
                     >
-                      <Github className="h-4 w-4 mr-2" />
+                      <Github className="h-4 w-4 mr-1" />
                       Code
                     </a>
                   </Button>
@@ -157,7 +163,7 @@ const FreelanceClients = () => {
                   {client.live && client.live.length > 0 && (
                     <Button
                       size="sm"
-                      className="solana-gradient text-white"
+                      className="flex-1 professional-gradient text-white"
                       asChild
                     >
                       <a
@@ -165,8 +171,8 @@ const FreelanceClients = () => {
                         target="_blank"
                         rel="noopener noreferrer"
                       >
-                        <ExternalLink className="h-4 w-4 mr-2" />
-                        Live Demo
+                        <ExternalLink className="h-4 w-4 mr-1" />
+                        Live
                       </a>
                     </Button>
                   )}

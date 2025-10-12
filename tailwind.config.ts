@@ -125,7 +125,13 @@ export default {
         'wave': 'wave 2.5s ease-in-out infinite',
 			},
       fontFamily: {
-        sans: ['Inter', 'sans-serif'],
+        sans: ['Inter', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'sans-serif'],
+        heading: ['Sora', 'Inter', 'sans-serif'],
+      },
+      fontSize: {
+        'display-lg': ['4.5rem', { lineHeight: '1.1', letterSpacing: '-0.02em', fontWeight: '700' }],
+        'display-md': ['3.5rem', { lineHeight: '1.15', letterSpacing: '-0.02em', fontWeight: '700' }],
+        'display-sm': ['2.5rem', { lineHeight: '1.2', letterSpacing: '-0.015em', fontWeight: '700' }],
       },
       backgroundImage: {
         'gradient-solana': 'linear-gradient(135deg, #9945FF 0%, #00C2FF 50%, #14F195 100%)',

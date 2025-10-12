@@ -40,23 +40,23 @@ const NavBar = () => {
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         scrolled 
-          ? 'py-2 bg-white/80 dark:bg-gray-900/80 shadow backdrop-blur-lg' 
+          ? 'py-3 bg-background/80 backdrop-blur-xl border-b border-border shadow-sm' 
           : 'py-4 bg-transparent'
       }`}
     >
-      <div className="container max-w-6xl mx-auto px-4 flex justify-between items-center">
-        <a href="#home" className="text-xl md:text-2xl font-bold solana-gradient-text">
+      <div className="container max-w-7xl mx-auto px-6 flex justify-between items-center">
+        <a href="#home" className="font-heading text-xl md:text-2xl font-bold solana-gradient-text hover:opacity-80 transition-opacity">
           Tanmay Kumar
         </a>
 
         {/* Desktop Navigation */}
         <nav className="hidden md:block">
-          <ul className="flex space-x-8">
+          <ul className="flex space-x-1">
             {navLinks.map((link) => (
               <li key={link.name}>
                 <button
                   onClick={() => handleNavClick(link.href)}
-                  className="text-gray-600 dark:text-gray-300 hover:text-purple-600 dark:hover:text-purple-400 font-medium transition-colors"
+                  className="px-4 py-2 text-sm font-medium text-foreground/70 hover:text-foreground hover:bg-accent/50 rounded-lg transition-all duration-200"
                 >
                   {link.name}
                 </button>
@@ -72,18 +72,18 @@ const NavBar = () => {
           <div className="md:hidden">
             <Sheet>
               <SheetTrigger asChild>
-                <Button variant="ghost" size="icon">
-                  <Menu className="h-6 w-6" />
+                <Button variant="ghost" size="icon" className="hover:bg-accent">
+                  <Menu className="h-5 w-5" />
                   <span className="sr-only">Open menu</span>
                 </Button>
               </SheetTrigger>
-              <SheetContent side="right">
-                <nav className="flex flex-col space-y-4 mt-10">
+              <SheetContent side="right" className="w-64">
+                <nav className="flex flex-col space-y-2 mt-10">
                   {navLinks.map((link) => (
                     <button
                       key={link.name}
                       onClick={() => handleNavClick(link.href)}
-                      className="py-2 px-4 text-left text-lg font-medium hover:bg-gray-100 dark:hover:bg-gray-800 rounded-md transition-colors"
+                      className="py-3 px-4 text-left text-base font-medium hover:bg-accent rounded-lg transition-colors"
                     >
                       {link.name}
                     </button>

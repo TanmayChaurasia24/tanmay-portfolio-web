@@ -12,7 +12,8 @@ const ThemeToggle = () => {
       variant="ghost"
       size="icon"
       onClick={toggleTheme}
-      className="relative transition-all duration-300 hover:scale-110"
+      className="relative hover:bg-accent transition-all duration-300"
+      aria-label="Toggle theme"
     >
       <Sun className={`h-5 w-5 transition-all duration-300 ${
         theme === 'dark' ? 'rotate-90 scale-0' : 'rotate-0 scale-100'
