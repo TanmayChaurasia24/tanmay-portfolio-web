@@ -11,6 +11,8 @@ import Achievements from '../components/Achievements';
 import Experience from '../components/Experience';
 import Contact from '../components/Contact';
 import Pricing from '../components/Pricing';
+import BackgroundFX from "../components/BackgroundFX";
+import CustomCursor from "../components/CustomCursor";
 
 const Index = () => {
   // Initialize GSAP plugins with performance optimizations
