@@ -61,9 +61,13 @@ const Index = () => {
   }, []);
 
   return (
-    <div id="home" className="min-h-screen">
+    <div id="home" className="min-h-screen relative">
       <NavBar />
-      
+
+      {/* Global background and cursor effects */}
+      <BackgroundFX />
+      <CustomCursor />
+
       {/* Hero Section */}
       <Hero />
       
