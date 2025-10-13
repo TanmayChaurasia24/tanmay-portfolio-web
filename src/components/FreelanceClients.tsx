@@ -1,4 +1,3 @@
-
 import React, { useRef, useEffect } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -99,7 +98,7 @@ const FreelanceClients = () => {
 
         <div
           ref={clientsRef}
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto"
         >
           {portfolioData.freelanceClients.map((client) => (
             <Card

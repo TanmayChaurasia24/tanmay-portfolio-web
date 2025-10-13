@@ -11,6 +11,8 @@ import Achievements from '../components/Achievements';
 import Experience from '../components/Experience';
 import Contact from '../components/Contact';
 import Pricing from '../components/Pricing';
+import BackgroundFX from "../components/BackgroundFX";
+import CustomCursor from "../components/CustomCursor";
 
 const Index = () => {
   // Initialize GSAP plugins with performance optimizations
@@ -59,9 +61,13 @@ const Index = () => {
   }, []);
 
   return (
-    <div id="home" className="min-h-screen">
+    <div id="home" className="min-h-screen relative">
       <NavBar />
-      
+
+      {/* Global background and cursor effects */}
+      <BackgroundFX />
+      <CustomCursor />
+
       {/* Hero Section */}
       <Hero />
       
