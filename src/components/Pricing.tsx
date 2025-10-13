@@ -1,73 +1,317 @@
 import React from "react";
 import { Check } from "lucide-react";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
-const plans = [
+type Plan = {
+  id: string;
+  name: string;
+  subtitle?: string;
+  price: string;
+  period: string;
+  highlight?: boolean;
+  badge?: string;
+  features: string[];
+  cta: string;
+};
+
+const mobileNew: Plan[] = [
   {
-    id: "web-new",
-    name: "New Web Development",
-    price: "₹50,000+",
-    period: "project",
-    highlight: true,
-    features: [
-      "Modern, fast, responsive UI",
-      "SEO-friendly, optimized build",
-      "Integrations (auth, CMS, payments)",
-      "Deployment & handoff"
-    ],
-    cta: "Start Web Project",
-  },
-  {
-    id: "web-maintenance",
-    name: "Web Maintenance",
-    price: "₹10,000/mo",
-    period: "monthly",
+    id: "mobile-basic",
+    name: "Basic App Package",
+    subtitle: "Frontend Development",
+    price: "$799",
+    period: "USD",
     highlight: false,
     features: [
-      "Bug fixes & updates",
-      "Performance monitoring",
-      "Content updates",
-      "Small feature tweaks"
+      "Mobile app for your users",
+      "Converting your design into working app",
+      "Connecting to external services",
+      "Smooth animations and transitions",
+      "Help when you need it",
+      "10-30 Day Delivery",
+      "Unlimited changes until you are happy",
     ],
-    cta: "Maintain Website",
+    cta: "Start Your Project",
   },
   {
-    id: "mobile-new",
-    name: "New Mobile Development",
-    price: "₹80,000+",
-    period: "project",
+    id: "mobile-mvp",
+    name: "MVP Development",
+    subtitle: "Complete Starter Package",
+    price: "$2,499",
+    period: "USD",
     highlight: true,
+    badge: "Recommended",
     features: [
-      "iOS & Android (React Native)",
-      "Beautiful, animated UI",
-      "API integration & auth",
-      "Play Store/App Store handoff"
+      "Mobile app plus admin dashboard",
+      "Custom design for your brand",
+      "Converting designs into working app",
+      "Building your apps brain (backend)",
+      "1-3 Month Delivery",
+      "Getting your app on App Store & Play Store",
+      "Testing everything works perfectly",
+      "Unlimited changes until you are happy",
     ],
-    cta: "Start Mobile App",
+    cta: "Start Your Project",
   },
   {
-    id: "mobile-maintenance",
-    name: "Mobile Maintenance",
-    price: "₹15,000/mo",
-    period: "monthly",
+    id: "mobile-full",
+    name: "Full-Cycle App Development",
+    subtitle: "Everything You Need",
+    price: "$4,499",
+    period: "USD",
     highlight: false,
     features: [
-      "Bug fixes & patches",
-      "OS compatibility updates",
-      "Analytics & crash monitoring",
-      "Minor features & UI tweaks"
+      "User app, business app & admin dashboard",
+      "Premium design customized for your brand",
+      "Converting designs into working app",
+      "Complete backend system built for growth",
+      "2-4 Month Delivery",
+      "Publishing on App Store & Play Store",
+      "Thorough testing for flawless performance",
+      "Full control with admin dashboard",
+      "Unlimited changes until you are happy",
     ],
-    cta: "Maintain Mobile App",
+    cta: "Start Your Project",
   },
 ];
+
+const mobileMaintenance: Plan[] = [
+  {
+    id: "mobile-maint-basic",
+    name: "Basic",
+    subtitle: "Essential Care Plan",
+    price: "$399",
+    period: "/month",
+    features: [
+      "Fix up to 5 bugs each week",
+      "Add 1 small feature every 2 months",
+      "Monthly app speed improvements",
+      "Email help (24-hour response)",
+      "Basic app security checks",
+      "Updates for new phone systems",
+      "Monthly progress summaries",
+    ],
+    cta: "Get Started",
+  },
+  {
+    id: "mobile-maint-standard",
+    name: "Standard",
+    subtitle: "Most Popular Plan",
+    price: "$799",
+    period: "/month",
+    highlight: true,
+    badge: "Most Popular",
+    features: [
+      "Fix up to 10 bugs each week",
+      "Add 2 new features each month",
+      "Speed improvements every two weeks",
+      "Urgent help within 6 hours",
+      "Monthly security check-ups",
+      "Monthly planning call",
+      "Quarterly security deep dive",
+      "Priority support when you need help",
+    ],
+    cta: "Get Started",
+  },
+  {
+    id: "mobile-maint-premium",
+    name: "Premium",
+    subtitle: "Complete Care Package",
+    price: "$1,205",
+    period: "/month",
+    features: [
+      "Unlimited bug fixes anytime",
+      "Custom feature roadmap for your growth",
+      "Weekly speed and performance updates",
+      "Round-the-clock help (2-hour response)",
+      "Advanced monthly security reviews",
+      "Your own personal tech manager",
+      "First-in-line for feature requests",
+      "Detailed app health reports",
+      "Long-term app growth planning",
+    ],
+    cta: "Get Started",
+  },
+];
+
+const webNew: Plan[] = [
+  {
+    id: "web-basic",
+    name: "Basic Website Package",
+    subtitle: "Frontend Development",
+    price: "$799",
+    period: "USD",
+    features: [
+      "Website for your users",
+      "Converting your design into working website",
+      "Connecting to external services (forms, CMS, analytics)",
+      "Smooth animations and transitions",
+      "Help when you need it",
+      "10-30 Day Delivery",
+      "Unlimited changes until you are happy",
+    ],
+    cta: "Start Your Project",
+  },
+  {
+    id: "web-mvp",
+    name: "MVP Development",
+    subtitle: "Complete Starter Package",
+    price: "$2,499",
+    period: "USD",
+    highlight: true,
+    badge: "Recommended",
+    features: [
+      "Website plus admin dashboard",
+      "Custom design for your brand",
+      "Converting designs into working site",
+      "Building your site's backend (APIs, auth)",
+      "1-3 Month Delivery",
+      "Deploying your site and configuring SEO",
+      "Testing everything works perfectly",
+      "Unlimited changes until you are happy",
+    ],
+    cta: "Start Your Project",
+  },
+  {
+    id: "web-full",
+    name: "Full-Cycle Web Development",
+    subtitle: "Everything You Need",
+    price: "$4,499",
+    period: "USD",
+    features: [
+      "User site, business portal & admin dashboard",
+      "Premium design customized for your brand",
+      "Converting designs into working site",
+      "Complete backend system built for growth",
+      "2-4 Month Delivery",
+      "Publishing & advanced SEO setup",
+      "Thorough testing for flawless performance",
+      "Full control with admin dashboard",
+      "Unlimited changes until you are happy",
+    ],
+    cta: "Start Your Project",
+  },
+];
+
+const webMaintenance: Plan[] = [
+  {
+    id: "web-maint-basic",
+    name: "Basic",
+    subtitle: "Essential Care Plan",
+    price: "$399",
+    period: "/month",
+    features: [
+      "Fix up to 5 issues each week",
+      "Add 1 small feature every 2 months",
+      "Monthly site speed improvements",
+      "Email help (24-hour response)",
+      "Basic site security checks",
+      "Updates for browser and dependency changes",
+      "Monthly progress summaries",
+    ],
+    cta: "Get Started",
+  },
+  {
+    id: "web-maint-standard",
+    name: "Standard",
+    subtitle: "Most Popular Plan",
+    price: "$799",
+    period: "/month",
+    highlight: true,
+    badge: "Most Popular",
+    features: [
+      "Fix up to 10 issues each week",
+      "Add 2 new features each month",
+      "Speed improvements every two weeks",
+      "Urgent help within 6 hours",
+      "Monthly security check-ups",
+      "Monthly planning call",
+      "Quarterly security deep dive",
+      "Priority support when you need help",
+    ],
+    cta: "Get Started",
+  },
+  {
+    id: "web-maint-premium",
+    name: "Premium",
+    subtitle: "Complete Care Package",
+    price: "$1,205",
+    period: "/month",
+    features: [
+      "Unlimited fixes and changes",
+      "Custom feature roadmap for your growth",
+      "Weekly speed and performance updates",
+      "Round-the-clock help (2-hour response)",
+      "Advanced monthly security reviews",
+      "Your own personal tech manager",
+      "First-in-line for feature requests",
+      "Detailed site health reports",
+      "Long-term growth planning",
+    ],
+    cta: "Get Started",
+  },
+];
+
+const PlanGrid = ({ plans }: { plans: Plan[] }) => (
+  <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 max-w-6xl mx-auto">
+    {plans.map((plan) => (
+      <Card
+        key={plan.id}
+        className={`glass-card h-full flex flex-col ${
+          plan.highlight ? "ring-2 ring-primary/50 shadow-lg shadow-primary/20" : ""
+        }`}
+      >
+        <CardHeader>
+          <div className="flex items-start justify-between">
+            <div>
+              {plan.subtitle && (
+                <CardDescription className="mb-1 font-medium text-primary">
+                  {plan.subtitle}
+                </CardDescription>
+              )}
+              <CardTitle className="text-xl font-bold">{plan.name}</CardTitle>
+            </div>
+            {plan.badge && (
+              <Badge className="bg-primary text-primary-foreground">{plan.badge}</Badge>
+            )}
+          </div>
+          <div className="mt-3">
+            <span className="text-3xl font-bold">{plan.price}</span>
+            <span className="text-sm text-muted-foreground ml-1">{plan.period}</span>
+          </div>
+        </CardHeader>
+        <CardContent className="flex-grow flex flex-col">
+          <ul className="space-y-3 mb-6 flex-grow">
+            {plan.features.map((f) => (
+              <li key={f} className="flex items-start gap-2 text-sm">
+                <Check className="h-4 w-4 text-green-500 mt-0.5 flex-shrink-0" />
+                <span className="text-foreground/80">{f}</span>
+              </li>
+            ))}
+          </ul>
+          <Button
+            className={`w-full ${
+              plan.highlight ? "professional-gradient text-white shadow-lg hover:shadow-xl" : ""
+            }`}
+            variant={plan.highlight ? "default" : "outline"}
+            asChild
+          >
+            <a href="#contact">{plan.cta}</a>
+          </Button>
+        </CardContent>
+      </Card>
+    ))}
+  </div>
+);
 
 const Pricing = () => {
   return (
     <section id="pricing" className="py-24 px-4 bg-background">
       <div className="max-w-7xl mx-auto">
-        <div className="text-center mb-16">
+        <div className="text-center mb-10">
           <span className="text-sm font-semibold text-primary uppercase tracking-wider">Investment</span>
           <h2 className="font-heading text-4xl md:text-5xl lg:text-6xl font-bold mt-2 mb-4 solana-gradient-text">
             Pricing
@@ -77,52 +321,40 @@ const Pricing = () => {
           </p>
         </div>
 
-        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-          {plans.map((plan) => (
-            <Card 
-              key={plan.id} 
-              className={`glass-card h-full flex flex-col ${
-                plan.highlight 
-                  ? "ring-2 ring-primary/50 shadow-lg shadow-primary/20" 
-                  : ""
-              }`}
-            >
-              <CardHeader>
-                {plan.highlight && (
-                  <div className="mb-2">
-                    <Badge className="bg-primary text-primary-foreground">Popular</Badge>
-                  </div>
-                )}
-                <CardTitle className="text-xl font-bold">{plan.name}</CardTitle>
-                <div className="mt-3">
-                  <span className="text-3xl font-bold">{plan.price}</span>
-                  <span className="text-sm text-muted-foreground ml-1">/{plan.period}</span>
-                </div>
-              </CardHeader>
-              <CardContent className="flex-grow flex flex-col">
-                <ul className="space-y-3 mb-6 flex-grow">
-                  {plan.features.map((f) => (
-                    <li key={f} className="flex items-start gap-2 text-sm">
-                      <Check className="h-4 w-4 text-green-500 mt-0.5 flex-shrink-0" />
-                      <span className="text-foreground/80">{f}</span>
-                    </li>
-                  ))}
-                </ul>
-                <Button 
-                  className={`w-full ${
-                    plan.highlight 
-                      ? "professional-gradient text-white shadow-lg hover:shadow-xl" 
-                      : ""
-                  }`} 
-                  variant={plan.highlight ? "default" : "outline"}
-                  asChild
-                >
-                  <a href="#contact">{plan.cta}</a>
-                </Button>
-              </CardContent>
-            </Card>
-          ))}
-        </div>
+        <Tabs defaultValue="mobile" className="w-full">
+          <div className="flex justify-center mb-8">
+            <TabsList>
+              <TabsTrigger value="mobile">Mobile Apps</TabsTrigger>
+              <TabsTrigger value="web">Web Apps</TabsTrigger>
+            </TabsList>
+          </div>
+
+          <TabsContent value="mobile">
+            <div className="space-y-10">
+              <div>
+                <h3 className="text-2xl font-bold text-center mb-4">New Development</h3>
+                <PlanGrid plans={mobileNew} />
+              </div>
+              <div>
+                <h3 className="text-2xl font-bold text-center mb-4">Maintenance</h3>
+                <PlanGrid plans={mobileMaintenance} />
+              </div>
+            </div>
+          </TabsContent>
+
+          <TabsContent value="web">
+            <div className="space-y-10">
+              <div>
+                <h3 className="text-2xl font-bold text-center mb-4">New Development</h3>
+                <PlanGrid plans={webNew} />
+              </div>
+              <div>
+                <h3 className="text-2xl font-bold text-center mb-4">Maintenance</h3>
+                <PlanGrid plans={webMaintenance} />
+              </div>
+            </div>
+          </TabsContent>
+        </Tabs>
       </div>
     </section>
   );
