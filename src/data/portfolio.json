@@ -88,15 +88,12 @@
       "live": "https://achiverr.vercel.app/",
       "featured": true
     },
-        {
+    {
       "id": 1,
       "title": "Redefine Gaming",
       "description": "Build an landing page for a gaming website using Three.js and GSAP animation.",
       "image": "https://ideogram.ai/assets/progressive-image/balanced/response/Oq96n85aSNS0npqfr9O51w",
-      "technologies": [
-        "Three.js",
-        "GSAP"
-      ],
+      "technologies": ["Three.js", "GSAP"],
       "github": "https://github.com/TanmayChaurasia24/achiverr-saas",
       "live": "https://redefine-gaming.onrender.com/",
       "featured": true
@@ -259,6 +256,30 @@
       "testimonial": "A fabulous working website like really audacious serving seamlessly and a lot thank to Tanmay kumar Chaurasia very tallented person who just not perceived the working but also implemented my vision with his UI & UX skills... it's been an amazing experience to work with you and get this done for my venture to achieve new heights !",
       "github": "https://github.com/TanmayChaurasia24/mangalam-events",
       "live": "https://manglamevents.onrender.com/"
+    },
+    {
+      "id": 2,
+      "clientName": "Adytan",
+      "projectType": "Website + shopify store",
+      "description": "Built an website and shopify store for an company named Adytan.",
+      "technologies": ["React", "TypeScript", "Tailwind CSS", "Shopify"],
+      "duration": "7 days",
+      "year": "2025",
+      "rating": 5,
+      "testimonial": "Tanmay helped us build our website and Shopify store from scratch, and the results exceeded our expectations. The design is clean and professional, the store is optimized for conversions, and managing products and orders is effortless. He understood our business requirements quickly and translated them into a solid, scalable solution. Would definitely work with him again.",
+      "live": "https://adytan.in/"
+    },
+    {
+      "id": 2,
+      "clientName": "Interfere",
+      "projectType": "Website",
+      "description": "Built an website for an company named Interfere.",
+      "technologies": ["React", "TypeScript", "Tailwind CSS"],
+      "duration": "7 days",
+      "year": "2025",
+      "rating": 5,
+      "testimonial": "Tanmay built the Interfere web app with excellent design, smooth performance, and reliable functionality. Communication was seamless and the final product exceeded expectations. Highly recommended for professional web development.",
+      "live": "https://interfere.netlify.app/"
     }
   ],
   "achievements": [
@@ -297,17 +318,17 @@
   ],
   "experience": [
     {
-      "company": "Tech Startup",
-      "position": "Full Stack Developer",
-      "duration": "2023 - Present",
-      "description": "Developing scalable web applications and exploring blockchain integration opportunities.",
+      "company": "NextWebGuru Pvt Ltd",
+      "position": "Full Stack Developer Intern",
+      "duration": "July 2025 - Sept 2025",
+      "description": "Designed and developed a full-stack Learning Management System (LMS) platform similar to Udemy with course creation, student enrollment. Built a secure authentication system with role-based access control for instructors and learners. Integrated payment gateways and automated course purchase workflows.",
       "location": "Remote"
     },
     {
-      "company": "Freelance",
-      "position": "Web Developer",
-      "duration": "2022 - 2023",
-      "description": "Built custom websites and web applications for various clients using modern technologies.",
+      "company": "Aithur",
+      "position": "Software engineer intern",
+      "duration": "Sept 2025 - Oct 2025",
+      "description": "Build responsive, intuitive frontends using React.js. Implement robust backend services with latest technologies, Architect and manage services to handle large-scale, multi-tenant data. Develop and optimize multi-tenant SaaS platforms with secure authentication, role-based access control, and subscription management.",
       "location": "Remote"
     }
   ],
@@ -315,9 +336,9 @@
     {
       "degree": "Bachelor of Technology",
       "field": "Computer Science",
-      "school": "University Name",
-      "year": "2024",
-      "location": "India"
+      "school": "Graphic era deemed to be university",
+      "year": "2022 - 2026",
+      "location": "Dehradun, Uttarakhand"
     }
   ]
 }

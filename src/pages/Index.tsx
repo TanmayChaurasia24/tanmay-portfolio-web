@@ -71,14 +71,14 @@ const Index = () => {
       {/* Hero Section */}
       <Hero />
       
+      {/* Experience Section */}
+      <Experience /> 
       {/* Projects Section */}
       <Projects />
       
       {/* Skills Section */}
       <Skills />
       
-      {/* Hackathons Section */}
-      <Hackathons />
       
       {/* Freelance Clients Section */}
       <FreelanceClients />
@@ -89,8 +89,8 @@ const Index = () => {
       {/* Achievements Section */}
       {/* <Achievements /> */}
 
-      {/* Experience Section */}
-      {/* <Experience /> */}
+      {/* Hackathons Section */}
+      <Hackathons />
 
       {/* Contact Section */}
       <Contact />

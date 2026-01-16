@@ -17,132 +17,132 @@ type Plan = {
   cta: string;
 };
 
-const mobileNew: Plan[] = [
-  {
-    id: "mobile-basic",
-    name: "Basic App Package",
-    subtitle: "Frontend Development",
-    price: "$799",
-    period: "USD",
-    highlight: false,
-    features: [
-      "Mobile app for your users",
-      "Converting your design into working app",
-      "Connecting to external services",
-      "Smooth animations and transitions",
-      "Help when you need it",
-      "10-30 Day Delivery",
-      "Unlimited changes until you are happy",
-    ],
-    cta: "Start Your Project",
-  },
-  {
-    id: "mobile-mvp",
-    name: "MVP Development",
-    subtitle: "Complete Starter Package",
-    price: "$2,499",
-    period: "USD",
-    highlight: true,
-    badge: "Recommended",
-    features: [
-      "Mobile app plus admin dashboard",
-      "Custom design for your brand",
-      "Converting designs into working app",
-      "Building your apps brain (backend)",
-      "1-3 Month Delivery",
-      "Getting your app on App Store & Play Store",
-      "Testing everything works perfectly",
-      "Unlimited changes until you are happy",
-    ],
-    cta: "Start Your Project",
-  },
-  {
-    id: "mobile-full",
-    name: "Full-Cycle App Development",
-    subtitle: "Everything You Need",
-    price: "$4,499",
-    period: "USD",
-    highlight: false,
-    features: [
-      "User app, business app & admin dashboard",
-      "Premium design customized for your brand",
-      "Converting designs into working app",
-      "Complete backend system built for growth",
-      "2-4 Month Delivery",
-      "Publishing on App Store & Play Store",
-      "Thorough testing for flawless performance",
-      "Full control with admin dashboard",
-      "Unlimited changes until you are happy",
-    ],
-    cta: "Start Your Project",
-  },
-];
+// const mobileNew: Plan[] = [
+//   {
+//     id: "mobile-basic",
+//     name: "Basic App Package",
+//     subtitle: "Frontend Development",
+//     price: "$799",
+//     period: "USD",
+//     highlight: false,
+//     features: [
+//       "Mobile app for your users",
+//       "Converting your design into working app",
+//       "Connecting to external services",
+//       "Smooth animations and transitions",
+//       "Help when you need it",
+//       "10-30 Day Delivery",
+//       "Unlimited changes until you are happy",
+//     ],
+//     cta: "Start Your Project",
+//   },
+//   {
+//     id: "mobile-mvp",
+//     name: "MVP Development",
+//     subtitle: "Complete Starter Package",
+//     price: "$2,499",
+//     period: "USD",
+//     highlight: true,
+//     badge: "Recommended",
+//     features: [
+//       "Mobile app plus admin dashboard",
+//       "Custom design for your brand",
+//       "Converting designs into working app",
+//       "Building your apps brain (backend)",
+//       "1-3 Month Delivery",
+//       "Getting your app on App Store & Play Store",
+//       "Testing everything works perfectly",
+//       "Unlimited changes until you are happy",
+//     ],
+//     cta: "Start Your Project",
+//   },
+//   {
+//     id: "mobile-full",
+//     name: "Full-Cycle App Development",
+//     subtitle: "Everything You Need",
+//     price: "$4,499",
+//     period: "USD",
+//     highlight: false,
+//     features: [
+//       "User app, business app & admin dashboard",
+//       "Premium design customized for your brand",
+//       "Converting designs into working app",
+//       "Complete backend system built for growth",
+//       "2-4 Month Delivery",
+//       "Publishing on App Store & Play Store",
+//       "Thorough testing for flawless performance",
+//       "Full control with admin dashboard",
+//       "Unlimited changes until you are happy",
+//     ],
+//     cta: "Start Your Project",
+//   },
+// ];
 
-const mobileMaintenance: Plan[] = [
-  {
-    id: "mobile-maint-basic",
-    name: "Basic",
-    subtitle: "Essential Care Plan",
-    price: "$399",
-    period: "/month",
-    features: [
-      "Fix up to 5 bugs each week",
-      "Add 1 small feature every 2 months",
-      "Monthly app speed improvements",
-      "Email help (24-hour response)",
-      "Basic app security checks",
-      "Updates for new phone systems",
-      "Monthly progress summaries",
-    ],
-    cta: "Get Started",
-  },
-  {
-    id: "mobile-maint-standard",
-    name: "Standard",
-    subtitle: "Most Popular Plan",
-    price: "$799",
-    period: "/month",
-    highlight: true,
-    badge: "Most Popular",
-    features: [
-      "Fix up to 10 bugs each week",
-      "Add 2 new features each month",
-      "Speed improvements every two weeks",
-      "Urgent help within 6 hours",
-      "Monthly security check-ups",
-      "Monthly planning call",
-      "Quarterly security deep dive",
-      "Priority support when you need help",
-    ],
-    cta: "Get Started",
-  },
-  {
-    id: "mobile-maint-premium",
-    name: "Premium",
-    subtitle: "Complete Care Package",
-    price: "$1,205",
-    period: "/month",
-    features: [
-      "Unlimited bug fixes anytime",
-      "Custom feature roadmap for your growth",
-      "Weekly speed and performance updates",
-      "Round-the-clock help (2-hour response)",
-      "Advanced monthly security reviews",
-      "Your own personal tech manager",
-      "First-in-line for feature requests",
-      "Detailed app health reports",
-      "Long-term app growth planning",
-    ],
-    cta: "Get Started",
-  },
-];
+// const mobileMaintenance: Plan[] = [
+//   {
+//     id: "mobile-maint-basic",
+//     name: "Basic",
+//     subtitle: "Essential Care Plan",
+//     price: "$399",
+//     period: "/month",
+//     features: [
+//       "Fix up to 5 bugs each week",
+//       "Add 1 small feature every 2 months",
+//       "Monthly app speed improvements",
+//       "Email help (24-hour response)",
+//       "Basic app security checks",
+//       "Updates for new phone systems",
+//       "Monthly progress summaries",
+//     ],
+//     cta: "Get Started",
+//   },
+//   {
+//     id: "mobile-maint-standard",
+//     name: "Standard",
+//     subtitle: "Most Popular Plan",
+//     price: "$799",
+//     period: "/month",
+//     highlight: true,
+//     badge: "Most Popular",
+//     features: [
+//       "Fix up to 10 bugs each week",
+//       "Add 2 new features each month",
+//       "Speed improvements every two weeks",
+//       "Urgent help within 6 hours",
+//       "Monthly security check-ups",
+//       "Monthly planning call",
+//       "Quarterly security deep dive",
+//       "Priority support when you need help",
+//     ],
+//     cta: "Get Started",
+//   },
+//   {
+//     id: "mobile-maint-premium",
+//     name: "Premium",
+//     subtitle: "Complete Care Package",
+//     price: "$1,205",
+//     period: "/month",
+//     features: [
+//       "Unlimited bug fixes anytime",
+//       "Custom feature roadmap for your growth",
+//       "Weekly speed and performance updates",
+//       "Round-the-clock help (2-hour response)",
+//       "Advanced monthly security reviews",
+//       "Your own personal tech manager",
+//       "First-in-line for feature requests",
+//       "Detailed app health reports",
+//       "Long-term app growth planning",
+//     ],
+//     cta: "Get Started",
+//   },
+// ];
 
 const webNew: Plan[] = [
   {
     id: "web-basic",
     name: "Basic Website Package",
     subtitle: "Frontend Development",
-    price: "$799",
+    price: "$499",
     period: "USD",
     features: [
       "Website for your users",
@@ -150,7 +150,7 @@ const webNew: Plan[] = [
       "Connecting to external services (forms, CMS, analytics)",
       "Smooth animations and transitions",
       "Help when you need it",
-      "10-30 Day Delivery",
+      "10-20 Day Delivery",
       "Unlimited changes until you are happy",
     ],
     cta: "Start Your Project",
@@ -159,16 +159,15 @@ const webNew: Plan[] = [
     id: "web-mvp",
     name: "MVP Development",
     subtitle: "Complete Starter Package",
-    price: "$2,499",
+    price: "$999",
     period: "USD",
     highlight: true,
     badge: "Recommended",
     features: [
       "Website plus admin dashboard",
-      "Custom design for your brand",
       "Converting designs into working site",
       "Building your site's backend (APIs, auth)",
-      "1-3 Month Delivery",
+      "1-2 Month Delivery",
       "Deploying your site and configuring SEO",
       "Testing everything works perfectly",
       "Unlimited changes until you are happy",
@@ -179,14 +178,13 @@ const webNew: Plan[] = [
     id: "web-full",
     name: "Full-Cycle Web Development",
     subtitle: "Everything You Need",
-    price: "$4,499",
+    price: "$1699",
     period: "USD",
     features: [
       "User site, business portal & admin dashboard",
-      "Premium design customized for your brand",
       "Converting designs into working site",
       "Complete backend system built for growth",
-      "2-4 Month Delivery",
+      "2-3 Month Delivery",
       "Publishing & advanced SEO setup",
       "Thorough testing for flawless performance",
       "Full control with admin dashboard",
@@ -201,7 +199,7 @@ const webMaintenance: Plan[] = [
     id: "web-maint-basic",
     name: "Basic",
     subtitle: "Essential Care Plan",
-    price: "$399",
+    price: "$199",
     period: "/month",
     features: [
       "Fix up to 5 issues each week",
@@ -218,7 +216,7 @@ const webMaintenance: Plan[] = [
     id: "web-maint-standard",
     name: "Standard",
     subtitle: "Most Popular Plan",
-    price: "$799",
+    price: "$499",
     period: "/month",
     highlight: true,
     badge: "Most Popular",
@@ -238,7 +236,7 @@ const webMaintenance: Plan[] = [
     id: "web-maint-premium",
     name: "Premium",
     subtitle: "Complete Care Package",
-    price: "$1,205",
+    price: "$899",
     period: "/month",
     features: [
       "Unlimited fixes and changes",
@@ -321,15 +319,15 @@ const Pricing = () => {
           </p>
         </div>
 
-        <Tabs defaultValue="mobile" className="w-full">
+        <Tabs defaultValue="web" className="w-full">
           <div className="flex justify-center mb-8">
             <TabsList>
-              <TabsTrigger value="mobile">Mobile Apps</TabsTrigger>
+              {/* <TabsTrigger value="mobile">Mobile Apps</TabsTrigger> */}
               <TabsTrigger value="web">Web Apps</TabsTrigger>
             </TabsList>
           </div>
 
-          <TabsContent value="mobile">
+          {/* <TabsContent value="mobile">
             <div className="space-y-10">
               <div>
                 <h3 className="text-2xl font-bold text-center mb-4">New Development</h3>
@@ -340,9 +338,9 @@ const Pricing = () => {
                 <PlanGrid plans={mobileMaintenance} />
               </div>
             </div>
-          </TabsContent>
+          </TabsContent> */}
 
-          <TabsContent value="web">
+          <TabsContent value="web" defaultValue="web">
             <div className="space-y-10">
               <div>
                 <h3 className="text-2xl font-bold text-center mb-4">New Development</h3>
