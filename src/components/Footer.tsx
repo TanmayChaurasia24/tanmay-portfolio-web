@@ -22,8 +22,15 @@ const Footer = () => {
         </div>
         
         <div className="text-center text-white">
-          <h3 className="text-2xl font-bold mb-4">Tanmay Kumar Chaurasia</h3>
-          <p className="mb-6">Full Stack Developer • Solana Explorer</p>
+          <h3 className="text-2xl font-bold mb-2">Tanmay Kumar Chaurasia</h3>
+          <p className="mb-4 text-white/80">Freelance Web & Mobile App Developer</p>
+          
+          <p className="text-lg font-medium mb-6">
+            Have a project in mind?{' '}
+            <a href="#contact" className="underline underline-offset-4 hover:text-white/90 transition-colors">
+              Let's work together →
+            </a>
+          </p>
           
           <div className="mb-8">
             <SocialLinks />

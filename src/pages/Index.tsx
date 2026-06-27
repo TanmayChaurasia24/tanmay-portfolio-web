@@ -3,14 +3,14 @@ import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import NavBar from '../components/NavBar';
 import Hero from '../components/Hero';
-import Projects from '../components/Projects';
+import PortfolioShowcase from '../components/PortfolioShowcase';
+import Services from '../components/Services';
 import Skills from '../components/Skills';
-import Hackathons from '../components/Hackathons';
 import FreelanceClients from '../components/FreelanceClients';
-import Achievements from '../components/Achievements';
-import Experience from '../components/Experience';
-import Contact from '../components/Contact';
 import Pricing from '../components/Pricing';
+import HowItWorks from '../components/HowItWorks';
+import Contact from '../components/Contact';
+import Footer from '../components/Footer';
 import BackgroundFX from "../components/BackgroundFX";
 import CustomCursor from "../components/CustomCursor";
 
@@ -70,30 +70,30 @@ const Index = () => {
 
       {/* Hero Section */}
       <Hero />
-      
-      {/* Experience Section */}
-      <Experience /> 
-      {/* Projects Section */}
-      <Projects />
+
+      {/* Portfolio Showcase */}
+      <PortfolioShowcase />
+
+      {/* Services Section */}
+      <Services />
       
       {/* Skills Section */}
       <Skills />
-      
-      
-      {/* Freelance Clients Section */}
+
+      {/* Testimonials Section */}
       <FreelanceClients />
 
       {/* Pricing Section */}
       <Pricing />
 
-      {/* Achievements Section */}
-      {/* <Achievements /> */}
-
-      {/* Hackathons Section */}
-      <Hackathons />
+      {/* How It Works Section */}
+      <HowItWorks />
 
       {/* Contact Section */}
       <Contact />
+
+      {/* Footer */}
+      <Footer />
     </div>
   );
 };

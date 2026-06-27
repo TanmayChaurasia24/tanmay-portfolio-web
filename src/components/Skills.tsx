@@ -14,7 +14,8 @@ import {
   Coins,
   GitBranch,
   Cloud,
-  Palette
+  Palette,
+  Smartphone
 } from 'lucide-react';
 import portfolioData from '../data/portfolio.json';
 
@@ -29,8 +30,10 @@ const Skills = () => {
   const categoryIcons = {
     'Frontend': Monitor,
     'Backend': Server,
+    'Mobile': Smartphone,
     'Blockchain': Blocks,
-    'Tools': Wrench
+    'Tools': Wrench,
+    'Devops': Cloud
   };
 
   // Icon mapping for individual skills
@@ -105,22 +108,22 @@ const Skills = () => {
   }, []);
 
   return (
-    <section id="skills" ref={sectionRef} className="py-24 px-4 bg-muted/30">
+    <section id="skills" ref={sectionRef} className="py-20 sm:py-24 px-4 sm:px-6 bg-muted/30">
       <div className="max-w-7xl mx-auto">
-        <div className="text-center mb-16">
+        <div className="text-center mb-14">
           <span className="text-sm font-semibold text-primary uppercase tracking-wider">Expertise</span>
           <h2 
             ref={titleRef}
-            className="font-heading text-4xl md:text-5xl lg:text-6xl font-bold mt-2 mb-4 solana-gradient-text"
+            className="font-heading text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mt-3 mb-4 solana-gradient-text"
           >
             Skills & Technologies
           </h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+          <p className="text-base sm:text-lg text-muted-foreground max-w-2xl mx-auto">
             Modern tech stack and tools I use to build exceptional digital experiences
           </p>
         </div>
         
-        <div ref={skillsRef} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
+        <div ref={skillsRef} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6 max-w-7xl mx-auto">
           {portfolioData.skills.map((skillCategory, index) => {
             const CategoryIcon = categoryIcons[skillCategory.category as keyof typeof categoryIcons] || Code;
             

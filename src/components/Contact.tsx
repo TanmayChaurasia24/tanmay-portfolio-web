@@ -3,7 +3,7 @@ import React, { useRef, useEffect } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { Mail, Phone, MapPin } from 'lucide-react';
+import { Mail, Phone, MapPin, MessageCircle } from 'lucide-react';
 import portfolioData from '../data/portfolio.json';
 import SocialLinks from './SocialLinks';
 
@@ -60,18 +60,18 @@ const Contact = () => {
   }, []);
 
   return (
-    <section id="contact" ref={sectionRef} className="py-24 px-4 bg-muted/30">
+    <section id="contact" ref={sectionRef} className="py-20 sm:py-24 px-4 sm:px-6 bg-muted/30">
       <div className="max-w-5xl mx-auto">
-        <div className="text-center mb-16">
-          <span className="text-sm font-semibold text-primary uppercase tracking-wider">Let's Connect</span>
+        <div className="text-center mb-14">
+          <span className="text-sm font-semibold text-primary uppercase tracking-wider">Let's Talk</span>
           <h2 
             ref={titleRef}
-            className="font-heading text-4xl md:text-5xl lg:text-6xl font-bold mt-2 mb-4 solana-gradient-text"
+            className="font-heading text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mt-3 mb-4 solana-gradient-text"
           >
-            Get In Touch
+            Get a Free Quote
           </h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Have a project in mind? Let's discuss how I can help bring your ideas to life
+          <p className="text-base sm:text-lg text-muted-foreground max-w-2xl mx-auto">
+            Have a project idea? Reach out and I'll get back to you within 24 hours with a free estimate.
           </p>
         </div>
 
@@ -104,7 +104,7 @@ const Contact = () => {
                     <Phone className="h-5 w-5 text-primary" />
                   </div>
                   <div className="ml-4">
-                    <p className="text-sm font-semibold text-muted-foreground mb-1">Phone</p>
+                    <p className="text-sm font-semibold text-muted-foreground mb-1">Phone / WhatsApp</p>
                     <a 
                       href={`tel:${portfolioData.personal.phone}`}
                       className="text-foreground font-medium hover:text-primary transition-colors"
@@ -140,8 +140,17 @@ const Contact = () => {
             
             <Card className="glass-card">
               <CardContent className="pt-6">
+                <div className="flex items-start gap-3 mb-4">
+                  <div className="p-2 bg-green-500/10 rounded-lg">
+                    <MessageCircle className="h-5 w-5 text-green-500" />
+                  </div>
+                  <div>
+                    <p className="font-semibold mb-1">Quick Response Guaranteed</p>
+                    <p className="text-sm text-muted-foreground">I typically respond within 2-4 hours during business hours.</p>
+                  </div>
+                </div>
                 <p className="text-foreground/80 mb-4 leading-relaxed">
-                  I'm currently looking for new opportunities. Whether you have a question or just want to say hi, I'll try my best to get back to you!
+                  Whether you need a landing page, a full web app, or a mobile app — drop me a message with your idea and budget, and I'll get back to you with a detailed proposal.
                 </p>
                 <p className="text-foreground font-semibold text-lg">Let's build something amazing together!</p>
               </CardContent>

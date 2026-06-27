@@ -24,10 +24,10 @@ const NavBar = () => {
 
   const navLinks = [
     { name: 'Home', href: '#home' },
-    { name: 'Projects', href: '#projects' },
+    { name: 'Portfolio', href: '#portfolio' },
+    { name: 'Services', href: '#services' },
     { name: 'Skills', href: '#skills' },
-    { name: 'Hackathons', href: '#hackathons' },
-    { name: 'Freelance', href: '#freelance' },
+    { name: 'Testimonials', href: '#testimonials' },
     { name: 'Pricing', href: '#pricing' },
     { name: 'Contact', href: '#contact' },
   ];

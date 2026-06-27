@@ -1,12 +1,12 @@
 {
   "personal": {
     "name": "Tanmay Kumar Chaurasia",
-    "title": "Full Stack Developer",
-    "subtitle": "Learning Solana Blockchain Development",
+    "title": "Freelance Web & Mobile App Developer",
+    "subtitle": "Building Premium Apps for Startups & Brands",
     "email": "tanmaykumar.kanpur@gmail.com",
     "phone": "+91-7985764433",
     "location": "India",
-    "bio": "Passionate full-stack developer currently diving deep into Solana blockchain development. I love building innovative web applications and exploring the decentralized future.",
+    "bio": "I design and develop high-performance web and mobile applications for startups, brands, and businesses. From landing pages to full-stack SaaS platforms — I handle the entire stack so you can focus on growing your business.",
     "avatar": "",
     "resume": "https://drive.google.com/file/d/1NSZEuoYvxj-P_KfPpxg_zbTacAHzjTOF/view"
   },
@@ -61,224 +61,251 @@
       "items": ["PostgreSQL", "MongoDB", "Mongoose", "Prisma", "Firebase"]
     },
     {
-      "category": "Blockchain",
-      "items": ["Solana", "Anchor Framework", "Rust", "Smart Contracts"]
+      "category": "Mobile",
+      "items": ["React Native", "Expo", "iOS", "Android"]
     },
     {
       "category": "Devops",
-      "items": ["Docker", "Nigix", "CI/CD", "Jenkins", "AWS"]
+      "items": ["Docker", "Nginx", "CI/CD", "Jenkins", "AWS"]
     }
   ],
-  "projects": [
+  "portfolioShowcase": {
+    "webApps": [
+      {
+        "id": "tanforge",
+        "name": "TanForge",
+        "description": "A developer tools platform with a modern dark UI, providing code generation and productivity utilities for developers.",
+        "technologies": ["React", "TypeScript", "Tailwind CSS", "Node.js"],
+        "screenshots": [
+          "/freelance/web-apps/tanforge/tanforge-1.png",
+          "/freelance/web-apps/tanforge/tanforge-2.png",
+          "/freelance/web-apps/tanforge/tanforge-3.png",
+          "/freelance/web-apps/tanforge/tanforge-4.png"
+        ],
+        "live": ""
+      },
+      {
+        "id": "achiverr",
+        "name": "Achiverr",
+        "description": "AI-powered goal-setting and tracking platform with smart roadmaps, helping users increase goal completion rates.",
+        "technologies": ["React", "Prisma", "PostgreSQL", "TypeScript", "Express", "GenAI", "Supabase"],
+        "screenshots": [
+          "/freelance/web-apps/achiverr/achiverr-1.png",
+          "/freelance/web-apps/achiverr/achiverr-2.png",
+          "/freelance/web-apps/achiverr/achiverr-3.png",
+          "/freelance/web-apps/achiverr/achiverr-4.png"
+        ],
+        "live": "https://achiverr.vercel.app/"
+      },
+      {
+        "id": "redefine",
+        "name": "Redefine Gaming",
+        "description": "Immersive gaming landing page with 3D visuals, scroll-driven animations, and cinematic UI built with Three.js and GSAP.",
+        "technologies": ["Three.js", "GSAP", "React", "Tailwind CSS"],
+        "screenshots": [
+          "/freelance/web-apps/redefine/redefine-1.png",
+          "/freelance/web-apps/redefine/redefine-2.png",
+          "/freelance/web-apps/redefine/redefine-3.png",
+          "/freelance/web-apps/redefine/redefine-4.png",
+          "/freelance/web-apps/redefine/redefine-5.png"
+        ],
+        "live": "https://redefine-gaming.onrender.com/"
+      },
+      {
+        "id": "mangalam_events",
+        "name": "Mangalam Events",
+        "description": "Professional landing page for an event management firm with elegant design, service showcase, and booking inquiry flow.",
+        "technologies": ["React", "TypeScript", "Tailwind CSS"],
+        "screenshots": [
+          "/freelance/web-apps/mangalam_events/mangalam_events-1.png",
+          "/freelance/web-apps/mangalam_events/mangalam_events-2.png",
+          "/freelance/web-apps/mangalam_events/mangalam_events-3.png",
+          "/freelance/web-apps/mangalam_events/mangalam_events-4.png"
+        ],
+        "live": "https://manglamevents.onrender.com/"
+      },
+      {
+        "id": "adytan",
+        "name": "Adytan",
+        "description": "Complete business website and integrated Shopify store for a brand, with clean product pages, checkout flow, and responsive design.",
+        "technologies": ["React", "TypeScript", "Tailwind CSS", "Shopify"],
+        "screenshots": [
+          "/freelance/web-apps/adytan/adytan-1.png",
+          "/freelance/web-apps/adytan/adytan-2.png",
+          "/freelance/web-apps/adytan/adytan-3.png"
+        ],
+        "live": "https://adytan.in/"
+      },
+      {
+        "id": "interfere",
+        "name": "Interfere",
+        "description": "Modern corporate website with sleek animations, responsive layout, and professional design tailored for a tech company.",
+        "technologies": ["React", "TypeScript", "Tailwind CSS"],
+        "screenshots": [
+          "/freelance/web-apps/interfere/interfere-1.png",
+          "/freelance/web-apps/interfere/interfere-2.png",
+          "/freelance/web-apps/interfere/interfere-3.png",
+          "/freelance/web-apps/interfere/interfere-4.png"
+        ],
+        "live": "https://interfere.netlify.app/"
+      },
+      {
+        "id": "vibely",
+        "name": "Vibely",
+        "description": "Social events and community platform with vibrant UI, event discovery, interactive feeds, and modern glassmorphism design.",
+        "technologies": ["React", "Node.js", "MongoDB", "Tailwind CSS"],
+        "screenshots": [
+          "/freelance/web-apps/vibely/vibely-1.png",
+          "/freelance/web-apps/vibely/vibely-2.png",
+          "/freelance/web-apps/vibely/vibely-3.png",
+          "/freelance/web-apps/vibely/vibely-4.png",
+          "/freelance/web-apps/vibely/vibely-5.png",
+          "/freelance/web-apps/vibely/vibely-6.png"
+        ],
+        "live": ""
+      },
+      {
+        "id": "pizzaexpress",
+        "name": "Pizza Express",
+        "description": "Food ordering web app for a pizza restaurant with menu browsing, cart management, order placement, and responsive mobile-first design.",
+        "technologies": ["React", "Node.js", "Express", "MongoDB"],
+        "screenshots": [
+          "/freelance/web-apps/pizzaexpress/pizzaexpress-1.png",
+          "/freelance/web-apps/pizzaexpress/pizzaexpress-2.png",
+          "/freelance/web-apps/pizzaexpress/pizzaexpress-3.png",
+          "/freelance/web-apps/pizzaexpress/pizzaexpress-4.png"
+        ],
+        "live": ""
+      },
+      {
+        "id": "pressery",
+        "name": "Pressery",
+        "description": "Content publishing and blog platform with rich text editing, article management, and a clean reader-focused interface.",
+        "technologies": ["React", "TypeScript", "Node.js", "PostgreSQL"],
+        "screenshots": [
+          "/freelance/web-apps/pressery/pressery-1.png",
+          "/freelance/web-apps/pressery/pressery-2.png",
+          "/freelance/web-apps/pressery/pressery-3.png",
+          "/freelance/web-apps/pressery/pressery-4.png"
+        ],
+        "live": ""
+      },
+      {
+        "id": "postspark",
+        "name": "PostSpark",
+        "description": "Social media content creation tool with templates, scheduling, and post preview for multiple platforms.",
+        "technologies": ["React", "TypeScript", "Tailwind CSS", "Node.js"],
+        "screenshots": [
+          "/freelance/web-apps/postspark/postspark-1.png",
+          "/freelance/web-apps/postspark/postspark-2.png",
+          "/freelance/web-apps/postspark/postspark-3.png",
+          "/freelance/web-apps/postspark/postspark-4.png",
+          "/freelance/web-apps/postspark/postspark-5.png",
+          "/freelance/web-apps/postspark/postspark-6.png"
+        ],
+        "live": ""
+      },
+      {
+        "id": "tamfragarences",
+        "name": "Tam Fragrances",
+        "description": "Premium e-commerce storefront for a fragrance brand with product catalog, elegant product pages, and a luxury shopping experience.",
+        "technologies": ["React", "TypeScript", "Tailwind CSS", "Shopify"],
+        "screenshots": [
+          "/freelance/web-apps/tamfragarences/tamfragarences-1.png",
+          "/freelance/web-apps/tamfragarences/tamfragarences-2.png",
+          "/freelance/web-apps/tamfragarences/tamfragarences-3.png",
+          "/freelance/web-apps/tamfragarences/tamfragarences-4.png",
+          "/freelance/web-apps/tamfragarences/tamfragarences-5.png"
+        ],
+        "live": ""
+      }
+    ],
+    "mobileApps": [
+      {
+        "id": "money_management",
+        "name": "Money Management",
+        "description": "Personal finance tracker mobile app with expense categorization, budget visualization, income tracking, and beautiful charts.",
+        "technologies": ["React Native", "Expo", "TypeScript"],
+        "screenshots": [
+          "/freelance/mobile-apps/money_management/money_management-1.png",
+          "/freelance/mobile-apps/money_management/money_management-2.png",
+          "/freelance/mobile-apps/money_management/money_management-3.png",
+          "/freelance/mobile-apps/money_management/money_management-4.png",
+          "/freelance/mobile-apps/money_management/money_management-5.png",
+          "/freelance/mobile-apps/money_management/money_management-6.png"
+        ],
+        "live": ""
+      }
+    ]
+  },
+  "services": [
     {
-      "id": 1,
-      "title": "Achiverr",
-      "description": "Developed an AI-powered goal-setting and tracking platform, helping users with smart roadmaps, increasing goal completion rates.",
-      "image": "https://ideogram.ai/assets/progressive-image/balanced/response/rXUv9c6gTgWqdctcA_yyog",
-      "technologies": [
-        "React.js",
-        "Prisma",
-        "PostgreSQL",
-        "TypeScript",
-        "Express.js",
-        "GenAI",
-        "Supabase"
-      ],
-      "github": "https://github.com/TanmayChaurasia24/achiverr-saas",
-      "live": "https://achiverr.vercel.app/",
-      "featured": true
+      "id": "web",
+      "title": "Web App Development",
+      "description": "Custom web applications built for performance, scalability, and beautiful user experiences.",
+      "icon": "monitor",
+      "features": [
+        "Custom web applications & SaaS platforms",
+        "Landing pages & marketing websites",
+        "Admin dashboards & portals",
+        "E-commerce stores & Shopify integration",
+        "SEO optimization & analytics setup",
+        "Responsive design for all devices"
+      ]
     },
     {
-      "id": 1,
-      "title": "Redefine Gaming",
-      "description": "Build an landing page for a gaming website using Three.js and GSAP animation.",
-      "image": "https://ideogram.ai/assets/progressive-image/balanced/response/Oq96n85aSNS0npqfr9O51w",
-      "technologies": ["Three.js", "GSAP"],
-      "github": "https://github.com/TanmayChaurasia24/achiverr-saas",
-      "live": "https://redefine-gaming.onrender.com/",
-      "featured": true
-    },
-    {
-      "id": 2,
-      "title": "Place-tale Teller",
-      "description": "An AI agent that tells you about the past of a particular place. Implemented CI/CD with Jenkins, reverse proxy with Nginx, and used Docker for containerization and deployed code to via Kubernetes.",
-      "image": "https://ideogram.ai/assets/progressive-image/balanced/response/z7_H3IZ7TuiYtwA08vT7fw",
-      "technologies": [
-        "React.js",
-        "MongoDB",
-        "Docker",
-        "Nginx",
-        "Express.js",
-        "AWS",
-        "Jenkins"
-      ],
-      "github": "https://github.com/TanmayChaurasia24/place-tale-weaver",
-      "live": "",
-      "featured": true
-    },
-    {
-      "id": 9,
-      "title": "2-Tier Application Deployment",
-      "description": "Deployed a scalable two-tier application using Flask and MySQL on a Kubernetes cluster with Docker, capable of handling 10,000 concurrent users.",
-      "image": "https://ideogram.ai/assets/progressive-image/balanced/response/Oq96n85aSNS0npqfr9O51w",
-      "technologies": ["AWS", "Kubernetes", "Docker", "Flask", "MySQL", "KIND"],
-      "github": "https://github.com/TanmayChaurasia24/flask-k8s-deployment",
-      "live": "",
-      "featured": true
-    },
-    {
-      "id": 10,
-      "title": "Infrastructure as Code Deployment",
-      "description": "Provisioned and managed AWS infrastructure using Terraform with GitHub Actions CI/CD, supporting reusable and modular configurations for scalable cloud deployments.",
-      "image": "https://ideogram.ai/assets/progressive-image/balanced/response/9t6b0p5CSEuSZqZjhxvuIQ",
-      "technologies": [
-        "Terraform",
-        "AWS",
-        "EC2",
-        "S3",
-        "GitHub Actions",
-        "GitOps"
-      ],
-      "github": "https://github.com/TanmayChaurasia24/terraform-hashicorp",
-      "live": "",
-      "featured": true
-    },
-    {
-      "id": 3,
-      "title": "HashMap.ai",
-      "description": "Built the backend for an AI-powered job application platform using a monorepo structure, Kafka for real-time messaging between Golang and Node.js microservices.",
-      "image": "https://ideogram.ai/assets/progressive-image/balanced/response/fclgnXKRSo2lj_G9F2IUZQ",
-      "technologies": [
-        "React.js",
-        "Node.js",
-        "MongoDB",
-        "Firebase",
-        "Cloudinary",
-        "Generative AI",
-        "Kafka",
-        "Golang"
-      ],
-      "github": "https://github.com/TanmayChaurasia24/Hashmap.ai",
-      "live": "",
-      "featured": true
-    },
-    {
-      "id": 4,
-      "title": "HashStream",
-      "description": "A video streaming platform in development. Uses TRPC for type-safe API calls, Mux for video handling, Clerk for auth, and a feature-rich Creator Studio.",
-      "image": "https://ideogram.ai/assets/progressive-image/balanced/response/0AoDd-zsT-yCp6clFSBJeg",
-      "technologies": [
-        "Next.js",
-        "PostgreSQL",
-        "TRPC",
-        "Upstash Redis",
-        "Mux",
-        "Drizzle ORM",
-        "Clerk"
-      ],
-      "github": "https://github.com/TanmayChaurasia24/Decentralized_HashStream",
-      "live": "",
-      "featured": true
-    },
-    {
-      "id": 5,
-      "title": "Solana Voting Smart contract",
-      "description": "Built an Solana smart contract for an Voting application using anchor framework",
-      "image": "https://ideogram.ai/assets/progressive-image/balanced/response/Oq96n85aSNS0npqfr9O51w",
-      "technologies": ["Solana", "Anchor", "Rust"],
-      "github": "https://github.com/TanmayChaurasia24/BallotChain-smartcontract",
-      "live": "",
-      "featured": true
-    },
-    {
-      "id": 7,
-      "title": "Solana Faucet",
-      "description": "Built an Solana Faucet where you can request airdrop, send tokens, see balance.",
-      "image": "https://ideogram.ai/assets/progressive-image/balanced/response/ArhA8xCARXug9W5LvB8KuQ",
-      "technologies": ["Solana", "Javascript", "Tailwind CSS"],
-      "github": "https://github.com/TanmayChaurasia24/solana-faucet/tree/main",
-      "live": "",
-      "featured": true
-    },
-    {
-      "id": 6,
-      "title": "Solana CRUD application",
-      "description": "Built an Solana smart contract for an CRUD application",
-      "image": "https://ideogram.ai/assets/progressive-image/balanced/response/1ITMHeI-SN22q5w37lQ1TA",
-      "technologies": ["Solana", "Anchor", "Rust"],
-      "github": "https://github.com/TanmayChaurasia24/txCRUD",
-      "live": "",
-      "featured": true
-    },
-    {
-      "id": 8,
-      "title": "Tamani Scapes",
-      "description": "Built an mobile app where you can see and download wallpapers",
-      "image": "https://ideogram.ai/assets/progressive-image/balanced/response/9t6b0p5CSEuSZqZjhxvuIQ",
-      "technologies": ["React Native", "CSS"],
-      "github": "https://github.com/TanmayChaurasia24/tamani-scapes",
-      "live": "",
-      "featured": true
-    }
-  ],
-  "hackathons": [
-    {
-      "id": 1,
-      "name": "Frontend UI Hackathon",
-      "position": "Finalist",
-      "project": "E-commerce platform",
-      "description": "Developed a frontend focused e-Commerce website for an electronics store.Implemented key features including cart management, product filtering, demo payment processing, and appointment booking via a dynamic calendar system. Integrated Google Maps navigation, allowing users to locate the store easily, improving store visits by 40%.",
-      "technologies": ["React", "TypeScript", "Tailwind CSS"],
-      "github": "https://github.com/TanmayChaurasia24/ecommerce-frontend",
-      "live": "https://deepakagencieskanpur.vercel.app/"
-    },
-    {
-      "id": 2,
-      "name": "Breaking bug hackathon",
-      "position": "Top 10",
-      "project": "Full Stack Website",
-      "description": "Debuged and optimize the full stack website built in react and node.",
-      "technologies": ["React", "TypeScript", "Tailwind CSS", "Node.js"],
-      "github": "https://github.com/TanmayChaurasia24/bug-fix-hackathon",
-      "live": ""
+      "id": "mobile",
+      "title": "Mobile App Development",
+      "description": "Cross-platform mobile apps for iOS and Android, built with React Native for native performance.",
+      "icon": "smartphone",
+      "features": [
+        "iOS & Android apps with React Native",
+        "App Store & Play Store publishing",
+        "Push notifications & real-time updates",
+        "Offline-first architecture",
+        "Payment gateway integration",
+        "Analytics & crash reporting"
+      ]
     }
   ],
   "freelanceClients": [
     {
       "id": 1,
-      "clientName": "Mangalam Events.",
+      "clientName": "Mangalam Events",
       "projectType": "Landing Page",
-      "description": "Built an landing page for an event managment firm.",
+      "description": "Built a professional landing page for an event management firm.",
       "technologies": ["React", "TypeScript", "Tailwind CSS"],
       "duration": "7 days",
       "year": "2025",
       "rating": 5,
       "testimonial": "A fabulous working website like really audacious serving seamlessly and a lot thank to Tanmay kumar Chaurasia very tallented person who just not perceived the working but also implemented my vision with his UI & UX skills... it's been an amazing experience to work with you and get this done for my venture to achieve new heights !",
-      "github": "https://github.com/TanmayChaurasia24/mangalam-events",
+      "screenshot": "/freelance/web-apps/mangalam_events/mangalam_events-1.png",
       "live": "https://manglamevents.onrender.com/"
     },
     {
       "id": 2,
       "clientName": "Adytan",
-      "projectType": "Website + shopify store",
-      "description": "Built an website and shopify store for an company named Adytan.",
+      "projectType": "Website + Shopify Store",
+      "description": "Built a website and Shopify store for the brand Adytan.",
       "technologies": ["React", "TypeScript", "Tailwind CSS", "Shopify"],
       "duration": "7 days",
       "year": "2025",
       "rating": 5,
       "testimonial": "Tanmay helped us build our website and Shopify store from scratch, and the results exceeded our expectations. The design is clean and professional, the store is optimized for conversions, and managing products and orders is effortless. He understood our business requirements quickly and translated them into a solid, scalable solution. Would definitely work with him again.",
+      "screenshot": "/freelance/web-apps/adytan/adytan-1.png",
       "live": "https://adytan.in/"
     },
     {
-      "id": 2,
+      "id": 3,
       "clientName": "Interfere",
       "projectType": "Website",
-      "description": "Built an website for an company named Interfere.",
+      "description": "Built a modern website for the tech company Interfere.",
       "technologies": ["React", "TypeScript", "Tailwind CSS"],
       "duration": "7 days",
       "year": "2025",
       "rating": 5,
       "testimonial": "Tanmay built the Interfere web app with excellent design, smooth performance, and reliable functionality. Communication was seamless and the final product exceeded expectations. Highly recommended for professional web development.",
+      "screenshot": "/freelance/web-apps/interfere/interfere-1.png",
       "live": "https://interfere.netlify.app/"
     }
   ],
@@ -316,27 +343,11 @@
       "icon": "award"
     }
   ],
-  "experience": [
-    {
-      "company": "NextWebGuru Pvt Ltd",
-      "position": "Full Stack Developer Intern",
-      "duration": "July 2025 - Sept 2025",
-      "description": "Designed and developed a full-stack Learning Management System (LMS) platform similar to Udemy with course creation, student enrollment. Built a secure authentication system with role-based access control for instructors and learners. Integrated payment gateways and automated course purchase workflows.",
-      "location": "Remote"
-    },
-    {
-      "company": "Aithur",
-      "position": "Software engineer intern",
-      "duration": "Sept 2025 - Oct 2025",
-      "description": "Build responsive, intuitive frontends using React.js. Implement robust backend services with latest technologies, Architect and manage services to handle large-scale, multi-tenant data. Develop and optimize multi-tenant SaaS platforms with secure authentication, role-based access control, and subscription management.",
-      "location": "Remote"
-    }
-  ],
   "education": [
     {
       "degree": "Bachelor of Technology",
       "field": "Computer Science",
-      "school": "Graphic era deemed to be university",
+      "school": "Graphic Era Deemed to be University",
       "year": "2022 - 2026",
       "location": "Dehradun, Uttarakhand"
     }
