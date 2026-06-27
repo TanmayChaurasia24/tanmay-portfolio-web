@@ -2,48 +2,23 @@ import React, { useRef, useEffect } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { PhoneCall, PenTool, Code2, Rocket } from "lucide-react";
+import portfolioData from "../data/portfolio.json";
 
 gsap.registerPlugin(ScrollTrigger);
 
-const steps = [
-  {
-    icon: PhoneCall,
-    title: "Discovery Call",
-    description:
-      "We discuss your idea, business goals, target audience, and requirements. I'll give you an honest estimate of timeline and cost.",
-    color: "from-blue-500 to-cyan-400",
-    bg: "bg-blue-500/10",
-  },
-  {
-    icon: PenTool,
-    title: "Design & Plan",
-    description:
-      "I create wireframes, choose the tech stack, and share a detailed roadmap. You review and approve before any code is written.",
-    color: "from-violet-500 to-purple-400",
-    bg: "bg-violet-500/10",
-  },
-  {
-    icon: Code2,
-    title: "Build & Iterate",
-    description:
-      "Development begins with regular updates. You see working previews and can request changes at any point — unlimited revisions.",
-    color: "from-orange-500 to-amber-400",
-    bg: "bg-orange-500/10",
-  },
-  {
-    icon: Rocket,
-    title: "Launch & Support",
-    description:
-      "I deploy your app, run final QA, and handle store publishing if needed. Post-launch support and maintenance plans available.",
-    color: "from-green-500 to-emerald-400",
-    bg: "bg-green-500/10",
-  },
-];
+const iconMap: Record<string, React.ComponentType<any>> = {
+  phone: PhoneCall,
+  pen: PenTool,
+  code: Code2,
+  rocket: Rocket,
+};
 
 const HowItWorks = () => {
   const sectionRef = useRef<HTMLElement>(null);
   const titleRef = useRef<HTMLHeadingElement>(null);
   const stepsRef = useRef<HTMLDivElement>(null);
+
+  const { subtitle, title, description, steps } = portfolioData.howItWorks;
 
   useEffect(() => {
     const prefersReducedMotion = window.matchMedia(
@@ -97,16 +72,16 @@ const HowItWorks = () => {
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-14">
           <span className="text-sm font-semibold text-primary uppercase tracking-wider">
-            The Process
+            {subtitle}
           </span>
           <h2
             ref={titleRef}
             className="font-heading text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mt-3 mb-4 solana-gradient-text"
           >
-            How It Works
+            {title}
           </h2>
           <p className="text-base sm:text-lg text-muted-foreground max-w-2xl mx-auto">
-            A simple, transparent process from idea to launch
+            {description}
           </p>
         </div>
 
@@ -116,7 +91,7 @@ const HowItWorks = () => {
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 sm:gap-10">
             {steps.map((step, index) => {
-              const Icon = step.icon;
+              const Icon = iconMap[step.icon] || PhoneCall;
 
               return (
                 <div

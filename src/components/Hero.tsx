@@ -8,18 +8,14 @@ import portfolioData from "../data/portfolio.json";
 
 gsap.registerPlugin(ScrollTrigger);
 
-const stats = [
-  { value: "12+", label: "Apps Built" },
-  { value: "3+", label: "Happy Clients" },
-  { value: "100%", label: "On-Time Delivery" },
-];
-
 const Hero = () => {
   const heroRef = useRef<HTMLDivElement>(null);
   const titleRef = useRef<HTMLHeadingElement>(null);
   const subtitleRef = useRef<HTMLParagraphElement>(null);
   const buttonsRef = useRef<HTMLDivElement>(null);
   const statsRef = useRef<HTMLDivElement>(null);
+
+  const { tagline, heading, subtitle, description, ctaPrimary, ctaSecondary, stats } = portfolioData.hero;
 
   useEffect(() => {
     const prefersReducedMotion = window.matchMedia(
@@ -120,7 +116,7 @@ const Hero = () => {
       <div className="relative z-10 text-center max-w-5xl mx-auto">
         <div className="mb-5 inline-block">
           <span className="text-xs sm:text-sm font-semibold text-primary uppercase tracking-wider px-4 py-2 bg-primary/10 rounded-full">
-            Freelance · Web & Mobile Apps
+            {tagline}
           </span>
         </div>
 
@@ -128,18 +124,18 @@ const Hero = () => {
           ref={titleRef}
           className="font-heading text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold mb-5 solana-gradient-text leading-[1.1]"
         >
-          I build apps that grow your business.
+          {heading}
         </h1>
 
         <p
           ref={subtitleRef}
           className="text-lg sm:text-xl md:text-2xl lg:text-3xl text-muted-foreground mb-5 font-medium"
         >
-          Web & Mobile development for startups, brands, and entrepreneurs.
+          {subtitle}
         </p>
 
         <p className="text-sm sm:text-base md:text-lg text-muted-foreground mb-10 max-w-3xl mx-auto leading-relaxed">
-          From landing pages to full-stack SaaS platforms and mobile apps — I handle design, frontend, backend, and launch. Premium quality, clean code, on-time delivery.
+          {description}
         </p>
 
         <div
@@ -151,7 +147,7 @@ const Hero = () => {
             size="lg"
             className="professional-gradient text-white px-8 py-6 text-base font-semibold shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1"
           >
-            See My Work
+            {ctaPrimary}
           </Button>
 
           <a href="#contact">
@@ -160,7 +156,7 @@ const Hero = () => {
               variant="outline"
               className="px-8 py-6 text-base font-semibold border-2 hover:bg-accent hover:text-accent-foreground transition-all duration-300 hover:-translate-y-1"
             >
-              Get a Free Quote
+              {ctaSecondary}
             </Button>
           </a>
         </div>

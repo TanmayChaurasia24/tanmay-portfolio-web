@@ -4,6 +4,7 @@ import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/com
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import portfolioData from "../data/portfolio.json";
 
 type Plan = {
   id: string;
@@ -16,242 +17,6 @@ type Plan = {
   features: string[];
   cta: string;
 };
-
-const mobileNew: Plan[] = [
-  {
-    id: "mobile-basic",
-    name: "Basic App Package",
-    subtitle: "Frontend Development",
-    price: "$799",
-    period: "USD",
-    highlight: false,
-    features: [
-      "Mobile app for your users",
-      "Converting your design into working app",
-      "Connecting to external services",
-      "Smooth animations and transitions",
-      "Help when you need it",
-      "10-30 Day Delivery",
-      "Unlimited changes until you are happy",
-    ],
-    cta: "Start Your Project",
-  },
-  {
-    id: "mobile-mvp",
-    name: "MVP Development",
-    subtitle: "Complete Starter Package",
-    price: "$2,499",
-    period: "USD",
-    highlight: true,
-    badge: "Recommended",
-    features: [
-      "Mobile app plus admin dashboard",
-      "Custom design for your brand",
-      "Converting designs into working app",
-      "Building your apps brain (backend)",
-      "1-3 Month Delivery",
-      "Getting your app on App Store & Play Store",
-      "Testing everything works perfectly",
-      "Unlimited changes until you are happy",
-    ],
-    cta: "Start Your Project",
-  },
-  {
-    id: "mobile-full",
-    name: "Full-Cycle App Development",
-    subtitle: "Everything You Need",
-    price: "$4,499",
-    period: "USD",
-    highlight: false,
-    features: [
-      "User app, business app & admin dashboard",
-      "Premium design customized for your brand",
-      "Converting designs into working app",
-      "Complete backend system built for growth",
-      "2-4 Month Delivery",
-      "Publishing on App Store & Play Store",
-      "Thorough testing for flawless performance",
-      "Full control with admin dashboard",
-      "Unlimited changes until you are happy",
-    ],
-    cta: "Start Your Project",
-  },
-];
-
-const mobileMaintenance: Plan[] = [
-  {
-    id: "mobile-maint-basic",
-    name: "Basic",
-    subtitle: "Essential Care Plan",
-    price: "$399",
-    period: "/month",
-    features: [
-      "Fix up to 5 bugs each week",
-      "Add 1 small feature every 2 months",
-      "Monthly app speed improvements",
-      "Email help (24-hour response)",
-      "Basic app security checks",
-      "Updates for new phone systems",
-      "Monthly progress summaries",
-    ],
-    cta: "Get Started",
-  },
-  {
-    id: "mobile-maint-standard",
-    name: "Standard",
-    subtitle: "Most Popular Plan",
-    price: "$799",
-    period: "/month",
-    highlight: true,
-    badge: "Most Popular",
-    features: [
-      "Fix up to 10 bugs each week",
-      "Add 2 new features each month",
-      "Speed improvements every two weeks",
-      "Urgent help within 6 hours",
-      "Monthly security check-ups",
-      "Monthly planning call",
-      "Quarterly security deep dive",
-      "Priority support when you need help",
-    ],
-    cta: "Get Started",
-  },
-  {
-    id: "mobile-maint-premium",
-    name: "Premium",
-    subtitle: "Complete Care Package",
-    price: "$1,205",
-    period: "/month",
-    features: [
-      "Unlimited bug fixes anytime",
-      "Custom feature roadmap for your growth",
-      "Weekly speed and performance updates",
-      "Round-the-clock help (2-hour response)",
-      "Advanced monthly security reviews",
-      "Your own personal tech manager",
-      "First-in-line for feature requests",
-      "Detailed app health reports",
-      "Long-term app growth planning",
-    ],
-    cta: "Get Started",
-  },
-];
-
-const webNew: Plan[] = [
-  {
-    id: "web-basic",
-    name: "Basic Website Package",
-    subtitle: "Frontend Development",
-    price: "$499",
-    period: "USD",
-    features: [
-      "Website for your users",
-      "Converting your design into working website",
-      "Connecting to external services (forms, CMS, analytics)",
-      "Smooth animations and transitions",
-      "Help when you need it",
-      "10-20 Day Delivery",
-      "Unlimited changes until you are happy",
-    ],
-    cta: "Start Your Project",
-  },
-  {
-    id: "web-mvp",
-    name: "MVP Development",
-    subtitle: "Complete Starter Package",
-    price: "$999",
-    period: "USD",
-    highlight: true,
-    badge: "Recommended",
-    features: [
-      "Website plus admin dashboard",
-      "Converting designs into working site",
-      "Building your site's backend (APIs, auth)",
-      "1-2 Month Delivery",
-      "Deploying your site and configuring SEO",
-      "Testing everything works perfectly",
-      "Unlimited changes until you are happy",
-    ],
-    cta: "Start Your Project",
-  },
-  {
-    id: "web-full",
-    name: "Full-Cycle Web Development",
-    subtitle: "Everything You Need",
-    price: "$1699",
-    period: "USD",
-    features: [
-      "User site, business portal & admin dashboard",
-      "Converting designs into working site",
-      "Complete backend system built for growth",
-      "2-3 Month Delivery",
-      "Publishing & advanced SEO setup",
-      "Thorough testing for flawless performance",
-      "Full control with admin dashboard",
-      "Unlimited changes until you are happy",
-    ],
-    cta: "Start Your Project",
-  },
-];
-
-const webMaintenance: Plan[] = [
-  {
-    id: "web-maint-basic",
-    name: "Basic",
-    subtitle: "Essential Care Plan",
-    price: "$199",
-    period: "/month",
-    features: [
-      "Fix up to 5 issues each week",
-      "Add 1 small feature every 2 months",
-      "Monthly site speed improvements",
-      "Email help (24-hour response)",
-      "Basic site security checks",
-      "Updates for browser and dependency changes",
-      "Monthly progress summaries",
-    ],
-    cta: "Get Started",
-  },
-  {
-    id: "web-maint-standard",
-    name: "Standard",
-    subtitle: "Most Popular Plan",
-    price: "$499",
-    period: "/month",
-    highlight: true,
-    badge: "Most Popular",
-    features: [
-      "Fix up to 10 issues each week",
-      "Add 2 new features each month",
-      "Speed improvements every two weeks",
-      "Urgent help within 6 hours",
-      "Monthly security check-ups",
-      "Monthly planning call",
-      "Quarterly security deep dive",
-      "Priority support when you need help",
-    ],
-    cta: "Get Started",
-  },
-  {
-    id: "web-maint-premium",
-    name: "Premium",
-    subtitle: "Complete Care Package",
-    price: "$899",
-    period: "/month",
-    features: [
-      "Unlimited fixes and changes",
-      "Custom feature roadmap for your growth",
-      "Weekly speed and performance updates",
-      "Round-the-clock help (2-hour response)",
-      "Advanced monthly security reviews",
-      "Your own personal tech manager",
-      "First-in-line for feature requests",
-      "Detailed site health reports",
-      "Long-term growth planning",
-    ],
-    cta: "Get Started",
-  },
-];
 
 const PlanGrid = ({ plans }: { plans: Plan[] }) => (
   <div className="grid gap-5 sm:gap-6 sm:grid-cols-2 lg:grid-cols-3 max-w-6xl mx-auto">
@@ -306,16 +71,18 @@ const PlanGrid = ({ plans }: { plans: Plan[] }) => (
 );
 
 const Pricing = () => {
+  const { subtitle, title, description, web, mobile } = portfolioData.pricing;
+
   return (
     <section id="pricing" className="py-20 sm:py-24 px-4 sm:px-6 bg-background">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-14">
-          <span className="text-sm font-semibold text-primary uppercase tracking-wider">Investment</span>
+          <span className="text-sm font-semibold text-primary uppercase tracking-wider">{subtitle}</span>
           <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mt-3 mb-4 solana-gradient-text">
-            Pricing
+            {title}
           </h2>
           <p className="text-base sm:text-lg text-muted-foreground max-w-2xl mx-auto">
-            Transparent, value-focused plans. Rates can vary with scope and timeline.
+            {description}
           </p>
         </div>
 
@@ -331,11 +98,11 @@ const Pricing = () => {
             <div className="space-y-10">
               <div>
                 <h3 className="text-2xl font-bold text-center mb-4">New Development</h3>
-                <PlanGrid plans={webNew} />
+                <PlanGrid plans={web.newDevelopment} />
               </div>
               <div>
                 <h3 className="text-2xl font-bold text-center mb-4">Maintenance</h3>
-                <PlanGrid plans={webMaintenance} />
+                <PlanGrid plans={web.maintenance} />
               </div>
             </div>
           </TabsContent>
@@ -344,15 +111,27 @@ const Pricing = () => {
             <div className="space-y-10">
               <div>
                 <h3 className="text-2xl font-bold text-center mb-4">New Development</h3>
-                <PlanGrid plans={mobileNew} />
+                <PlanGrid plans={mobile.newDevelopment} />
               </div>
               <div>
                 <h3 className="text-2xl font-bold text-center mb-4">Maintenance</h3>
-                <PlanGrid plans={mobileMaintenance} />
+                <PlanGrid plans={mobile.maintenance} />
               </div>
             </div>
           </TabsContent>
         </Tabs>
+
+        {/* Custom Solution Banner */}
+        <div className="mt-16 bg-gradient-to-r from-primary/10 via-background to-accent/10 border border-border rounded-2xl p-8 sm:p-10 text-center max-w-4xl mx-auto shadow-lg relative overflow-hidden">
+          <div className="absolute top-0 left-0 w-2 h-full bg-primary" />
+          <h3 className="text-2xl sm:text-3xl font-bold mb-3 solana-gradient-text">Need a Custom Solution?</h3>
+          <p className="text-muted-foreground mb-6 max-w-2xl mx-auto text-base sm:text-lg leading-relaxed">
+            All pricing plans are fully flexible and can be tailored to your specific business goals, budget, and timeline. If you want a customized feature set or a unique package, let's connect and discuss!
+          </p>
+          <Button size="lg" className="professional-gradient text-white font-semibold px-8 h-12 text-base shadow-md hover:shadow-lg transition-all duration-300 hover:-translate-y-0.5" asChild>
+            <a href="#contact">Let's Connect</a>
+          </Button>
+        </div>
       </div>
     </section>
   );

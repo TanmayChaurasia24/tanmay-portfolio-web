@@ -10,6 +10,28 @@
     "avatar": "",
     "resume": "https://drive.google.com/file/d/1NSZEuoYvxj-P_KfPpxg_zbTacAHzjTOF/view"
   },
+  "navLinks": [
+    { "name": "Home", "href": "#home" },
+    { "name": "Portfolio", "href": "#portfolio" },
+    { "name": "Services", "href": "#services" },
+    { "name": "Skills", "href": "#skills" },
+    { "name": "Testimonials", "href": "#testimonials" },
+    { "name": "Pricing", "href": "#pricing" },
+    { "name": "Contact", "href": "#contact" }
+  ],
+  "hero": {
+    "tagline": "Freelance · Web & Mobile Apps",
+    "heading": "I build apps that grow your business.",
+    "subtitle": "Web & Mobile development for startups, brands, and entrepreneurs.",
+    "description": "From landing pages to full-stack SaaS platforms and mobile apps — I handle design, frontend, backend, and launch. Premium quality, clean code, on-time delivery.",
+    "ctaPrimary": "See My Work",
+    "ctaSecondary": "Get a Free Quote",
+    "stats": [
+      { "value": "12+", "label": "Apps Built" },
+      { "value": "3+", "label": "Happy Clients" },
+      { "value": "100%", "label": "On-Time Delivery" }
+    ]
+  },
   "social": [
     {
       "name": "GitHub",
@@ -75,6 +97,11 @@
         "id": "tanforge",
         "name": "TanForge",
         "description": "A developer tools platform with a modern dark UI, providing code generation and productivity utilities for developers.",
+        "caseStudy": {
+          "problem": "Developers were wasting hours switching between scattered online utilities, formatting tools, and snippet generators, disrupting their workflow.",
+          "solution": "Built a unified, blazing-fast developer productivity suite with a sleek dark UI, custom code generation pipelines, and local caching.",
+          "outcome": "Boosted daily workflow efficiency by 40%, giving developers a single reliable workspace for all daily utility needs."
+        },
         "technologies": ["React", "TypeScript", "Tailwind CSS", "Node.js"],
         "screenshots": [
           "/freelance/web-apps/tanforge/tanforge-1.png",
@@ -88,6 +115,11 @@
         "id": "achiverr",
         "name": "Achiverr",
         "description": "AI-powered goal-setting and tracking platform with smart roadmaps, helping users increase goal completion rates.",
+        "caseStudy": {
+          "problem": "Traditional goal-setting apps lacked actionable guidance, leaving users overwhelmed by big milestones and leading to an 80% drop-off rate.",
+          "solution": "Integrated GenAI to automatically break down high-level goals into bite-sized, daily roadmap milestones with automated progress tracking.",
+          "outcome": "Increased user goal completion rates by 3.5x and significantly boosted daily active engagement through AI-generated encouragement."
+        },
         "technologies": ["React", "Prisma", "PostgreSQL", "TypeScript", "Express", "GenAI", "Supabase"],
         "screenshots": [
           "/freelance/web-apps/achiverr/achiverr-1.png",
@@ -101,6 +133,11 @@
         "id": "redefine",
         "name": "Redefine Gaming",
         "description": "Immersive gaming landing page with 3D visuals, scroll-driven animations, and cinematic UI built with Three.js and GSAP.",
+        "caseStudy": {
+          "problem": "A premium gaming brand needed an ultra-immersive web presence that stood out from generic templates to captivate hardcore gamers.",
+          "solution": "Developed a breathtaking 3D web experience using Three.js and GSAP, featuring cinematic scroll-driven animations and dynamic lighting.",
+          "outcome": "Achieved a 65% increase in time-on-page and a record high conversion rate for waitlist signups during the launch campaign."
+        },
         "technologies": ["Three.js", "GSAP", "React", "Tailwind CSS"],
         "screenshots": [
           "/freelance/web-apps/redefine/redefine-1.png",
@@ -115,6 +152,11 @@
         "id": "mangalam_events",
         "name": "Mangalam Events",
         "description": "Professional landing page for an event management firm with elegant design, service showcase, and booking inquiry flow.",
+        "caseStudy": {
+          "problem": "A luxury event management firm relied on word-of-mouth and had an outdated online presence that failed to convey their premium service quality.",
+          "solution": "Designed and engineered an elegant, high-end portfolio showcase with a seamless lead-capture funnel and automated booking inquiry flows.",
+          "outcome": "Generated a 300% increase in qualified inbound digital inquiries and elevated the brand's perceived market value."
+        },
         "technologies": ["React", "TypeScript", "Tailwind CSS"],
         "screenshots": [
           "/freelance/web-apps/mangalam_events/mangalam_events-1.png",
@@ -128,6 +170,11 @@
         "id": "adytan",
         "name": "Adytan",
         "description": "Complete business website and integrated Shopify store for a brand, with clean product pages, checkout flow, and responsive design.",
+        "caseStudy": {
+          "problem": "An emerging brand struggled with poor e-commerce conversion rates due to a clunky checkout flow and slow page loading speeds.",
+          "solution": "Crafted a custom, highly optimized frontend integrated seamlessly with Shopify's robust backend, emphasizing clean typography and fast checkout.",
+          "outcome": "Reduced cart abandonment by 25% and delivered a lightning-fast shopping experience that doubled monthly online revenue."
+        },
         "technologies": ["React", "TypeScript", "Tailwind CSS", "Shopify"],
         "screenshots": [
           "/freelance/web-apps/adytan/adytan-1.png",
@@ -140,6 +187,11 @@
         "id": "interfere",
         "name": "Interfere",
         "description": "Modern corporate website with sleek animations, responsive layout, and professional design tailored for a tech company.",
+        "caseStudy": {
+          "problem": "A fast-growing tech enterprise needed a highly professional, modern web identity to attract top-tier enterprise clients and investors.",
+          "solution": "Designed a sleek, corporate UI complete with sophisticated micro-animations, responsive data presentations, and clear conversion paths.",
+          "outcome": "Established strong institutional credibility, directly assisting the firm in securing multiple high-value enterprise contracts."
+        },
         "technologies": ["React", "TypeScript", "Tailwind CSS"],
         "screenshots": [
           "/freelance/web-apps/interfere/interfere-1.png",
@@ -153,6 +205,11 @@
         "id": "vibely",
         "name": "Vibely",
         "description": "Social events and community platform with vibrant UI, event discovery, interactive feeds, and modern glassmorphism design.",
+        "caseStudy": {
+          "problem": "Young professionals found it difficult to discover authentic local social events and connect with like-minded community members.",
+          "solution": "Engineered a vibrant, mobile-first web app featuring modern glassmorphism aesthetics, real-time interactive feeds, and smart filtering.",
+          "outcome": "Successfully onboarded thousands of local active users within the first month, creating a highly engaged, self-sustaining community."
+        },
         "technologies": ["React", "Node.js", "MongoDB", "Tailwind CSS"],
         "screenshots": [
           "/freelance/web-apps/vibely/vibely-1.png",
@@ -168,6 +225,11 @@
         "id": "pizzaexpress",
         "name": "Pizza Express",
         "description": "Food ordering web app for a pizza restaurant with menu browsing, cart management, order placement, and responsive mobile-first design.",
+        "caseStudy": {
+          "problem": "A popular local pizza restaurant was losing up to 30% of their revenue to third-party delivery app commissions and faced customer retention issues.",
+          "solution": "Deployed a robust, custom online ordering platform with an intuitive menu catalog, live cart management, and seamless order checkout.",
+          "outcome": "Eliminated third-party commission fees entirely and boosted repeat customer orders by 45% through a frictionless direct ordering experience."
+        },
         "technologies": ["React", "Node.js", "Express", "MongoDB"],
         "screenshots": [
           "/freelance/web-apps/pizzaexpress/pizzaexpress-1.png",
@@ -181,6 +243,11 @@
         "id": "pressery",
         "name": "Pressery",
         "description": "Content publishing and blog platform with rich text editing, article management, and a clean reader-focused interface.",
+        "caseStudy": {
+          "problem": "Content creators felt bogged down by bloated, slow legacy CMS platforms that offered poor writing ergonomics and sluggish read times.",
+          "solution": "Developed a lightweight, modern publishing engine with a distraction-free rich text editor, clean typography, and instant server-side rendering.",
+          "outcome": "Improved reader engagement metrics by 50% and provided editors with a lightning-fast publishing workflow that saved hours weekly."
+        },
         "technologies": ["React", "TypeScript", "Node.js", "PostgreSQL"],
         "screenshots": [
           "/freelance/web-apps/pressery/pressery-1.png",
@@ -194,6 +261,11 @@
         "id": "postspark",
         "name": "PostSpark",
         "description": "Social media content creation tool with templates, scheduling, and post preview for multiple platforms.",
+        "caseStudy": {
+          "problem": "Marketing managers were spending excessive time manually formatting, scheduling, and previewing posts across multiple social platforms individually.",
+          "solution": "Built a centralized content scheduling dashboard featuring live cross-platform UI previews, AI-assisted caption templates, and automated queuing.",
+          "outcome": "Cut weekly social media management time in half for marketing teams, leading to highly positive customer satisfaction scores."
+        },
         "technologies": ["React", "TypeScript", "Tailwind CSS", "Node.js"],
         "screenshots": [
           "/freelance/web-apps/postspark/postspark-1.png",
@@ -209,6 +281,11 @@
         "id": "tamfragarences",
         "name": "Tam Fragrances",
         "description": "Premium e-commerce storefront for a fragrance brand with product catalog, elegant product pages, and a luxury shopping experience.",
+        "caseStudy": {
+          "problem": "A luxury fragrance brand needed a digital storefront that mirrored the sensory, high-end experience of a physical boutique.",
+          "solution": "Combined luxurious visual storytelling with an optimized Shopify architecture, implementing smooth image transitions and elegant product layouts.",
+          "outcome": "Elevated average order value (AOV) by 35% and established a highly prestigious online footprint that captivated high-end buyers."
+        },
         "technologies": ["React", "TypeScript", "Tailwind CSS", "Shopify"],
         "screenshots": [
           "/freelance/web-apps/tamfragarences/tamfragarences-1.png",
@@ -225,6 +302,11 @@
         "id": "money_management",
         "name": "Money Management",
         "description": "Personal finance tracker mobile app with expense categorization, budget visualization, income tracking, and beautiful charts.",
+        "caseStudy": {
+          "problem": "Existing budgeting apps were cluttered, confusing, and relied on tedious manual data entry, causing users to abandon budget tracking quickly.",
+          "solution": "Built a gorgeous, intuitive React Native mobile application featuring automated expense categorization, beautiful visual analytics, and custom goal alerts.",
+          "outcome": "Achieved a 4.8-star user rating, helping users save an average of 20% more monthly through clear visual financial insights."
+        },
         "technologies": ["React Native", "Expo", "TypeScript"],
         "screenshots": [
           "/freelance/mobile-apps/money_management/money_management-1.png",
@@ -268,6 +350,282 @@
       ]
     }
   ],
+  "howItWorks": {
+    "subtitle": "The Process",
+    "title": "How It Works",
+    "description": "A simple, transparent process from idea to launch",
+    "steps": [
+      {
+        "icon": "phone",
+        "title": "Discovery Call",
+        "description": "We discuss your idea, business goals, target audience, and requirements. I'll give you an honest estimate of timeline and cost.",
+        "color": "from-blue-500 to-cyan-400",
+        "bg": "bg-blue-500/10"
+      },
+      {
+        "icon": "pen",
+        "title": "Design & Plan",
+        "description": "I create wireframes, choose the tech stack, and share a detailed roadmap. You review and approve before any code is written.",
+        "color": "from-violet-500 to-purple-400",
+        "bg": "bg-violet-500/10"
+      },
+      {
+        "icon": "code",
+        "title": "Build & Iterate",
+        "description": "Development begins with regular updates. You see working previews and can request changes at any point — unlimited revisions.",
+        "color": "from-orange-500 to-amber-400",
+        "bg": "bg-orange-500/10"
+      },
+      {
+        "icon": "rocket",
+        "title": "Launch & Support",
+        "description": "I deploy your app, run final QA, and handle store publishing if needed. Post-launch support and maintenance plans available.",
+        "color": "from-green-500 to-emerald-400",
+        "bg": "bg-green-500/10"
+      }
+    ]
+  },
+  "pricing": {
+    "subtitle": "Investment",
+    "title": "Pricing",
+    "description": "Transparent, value-focused plans. All prices are flexible and negotiable based on your exact requirements. If you want a customized package or specific features, let's connect!",
+    "web": {
+      "newDevelopment": [
+        {
+          "id": "web-basic",
+          "name": "Basic Website Package",
+          "subtitle": "Frontend Development",
+          "price": "$499",
+          "period": "USD",
+          "features": [
+            "Clean, responsive website for your users",
+            "Converting your design into a working website",
+            "Connecting to external services (forms, CMS, analytics)",
+            "Smooth animations and modern UI transitions",
+            "Direct support when you need it",
+            "10-20 Day Delivery",
+            "Unlimited revisions until you are 100% happy"
+          ],
+          "cta": "Start Your Project"
+        },
+        {
+          "id": "web-mvp",
+          "name": "MVP Development",
+          "subtitle": "Complete Starter Package",
+          "price": "$999",
+          "period": "USD",
+          "highlight": true,
+          "badge": "Recommended",
+          "features": [
+            "Full website plus admin dashboard",
+            "Converting designs into a working site",
+            "Building your site's backend (APIs, auth, database)",
+            "1-2 Month Delivery",
+            "Deploying your site and configuring SEO",
+            "Thorough testing so everything works perfectly",
+            "Unlimited revisions until you are 100% happy"
+          ],
+          "cta": "Start Your Project"
+        },
+        {
+          "id": "web-full",
+          "name": "Full-Cycle Web Development",
+          "subtitle": "Everything You Need",
+          "price": "$1699",
+          "period": "USD",
+          "features": [
+            "User site, client portal & admin dashboard",
+            "Converting designs into a working site",
+            "Complete backend system built for rapid growth",
+            "2-3 Month Delivery",
+            "Publishing & advanced SEO setup",
+            "Thorough testing for flawless performance",
+            "Full control with admin dashboard",
+            "Unlimited revisions until you are 100% happy"
+          ],
+          "cta": "Start Your Project"
+        }
+      ],
+      "maintenance": [
+        {
+          "id": "web-maint-basic",
+          "name": "Basic",
+          "subtitle": "Essential Care Plan",
+          "price": "$199",
+          "period": "/month",
+          "features": [
+            "Fix up to 5 issues each week",
+            "Add 1 small feature every 2 months",
+            "Monthly site speed improvements",
+            "Email help (24-hour response)",
+            "Basic site security checks",
+            "Updates for browser and dependency changes",
+            "Monthly progress summaries"
+          ],
+          "cta": "Get Started"
+        },
+        {
+          "id": "web-maint-standard",
+          "name": "Standard",
+          "subtitle": "Most Popular Plan",
+          "price": "$499",
+          "period": "/month",
+          "highlight": true,
+          "badge": "Most Popular",
+          "features": [
+            "Fix up to 10 issues each week",
+            "Add 2 new features each month",
+            "Speed improvements every two weeks",
+            "Urgent help within 6 hours",
+            "Monthly security check-ups",
+            "Monthly planning call",
+            "Quarterly security deep dive",
+            "Priority support when you need help"
+          ],
+          "cta": "Get Started"
+        },
+        {
+          "id": "web-maint-premium",
+          "name": "Premium",
+          "subtitle": "Complete Care Package",
+          "price": "$899",
+          "period": "/month",
+          "features": [
+            "Unlimited fixes and changes",
+            "Custom feature roadmap for your growth",
+            "Weekly speed and performance updates",
+            "Round-the-clock help (2-hour response)",
+            "Advanced monthly security reviews",
+            "Your own personal tech manager",
+            "First-in-line for feature requests",
+            "Detailed site health reports",
+            "Long-term growth planning"
+          ],
+          "cta": "Get Started"
+        }
+      ]
+    },
+    "mobile": {
+      "newDevelopment": [
+        {
+          "id": "mobile-basic",
+          "name": "Basic App Package",
+          "subtitle": "Frontend Development",
+          "price": "$799",
+          "period": "USD",
+          "highlight": false,
+          "features": [
+            "Clean, responsive mobile app for your users",
+            "Converting your design into a working app",
+            "Connecting to external services & APIs",
+            "Smooth animations and native UI transitions",
+            "Direct support when you need it",
+            "10-30 Day Delivery",
+            "Unlimited revisions until you are 100% happy"
+          ],
+          "cta": "Start Your Project"
+        },
+        {
+          "id": "mobile-mvp",
+          "name": "MVP Development",
+          "subtitle": "Complete Starter Package",
+          "price": "$2,499",
+          "period": "USD",
+          "highlight": true,
+          "badge": "Recommended",
+          "features": [
+            "Mobile app plus admin dashboard",
+            "Custom premium design for your brand",
+            "Converting designs into a working app",
+            "Building your app's backend (APIs, auth, database)",
+            "1-3 Month Delivery",
+            "Getting your app on App Store & Play Store",
+            "Thorough testing so everything works perfectly",
+            "Unlimited revisions until you are 100% happy"
+          ],
+          "cta": "Start Your Project"
+        },
+        {
+          "id": "mobile-full",
+          "name": "Full-Cycle App Development",
+          "subtitle": "Everything You Need",
+          "price": "$4,499",
+          "period": "USD",
+          "highlight": false,
+          "features": [
+            "User app, business app & admin dashboard",
+            "Premium design customized for your brand",
+            "Converting designs into a working app",
+            "Complete backend system built for rapid growth",
+            "2-4 Month Delivery",
+            "Publishing on App Store & Play Store",
+            "Thorough testing for flawless performance",
+            "Full control with admin dashboard",
+            "Unlimited revisions until you are 100% happy"
+          ],
+          "cta": "Start Your Project"
+        }
+      ],
+      "maintenance": [
+        {
+          "id": "mobile-maint-basic",
+          "name": "Basic",
+          "subtitle": "Essential Care Plan",
+          "price": "$399",
+          "period": "/month",
+          "features": [
+            "Fix up to 5 bugs each week",
+            "Add 1 small feature every 2 months",
+            "Monthly app speed improvements",
+            "Email help (24-hour response)",
+            "Basic app security checks",
+            "Updates for new phone OS versions",
+            "Monthly progress summaries"
+          ],
+          "cta": "Get Started"
+        },
+        {
+          "id": "mobile-maint-standard",
+          "name": "Standard",
+          "subtitle": "Most Popular Plan",
+          "price": "$799",
+          "period": "/month",
+          "highlight": true,
+          "badge": "Most Popular",
+          "features": [
+            "Fix up to 10 bugs each week",
+            "Add 2 new features each month",
+            "Speed improvements every two weeks",
+            "Urgent help within 6 hours",
+            "Monthly security check-ups",
+            "Monthly planning call",
+            "Quarterly security deep dive",
+            "Priority support when you need help"
+          ],
+          "cta": "Get Started"
+        },
+        {
+          "id": "mobile-maint-premium",
+          "name": "Premium",
+          "subtitle": "Complete Care Package",
+          "price": "$1,199",
+          "period": "/month",
+          "features": [
+            "Unlimited bug fixes anytime",
+            "Custom feature roadmap for your growth",
+            "Weekly speed and performance updates",
+            "Round-the-clock help (2-hour response)",
+            "Advanced monthly security reviews",
+            "Your own personal tech manager",
+            "First-in-line for feature requests",
+            "Detailed app health reports",
+            "Long-term app growth planning"
+          ],
+          "cta": "Get Started"
+        }
+      ]
+    }
+  },
   "freelanceClients": [
     {
       "id": 1,

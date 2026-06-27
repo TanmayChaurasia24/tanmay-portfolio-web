@@ -3,6 +3,7 @@ import { Menu } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
 import ThemeToggle from './ThemeToggle';
+import portfolioData from '../data/portfolio.json';
 
 const NavBar = () => {
   const [scrolled, setScrolled] = useState(false);
@@ -22,15 +23,7 @@ const NavBar = () => {
     };
   }, [scrolled]);
 
-  const navLinks = [
-    { name: 'Home', href: '#home' },
-    { name: 'Portfolio', href: '#portfolio' },
-    { name: 'Services', href: '#services' },
-    { name: 'Skills', href: '#skills' },
-    { name: 'Testimonials', href: '#testimonials' },
-    { name: 'Pricing', href: '#pricing' },
-    { name: 'Contact', href: '#contact' },
-  ];
+  const navLinks = portfolioData.navLinks;
 
   const handleNavClick = (href: string) => {
     document.querySelector(href)?.scrollIntoView({ behavior: 'smooth' });
@@ -46,7 +39,7 @@ const NavBar = () => {
     >
       <div className="container max-w-7xl mx-auto px-6 flex justify-between items-center">
         <a href="#home" className="font-heading text-xl md:text-2xl font-bold solana-gradient-text hover:opacity-80 transition-opacity">
-          Tanmay Kumar
+          {portfolioData.personal.name.split(' ')[0]} {portfolioData.personal.name.split(' ')[1]}
         </a>
 
         {/* Desktop Navigation */}

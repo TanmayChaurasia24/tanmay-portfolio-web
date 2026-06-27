@@ -19,6 +19,11 @@ type ShowcaseProject = {
   id: string;
   name: string;
   description: string;
+  caseStudy?: {
+    problem: string;
+    solution: string;
+    outcome: string;
+  };
   technologies: string[];
   screenshots: string[];
   live: string;
@@ -160,31 +165,44 @@ const ProjectCard = ({ project, isMobile = false }: { project: ShowcaseProject; 
       <ProjectImageCarousel screenshots={project.screenshots} name={project.name} />
     )}
     <div className="p-5 sm:p-6 flex flex-col flex-grow">
-      <CardTitle className="text-lg font-bold mb-2 group-hover:text-primary transition-colors">
+      <CardTitle className="text-xl font-bold mb-3 group-hover:text-primary transition-colors">
         {project.name}
       </CardTitle>
-      <CardDescription className="text-muted-foreground mb-4 line-clamp-2 text-sm leading-relaxed">
-        {project.description}
-      </CardDescription>
+
+      {project.caseStudy ? (
+        <div className="space-y-3 mb-6 flex-grow text-[13px] leading-relaxed">
+          <div className="bg-muted/40 p-3 rounded-lg border border-border/40">
+            <span className="font-bold text-foreground block mb-1 text-xs uppercase tracking-wider text-red-500/90">The Problem</span>
+            <span className="text-muted-foreground">{project.caseStudy.problem}</span>
+          </div>
+          <div className="bg-muted/40 p-3 rounded-lg border border-border/40">
+            <span className="font-bold text-foreground block mb-1 text-xs uppercase tracking-wider text-blue-500/90">What I Did</span>
+            <span className="text-muted-foreground">{project.caseStudy.solution}</span>
+          </div>
+          <div className="bg-primary/5 p-3 rounded-lg border border-primary/20">
+            <span className="font-bold text-primary block mb-1 text-xs uppercase tracking-wider">The Outcome</span>
+            <span className="text-foreground/90 font-medium">{project.caseStudy.outcome}</span>
+          </div>
+        </div>
+      ) : (
+        <CardDescription className="text-muted-foreground mb-6 flex-grow text-sm leading-relaxed">
+          {project.description}
+        </CardDescription>
+      )}
 
       <div className="flex flex-wrap gap-1.5 mb-5">
-        {project.technologies.slice(0, 4).map((tech, index) => (
+        {project.technologies.map((tech, index) => (
           <Badge key={index} variant="secondary" className="text-[11px] font-medium px-2 py-0.5">
             {tech}
           </Badge>
         ))}
-        {project.technologies.length > 4 && (
-          <Badge variant="secondary" className="text-[11px] font-medium px-2 py-0.5">
-            +{project.technologies.length - 4}
-          </Badge>
-        )}
       </div>
 
       <div className="mt-auto">
         {project.live && project.live.length > 0 ? (
           <Button
             size="sm"
-            className="w-full professional-gradient text-white font-medium"
+            className="w-full professional-gradient text-white font-medium h-10"
             asChild
           >
             <a href={project.live} target="_blank" rel="noopener noreferrer">
@@ -193,7 +211,7 @@ const ProjectCard = ({ project, isMobile = false }: { project: ShowcaseProject; 
             </a>
           </Button>
         ) : (
-          <div className="h-9" /> 
+          <div className="h-10" /> 
         )}
       </div>
     </div>
@@ -238,16 +256,16 @@ const PortfolioShowcase = () => {
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-14">
           <span className="text-sm font-semibold text-primary uppercase tracking-wider">
-            My Work
+            My Work & Case Studies
           </span>
           <h2
             ref={titleRef}
             className="font-heading text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mt-3 mb-4 solana-gradient-text"
           >
-            Portfolio
+            Portfolio Showcase
           </h2>
           <p className="text-base sm:text-lg text-muted-foreground max-w-2xl mx-auto">
-            Real projects I've designed and built — from landing pages to full-stack platforms
+            Real projects I've designed and built — showcasing the problem, solution, and business outcome.
           </p>
         </div>
 
@@ -274,7 +292,7 @@ const PortfolioShowcase = () => {
           </div>
 
           <TabsContent value="web">
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
               {webApps.map((project) => (
                 <ProjectCard key={project.id} project={project} />
               ))}
@@ -282,7 +300,7 @@ const PortfolioShowcase = () => {
           </TabsContent>
 
           <TabsContent value="mobile">
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
               {mobileApps.map((project) => (
                 <ProjectCard key={project.id} project={project} isMobile />
               ))}
