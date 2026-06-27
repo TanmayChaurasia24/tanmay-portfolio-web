@@ -3,7 +3,8 @@ import React, { useRef, useEffect } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { Mail, Phone, MapPin, MessageCircle } from 'lucide-react';
+import { Button } from '@/components/ui/button';
+import { Mail, Phone, MapPin, MessageCircle, Calendar } from 'lucide-react';
 import portfolioData from '../data/portfolio.json';
 import SocialLinks from './SocialLinks';
 
@@ -127,8 +128,30 @@ const Contact = () => {
             </CardContent>
           </Card>
 
-          {/* Social Links & Message */}
+          {/* Social Links, Calendar & Message */}
           <div className="space-y-6">
+            {/* Calendar Booking Card */}
+            <Card className="glass-card border-primary/30 bg-gradient-to-br from-primary/10 via-background to-background overflow-hidden relative">
+              <div className="absolute top-0 left-0 w-1.5 h-full bg-primary" />
+              <CardHeader>
+                <CardTitle className="text-2xl font-bold flex items-center gap-3">
+                  <Calendar className="h-6 w-6 text-primary" />
+                  Book a Discovery Call
+                </CardTitle>
+              </CardHeader>
+              <CardContent>
+                <p className="text-foreground/80 mb-6 leading-relaxed text-sm sm:text-base">
+                  Ready to discuss your project? Pick a convenient time on my calendar for a free 30-minute discovery consultation.
+                </p>
+                <Button size="lg" className="w-full professional-gradient text-white font-semibold h-12 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-0.5" asChild>
+                  <a href={portfolioData.personal.calendarUrl} target="_blank" rel="noopener noreferrer">
+                    <Calendar className="h-5 w-5 mr-2" />
+                    Schedule on Cal.com
+                  </a>
+                </Button>
+              </CardContent>
+            </Card>
+
             <Card className="glass-card">
               <CardHeader>
                 <CardTitle className="text-2xl font-bold">Connect With Me</CardTitle>

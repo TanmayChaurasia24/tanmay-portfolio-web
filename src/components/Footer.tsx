@@ -1,7 +1,7 @@
-
 import React from 'react';
-import { ArrowUp } from 'lucide-react';
+import { ArrowUp, Calendar } from 'lucide-react';
 import SocialLinks from './SocialLinks';
+import portfolioData from '../data/portfolio.json';
 
 const Footer = () => {
   const scrollToTop = () => {
@@ -25,12 +25,23 @@ const Footer = () => {
           <h3 className="text-2xl font-bold mb-2">Tanmay Kumar Chaurasia</h3>
           <p className="mb-4 text-white/80">Freelance Web & Mobile App Developer</p>
           
-          <p className="text-lg font-medium mb-6">
-            Have a project in mind?{' '}
-            <a href="#contact" className="underline underline-offset-4 hover:text-white/90 transition-colors">
-              Let's work together →
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-8 mt-6">
+            <a
+              href={portfolioData.personal.calendarUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 px-6 py-3 bg-white text-purple-950 font-semibold rounded-xl shadow-lg hover:bg-white/90 transition-all duration-200 hover:-translate-y-0.5 text-base"
+            >
+              <Calendar className="h-5 w-5 text-purple-700" />
+              Book a Discovery Call
             </a>
-          </p>
+            <a
+              href="#contact"
+              className="inline-flex items-center gap-2 px-6 py-3 bg-transparent border-2 border-white/50 text-white font-semibold rounded-xl hover:bg-white/10 transition-all duration-200 hover:-translate-y-0.5 text-base"
+            >
+              Send a Message →
+            </a>
+          </div>
           
           <div className="mb-8">
             <SocialLinks />

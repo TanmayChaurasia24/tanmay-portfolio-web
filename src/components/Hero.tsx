@@ -2,7 +2,7 @@ import React, { useRef, useEffect } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { Button } from "@/components/ui/button";
-import { ChevronDown } from "lucide-react";
+import { ChevronDown, Calendar } from "lucide-react";
 import SocialLinks from "./SocialLinks";
 import portfolioData from "../data/portfolio.json";
 
@@ -150,12 +150,13 @@ const Hero = () => {
             {ctaPrimary}
           </Button>
 
-          <a href="#contact">
+          <a href={portfolioData.personal.calendarUrl} target="_blank" rel="noopener noreferrer">
             <Button
               size="lg"
               variant="outline"
-              className="px-8 py-6 text-base font-semibold border-2 hover:bg-accent hover:text-accent-foreground transition-all duration-300 hover:-translate-y-1"
+              className="px-8 py-6 text-base font-semibold border-2 hover:bg-accent hover:text-accent-foreground transition-all duration-300 hover:-translate-y-1 flex items-center gap-2"
             >
+              <Calendar className="h-5 w-5 text-primary" />
               {ctaSecondary}
             </Button>
           </a>

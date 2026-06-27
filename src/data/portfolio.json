@@ -8,7 +8,8 @@
     "location": "India",
     "bio": "I design and develop high-performance web and mobile applications for startups, brands, and businesses. From landing pages to full-stack SaaS platforms — I handle the entire stack so you can focus on growing your business.",
     "avatar": "",
-    "resume": "https://drive.google.com/file/d/1NSZEuoYvxj-P_KfPpxg_zbTacAHzjTOF/view"
+    "resume": "https://drive.google.com/file/d/1NSZEuoYvxj-P_KfPpxg_zbTacAHzjTOF/view",
+    "calendarUrl": "https://cal.com/tammm2026"
   },
   "navLinks": [
     { "name": "Home", "href": "#home" },
@@ -25,7 +26,7 @@
     "subtitle": "Web & Mobile development for startups, brands, and entrepreneurs.",
     "description": "From landing pages to full-stack SaaS platforms and mobile apps — I handle design, frontend, backend, and launch. Premium quality, clean code, on-time delivery.",
     "ctaPrimary": "See My Work",
-    "ctaSecondary": "Get a Free Quote",
+    "ctaSecondary": "Book a Discovery Call",
     "stats": [
       { "value": "12+", "label": "Apps Built" },
       { "value": "3+", "label": "Happy Clients" },
