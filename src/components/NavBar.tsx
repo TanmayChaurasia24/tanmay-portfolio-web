@@ -143,7 +143,8 @@ const NavBar: React.FC<NavBarProps> = ({
                 { number: "05", name: "Services", href: "#services" },
                 { number: "06", name: "Skills", href: "#skills" },
                 { number: "07", name: "Client Reviews", href: "#testimonials" },
-                { number: "08", name: "Contact & Booking", href: "#contact" },
+                { number: "08", name: "Pricing & Scope", href: "#pricing" },
+                { number: "09", name: "Contact & Booking", href: "#contact" },
               ].map((item) => (
                 <button
                   key={item.href}

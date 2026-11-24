@@ -9,8 +9,7 @@ import AIAutomation from "../components/AIAutomation";
 import Services from "../components/Services";
 import Skills from "../components/Skills";
 import FreelanceClients from "../components/FreelanceClients";
-// import Pricing from "../components/Pricing";
-import HowItWorks from "../components/HowItWorks";
+import Pricing from "../components/Pricing";
 import Contact from "../components/Contact";
 import Footer from "../components/Footer";
 import FloatingDock from "../components/FloatingDock";
@@ -52,13 +51,10 @@ const Index = () => {
       {/* Section 06: Verified Client Reviews */}
       <FreelanceClients />
 
-      {/* Section 07: Pricing (commented out for now) */}
-      {/* <Pricing /> */}
+      {/* Section 07: Pricing & Custom Scope ("Let's Discuss on a Call") */}
+      <Pricing />
 
-      {/* Section 08: Process & How It Works */}
-      <HowItWorks />
-
-      {/* Section 09: Contact & Booking */}
+      {/* Section 08: Contact & Booking */}
       <Contact />
 
       {/* Minimal Editorial Footer */}

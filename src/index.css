@@ -243,6 +243,33 @@ section {
   transform: translateY(0);
 }
 
+/* Tech Stack Bubble Animations */
+@keyframes bubble-float {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-5px) rotate(0.8deg);
+  }
+}
+
+@keyframes bubble-float-alt {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-7px) rotate(-1deg);
+  }
+}
+
+.animate-bubble-float {
+  animation: bubble-float 3.5s ease-in-out infinite;
+}
+
+.animate-bubble-float-alt {
+  animation: bubble-float-alt 4s ease-in-out infinite;
+}
+
 /* Reduce motion for accessibility */
 @media (prefers-reduced-motion: reduce) {
   *,

@@ -8,6 +8,7 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
+import { MovingBorderCard } from "@/components/ui/moving-border";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import {
@@ -150,6 +151,36 @@ const WorkflowSchematicPlaceholder = ({
   );
 };
 
+const CARD_THEMES: Record<
+  string,
+  { gradient: string; duration: number; offset: number }
+> = {
+  "lead-capture": {
+    gradient:
+      "bg-[radial-gradient(circle_at_center,rgba(99,102,241,1)_0%,rgba(56,189,248,0.85)_35%,rgba(79,70,229,0.45)_65%,transparent_80%)]",
+    duration: 3800,
+    offset: 0,
+  },
+  "rag-chatbot": {
+    gradient:
+      "bg-[radial-gradient(circle_at_center,rgba(20,241,149,0.95)_0%,rgba(6,182,212,0.85)_35%,rgba(16,185,129,0.45)_65%,transparent_80%)]",
+    duration: 4200,
+    offset: 1400,
+  },
+  "linkedin-automation": {
+    gradient:
+      "bg-[radial-gradient(circle_at_center,rgba(56,189,248,1)_0%,rgba(129,140,248,0.85)_35%,rgba(37,99,235,0.45)_65%,transparent_80%)]",
+    duration: 3600,
+    offset: 2600,
+  },
+  "blog-publishing": {
+    gradient:
+      "bg-[radial-gradient(circle_at_center,rgba(217,70,239,0.95)_0%,rgba(168,85,247,0.85)_35%,rgba(244,63,94,0.45)_65%,transparent_80%)]",
+    duration: 4400,
+    offset: 3500,
+  },
+};
+
 const AIAutomation = () => {
   const sectionRef = useRef<HTMLElement>(null);
   const titleRef = useRef<HTMLDivElement>(null);
@@ -260,10 +291,21 @@ const AIAutomation = () => {
             const hasArticle = !isPlaceholderUrl(project.media?.articleUrl);
             const hasWorkflowImg = !isPlaceholderUrl(project.media?.workflowImage);
 
+            const theme = CARD_THEMES[project.id] || {
+              gradient:
+                "bg-[radial-gradient(circle_at_center,rgba(99,102,241,1)_0%,rgba(56,189,248,0.85)_35%,transparent_80%)]",
+              duration: 4000,
+              offset: 0,
+            };
+
             return (
-              <Card
+              <MovingBorderCard
                 key={project.id}
-                className="border border-border/70 bg-card hover:border-border hover:shadow-md transition-all duration-200 flex flex-col justify-between overflow-hidden rounded-xl"
+                duration={theme.duration}
+                initialOffset={theme.offset}
+                gradientClassName={theme.gradient}
+                containerClassName="hover:shadow-lg transition-all duration-300"
+                className="flex flex-col justify-between"
               >
                 <div>
                   {/* Visual Top: Real Screenshot or Clean Schematic Placeholder */}
@@ -420,7 +462,7 @@ const AIAutomation = () => {
                     <ArrowRight className="h-3.5 w-3.5" />
                   </Button>
                 </div>
-              </Card>
+              </MovingBorderCard>
             );
           })}
         </div>
