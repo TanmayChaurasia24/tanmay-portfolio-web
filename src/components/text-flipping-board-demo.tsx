@@ -3,11 +3,11 @@ import React, { useState, useEffect, useCallback } from "react";
 import { TextFlippingBoard } from "@/components/ui/text-flipping-board";
 
 const MESSAGES: string[] = [
-  "STAY HUNGRY \nSTAY IN BED \n- STEVE JOBS",
-  "What did you get done this week?",
-  "I burned $20 \nfor this shit.",
-  "DONT WORRY \nBE HAPPY FFS.",
-  "LADIES AND GENTLEMEN \nWELCOME TO F#!@# C!@$",
+  "EAT, CODE, SHIP \nand REPEAT \n- TANMAY",
+  "Who needs garden when\n you have github? \n- TANMAY",
+  "I burned 4 hours \n for this shit. \n  -TANMAY",
+  "Eat 5 star and \n do everything \n -TANMAY",
+  "LADIES AND GENTLEMEN \nWELCOME TO F#!@# C!@$ \n  -TANMAY",
 ];
 
 export default function TextFlippingBoardDemo() {
