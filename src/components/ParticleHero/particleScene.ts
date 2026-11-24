@@ -56,11 +56,12 @@ export class ParticleScene {
       canvas,
       alpha: true,
       antialias: false,
+      premultipliedAlpha: false,
       powerPreference: "high-performance",
     });
     this.renderer.setPixelRatio(this.dpr);
     this.renderer.setSize(this.width, this.height, false);
-    this.renderer.setClearColor(CONFIG.BG_COLOR, 1);
+    this.renderer.setClearColor(0x000000, 0);
 
     // Scene
     this.scene = new THREE.Scene();

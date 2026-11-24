@@ -61,13 +61,42 @@ const ParticleHero: React.FC<ParticleHeroProps> = ({ onMenuOpen }) => {
   const [sceneReady, setSceneReady] = useState(false);
   const [showCursor, setShowCursor] = useState(false);
   const cursorRef = useRef<HTMLDivElement>(null);
+  const colorPortraitRef = useRef<HTMLDivElement>(null);
+  const isMouseInsideRef = useRef(false);
   const cursorPos = useRef({ x: -100, y: -100 });
   const cursorSmooth = useRef({ x: -100, y: -100 });
   const cursorRaf = useRef<number | null>(null);
 
+  const layoutRef = useRef({
+    portraitW: 0,
+    portraitH: 0,
+    offsetX: 0,
+    offsetY: 0,
+  });
+  const scrollProgressRef = useRef(0);
+
+  const updatePortraitLayout = useCallback(() => {
+    const h = window.innerHeight;
+    const w = window.innerWidth;
+    const portraitH = h * CONFIG.PORTRAIT_HEIGHT_RATIO;
+    const portraitW = (portraitH / 1024) * 768;
+    const offsetX = w * (0.5 + CONFIG.PORTRAIT_X_OFFSET) - portraitW / 2;
+    const offsetY = h - portraitH;
+    layoutRef.current = { portraitW, portraitH, offsetX, offsetY };
+
+    if (colorPortraitRef.current) {
+      colorPortraitRef.current.style.width = `${portraitW}px`;
+      colorPortraitRef.current.style.height = `${portraitH}px`;
+      colorPortraitRef.current.style.left = `${offsetX}px`;
+      colorPortraitRef.current.style.top = `${offsetY}px`;
+    }
+  }, []);
+
   /* ── WebGL Scene Setup ────────────────────────────── */
   useEffect(() => {
     if (!canvasRef.current) return;
+
+    updatePortraitLayout();
 
     const scene = new ParticleScene({
       canvas: canvasRef.current,
@@ -77,7 +106,10 @@ const ParticleHero: React.FC<ParticleHeroProps> = ({ onMenuOpen }) => {
     scene.initCamera();
     sceneRef.current = scene;
 
-    const handleResize = () => scene.resize();
+    const handleResize = () => {
+      scene.resize();
+      updatePortraitLayout();
+    };
     window.addEventListener("resize", handleResize);
 
     return () => {
@@ -85,7 +117,7 @@ const ParticleHero: React.FC<ParticleHeroProps> = ({ onMenuOpen }) => {
       scene.dispose();
       sceneRef.current = null;
     };
-  }, []);
+  }, [updatePortraitLayout]);
 
   /* ── Cursor Tracking (canvas + custom dot) ─────── */
   useEffect(() => {
@@ -93,15 +125,18 @@ const ParticleHero: React.FC<ParticleHeroProps> = ({ onMenuOpen }) => {
     if (!hero) return;
 
     const onMouseMove = (e: MouseEvent) => {
-      const rect = hero.getBoundingClientRect();
-      const x = e.clientX - rect.left;
-      const y = e.clientY - rect.top;
-      sceneRef.current?.setMouse(x, y);
+      isMouseInsideRef.current = true;
+      setShowCursor(true);
+      sceneRef.current?.setMouse(e.clientX, e.clientY);
       cursorPos.current = { x: e.clientX, y: e.clientY };
     };
 
-    const onMouseEnter = () => setShowCursor(true);
+    const onMouseEnter = () => {
+      isMouseInsideRef.current = true;
+      setShowCursor(true);
+    };
     const onMouseLeave = () => {
+      isMouseInsideRef.current = false;
       setShowCursor(false);
       sceneRef.current?.clearMouse();
     };
@@ -110,12 +145,13 @@ const ParticleHero: React.FC<ParticleHeroProps> = ({ onMenuOpen }) => {
     const onTouchMove = (e: TouchEvent) => {
       const touch = e.touches[0];
       if (!touch) return;
-      const rect = hero.getBoundingClientRect();
-      const x = touch.clientX - rect.left;
-      const y = touch.clientY - rect.top;
-      sceneRef.current?.setMouse(x, y);
+      isMouseInsideRef.current = true;
+      setShowCursor(true);
+      sceneRef.current?.setMouse(touch.clientX, touch.clientY);
+      cursorPos.current = { x: touch.clientX, y: touch.clientY };
     };
     const onTouchEnd = () => {
+      isMouseInsideRef.current = false;
       sceneRef.current?.clearMouse();
     };
 
@@ -134,14 +170,47 @@ const ParticleHero: React.FC<ParticleHeroProps> = ({ onMenuOpen }) => {
     };
   }, []);
 
-  /* ── Custom cursor animation loop ─────────────── */
+  /* ── Custom cursor animation loop & Spotlight reveal ─── */
   useEffect(() => {
     const animateCursor = () => {
       cursorSmooth.current.x += (cursorPos.current.x - cursorSmooth.current.x) * 0.15;
       cursorSmooth.current.y += (cursorPos.current.y - cursorSmooth.current.y) * 0.15;
+
       if (cursorRef.current) {
-        cursorRef.current.style.transform = `translate(${cursorSmooth.current.x - 5}px, ${cursorSmooth.current.y - 5}px)`;
+        cursorRef.current.style.transform = `translate(${cursorSmooth.current.x - 7}px, ${cursorSmooth.current.y - 7}px)`;
       }
+
+      // Update real colored portrait spotlight mask
+      if (colorPortraitRef.current && layoutRef.current.portraitW > 0) {
+        const cx = cursorSmooth.current.x;
+        const cy = cursorSmooth.current.y;
+        const { portraitW, portraitH, offsetX, offsetY } = layoutRef.current;
+
+        // Check distance to portrait bounding box
+        const dx = Math.max(0, offsetX - cx, cx - (offsetX + portraitW));
+        const dy = Math.max(0, offsetY - cy, cy - (offsetY + portraitH));
+        const dist = Math.sqrt(dx * dx + dy * dy);
+
+        const radius = Math.round(window.innerHeight * CONFIG.CURSOR_RADIUS);
+        const isNearPortrait = dist < radius && isMouseInsideRef.current && scrollProgressRef.current < 0.12;
+
+        if (isNearPortrait) {
+          const relX = cx - offsetX;
+          const relY = cy - offsetY;
+          // Smooth circular lens revealing real colored photo under cursor
+          const mask = `radial-gradient(circle ${radius}px at ${relX}px ${relY}px, #000 40%, rgba(0,0,0,0.55) 70%, transparent 100%)`;
+          colorPortraitRef.current.style.webkitMaskImage = mask;
+          colorPortraitRef.current.style.maskImage = mask;
+          colorPortraitRef.current.style.webkitMaskRepeat = "no-repeat";
+          colorPortraitRef.current.style.maskRepeat = "no-repeat";
+          colorPortraitRef.current.style.webkitMaskSize = "100% 100%";
+          colorPortraitRef.current.style.maskSize = "100% 100%";
+          colorPortraitRef.current.style.opacity = "1";
+        } else {
+          colorPortraitRef.current.style.opacity = "0";
+        }
+      }
+
       cursorRaf.current = requestAnimationFrame(animateCursor);
     };
     cursorRaf.current = requestAnimationFrame(animateCursor);
@@ -215,7 +284,11 @@ const ParticleHero: React.FC<ParticleHeroProps> = ({ onMenuOpen }) => {
           scrub: true,
           onUpdate: (self) => {
             const p = self.progress;
+            scrollProgressRef.current = p;
             sceneRef.current?.setScroll(p);
+            if (colorPortraitRef.current && p > 0.05) {
+              colorPortraitRef.current.style.opacity = "0";
+            }
 
             // Headline on scroll: split into words.
             // Each word moves with a different parallax offset:
@@ -355,10 +428,29 @@ const ParticleHero: React.FC<ParticleHeroProps> = ({ onMenuOpen }) => {
       {/* ── Sticky viewport container ───────────────── */}
       <div className="sticky top-0 left-0 w-full h-screen overflow-hidden" style={{ background: "#101010" }}>
 
-        {/* ── Three.js Canvas ────────────────────────── */}
+        {/* ── Real Colored Portrait (Revealed dynamically under cursor spotlight) ── */}
+        <div
+          ref={colorPortraitRef}
+          className="absolute pointer-events-none select-none z-[12]"
+          style={{
+            position: "absolute",
+            overflow: "hidden",
+            opacity: 0,
+            willChange: "mask-image, -webkit-mask-image, opacity",
+          }}
+        >
+          <img
+            src="/tanmay-cutout.png"
+            alt="Tanmay Kumar"
+            className="w-full h-full object-contain object-bottom pointer-events-none select-none"
+            draggable={false}
+          />
+        </div>
+
+        {/* ── Three.js Particle Canvas (Renders stipple dots ON TOP of colored image) ── */}
         <canvas
           ref={canvasRef}
-          className="absolute inset-0 w-full h-full"
+          className="absolute inset-0 w-full h-full z-10 pointer-events-none"
           style={{ display: "block" }}
         />
 
@@ -374,17 +466,20 @@ const ParticleHero: React.FC<ParticleHeroProps> = ({ onMenuOpen }) => {
         {/* ── Custom cursor ──────────────────────────── */}
         <div
           ref={cursorRef}
-          className="fixed top-0 left-0 pointer-events-none z-50 transition-opacity duration-200"
+          className="fixed top-0 left-0 pointer-events-none z-50 transition-opacity duration-200 flex items-center justify-center"
           style={{
-            width: 10,
-            height: 10,
+            width: 14,
+            height: 14,
             borderRadius: "50%",
-            backgroundColor: "#fff",
-            mixBlendMode: "difference",
+            border: "1.5px solid rgba(255, 255, 255, 0.75)",
+            backgroundColor: "rgba(255, 255, 255, 0.15)",
+            backdropFilter: "blur(2px)",
             opacity: showCursor ? 1 : 0,
             willChange: "transform",
           }}
-        />
+        >
+          <div className="w-1.5 h-1.5 rounded-full bg-white shadow-xs" />
+        </div>
 
         {/* ── HEADER ─────────────────────────────────── */}
         <header

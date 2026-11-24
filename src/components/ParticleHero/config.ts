@@ -40,12 +40,12 @@ export const CONFIG = {
   IDLE_NOISE_SPEED: 0.4,        // speed of noise evolution
 
   /* ── Cursor interaction ──────────────────────────────── */
-  CURSOR_LERP: 0.1,            // smooth factor per frame
-  CURSOR_RADIUS: 0.12,          // fraction of portrait height
-  CURSOR_SIZE_BOOST: 2.8,       // dot scale inside radius
-  CURSOR_BRIGHTNESS: 1.0,       // brightness inside radius (1 = pure white)
-  CURSOR_REPEL: 4.0,            // px displacement away from cursor
-  CURSOR_EASE_BACK: 0.6,        // seconds to ease back to normal
+  CURSOR_LERP: 0.15,           // smooth factor per frame
+  CURSOR_RADIUS: 0.18,         // fraction of portrait height (~160-180px)
+  CURSOR_SIZE_BOOST: 1.0,      // keep natural fine dot size
+  CURSOR_BRIGHTNESS: 0.85,     // balanced brightness
+  CURSOR_REPEL: 0.0,           // zero displacement
+  CURSOR_EASE_BACK: 0.6,       // seconds to ease back to normal
 
   /* ── Scroll dissolve ─────────────────────────────────── */
   SCROLL_RANGE_VH: 250,         // viewport heights of scrub (extended for slow, smooth sync)

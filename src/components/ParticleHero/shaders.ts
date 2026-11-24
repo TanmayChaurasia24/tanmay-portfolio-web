@@ -178,8 +178,6 @@ export const vertexShader = /* glsl */ `
 
     if (uMouseActive > 0.5 && distToCursor < cursorRadiusPx && uReducedMotion < 0.5) {
       cursorInfluence = 1.0 - smoothstep(0.0, cursorRadiusPx, distToCursor);
-      vec2 dir = normalize(pos.xy - uMouse + vec2(0.001));
-      pos.xy += dir * cursorInfluence * uCursorRepel * uDPR;
     }
 
     // ── Size calculation ─────────────────────────────
@@ -187,8 +185,10 @@ export const vertexShader = /* glsl */ `
     float introBoost = mix(uIntroSizeBoost, 1.0, eased);
     float sz = baseSize * introBoost;
 
-    // Cursor boost (lit disc)
-    sz *= mix(1.0, uCursorSizeBoost, cursorInfluence);
+    // Shrink dots under cursor so colored photo shows through with 100% clarity
+    if (uMouseActive > 0.5 && uScroll < 0.15) {
+      sz *= (1.0 - cursorInfluence * 0.90);
+    }
 
     // Compute scroll progress factors for sizing
     float distFactor = clamp((uScroll - 0.10) / 0.42, 0.0, 1.0);
@@ -201,7 +201,11 @@ export const vertexShader = /* glsl */ `
     // ── Alpha / brightness ───────────────────────────
     float alpha = aTone * 0.9;
     alpha *= mix(uIntroBrightnessBoost, 1.0, eased);
-    alpha = mix(alpha, uCursorBrightness, cursorInfluence * 0.7);
+
+    // Make dots completely transparent under cursor so real colored image shows up crystal clear
+    if (uMouseActive > 0.5 && uScroll < 0.15) {
+      alpha *= (1.0 - cursorInfluence);
+    }
 
     // Dots remain visible during distortion
     alpha = mix(alpha, max(0.68, aTone * 0.9), distFactor * (1.0 - nameFactor));
