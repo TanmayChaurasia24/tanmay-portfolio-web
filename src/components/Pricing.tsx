@@ -1,135 +1,176 @@
-import React from "react";
-import { Check } from "lucide-react";
+import React, { useState } from "react";
+import { Check, ArrowRight, Info, Sparkles } from "lucide-react";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import portfolioData from "../data/portfolio.json";
 
-type Plan = {
+type Package = {
   id: string;
   name: string;
-  subtitle?: string;
+  subtitle: string;
   price: string;
   period: string;
   highlight?: boolean;
   badge?: string;
+  projectType: string;
   features: string[];
   cta: string;
 };
 
-const PlanGrid = ({ plans }: { plans: Plan[] }) => (
-  <div className="grid gap-5 sm:gap-6 sm:grid-cols-2 lg:grid-cols-3 max-w-6xl mx-auto">
-    {plans.map((plan) => (
-      <Card
-        key={plan.id}
-        className={`glass-card h-full flex flex-col ${
-          plan.highlight ? "ring-2 ring-primary/50 shadow-lg shadow-primary/10" : ""
-        }`}
-      >
-        <CardHeader className="px-5 sm:px-6 pt-5 sm:pt-6 pb-3">
-          <div className="flex items-start justify-between">
-            <div>
-              {plan.subtitle && (
-                <CardDescription className="mb-1 font-medium text-primary text-xs">
-                  {plan.subtitle}
-                </CardDescription>
-              )}
-              <CardTitle className="text-lg sm:text-xl font-bold">{plan.name}</CardTitle>
-            </div>
-            {plan.badge && (
-              <Badge className="bg-primary text-primary-foreground text-[10px] px-2">{plan.badge}</Badge>
-            )}
-          </div>
-          <div className="mt-3">
-            <span className="text-2xl sm:text-3xl font-bold">{plan.price}</span>
-            <span className="text-xs sm:text-sm text-muted-foreground ml-1">{plan.period}</span>
-          </div>
-        </CardHeader>
-        <CardContent className="flex-grow flex flex-col px-5 sm:px-6 pb-5 sm:pb-6">
-          <ul className="space-y-2.5 mb-6 flex-grow">
-            {plan.features.map((f) => (
-              <li key={f} className="flex items-start gap-2 text-sm">
-                <Check className="h-3.5 w-3.5 text-green-500 mt-0.5 flex-shrink-0" />
-                <span className="text-foreground/80 text-[13px] leading-relaxed">{f}</span>
-              </li>
-            ))}
-          </ul>
-          <Button
-            className={`w-full font-medium h-10 ${
-              plan.highlight ? "professional-gradient text-white shadow-lg hover:shadow-xl" : ""
-            }`}
-            variant={plan.highlight ? "default" : "outline"}
-            asChild
-          >
-            <a href="#contact">{plan.cta}</a>
-          </Button>
-        </CardContent>
-      </Card>
-    ))}
-  </div>
-);
+type PricingCategory = {
+  id: string;
+  name: string;
+  packages: Package[];
+};
 
 const Pricing = () => {
-  const { subtitle, title, description, web, mobile } = portfolioData.pricing;
+  const pricingData = portfolioData.pricing;
+  const categories: PricingCategory[] = pricingData.categories || [];
+  const [selectedCategory, setSelectedCategory] = useState<string>(
+    categories[0]?.id || "web"
+  );
+
+  const handleSelectPackage = (projectType: string) => {
+    window.dispatchEvent(
+      new CustomEvent("select-project-type", { detail: { projectType } })
+    );
+    document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" });
+  };
 
   return (
-    <section id="pricing" className="py-20 sm:py-24 px-4 sm:px-6 bg-background">
-      <div className="max-w-7xl mx-auto">
-        <div className="text-center mb-14">
-          <span className="text-sm font-semibold text-primary uppercase tracking-wider">{subtitle}</span>
-          <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mt-3 mb-4 solana-gradient-text">
-            {title}
+    <section id="pricing" className="py-20 sm:py-24 px-4 sm:px-6 lg:px-8 border-t border-border/40">
+      <div className="max-w-6xl mx-auto">
+        {/* Header */}
+        <div className="text-center mb-12">
+          <Badge variant="outline" className="text-xs font-semibold uppercase tracking-wider mb-3 px-3 py-1">
+            {pricingData.subtitle}
+          </Badge>
+          <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-foreground mb-4">
+            {pricingData.title}
           </h2>
           <p className="text-base sm:text-lg text-muted-foreground max-w-2xl mx-auto">
-            {description}
+            {pricingData.description}
           </p>
         </div>
 
-        <Tabs defaultValue="web" className="w-full">
-          <div className="flex justify-center mb-8">
-            <TabsList>
-              <TabsTrigger value="web">Web Apps</TabsTrigger>
-              <TabsTrigger value="mobile">Mobile Apps</TabsTrigger>
+        {/* Category Tabs */}
+        <Tabs
+          value={selectedCategory}
+          onValueChange={setSelectedCategory}
+          className="w-full"
+        >
+          <div className="flex justify-center mb-10 overflow-x-auto pb-2">
+            <TabsList className="h-auto p-1 bg-muted/80 flex-wrap justify-center gap-1">
+              {categories.map((cat) => (
+                <TabsTrigger
+                  key={cat.id}
+                  value={cat.id}
+                  className="text-xs sm:text-sm font-medium py-2 px-3 sm:px-4 rounded-md data-[state=active]:bg-background data-[state=active]:text-foreground data-[state=active]:shadow-xs"
+                >
+                  {cat.name}
+                </TabsTrigger>
+              ))}
             </TabsList>
           </div>
 
-          <TabsContent value="web">
-            <div className="space-y-10">
-              <div>
-                <h3 className="text-2xl font-bold text-center mb-4">New Development</h3>
-                <PlanGrid plans={web.newDevelopment} />
-              </div>
-              <div>
-                <h3 className="text-2xl font-bold text-center mb-4">Maintenance</h3>
-                <PlanGrid plans={web.maintenance} />
-              </div>
-            </div>
-          </TabsContent>
+          {categories.map((cat) => (
+            <TabsContent key={cat.id} value={cat.id} className="mt-0 focus-visible:outline-hidden">
+              <div
+                className={`grid gap-6 ${
+                  cat.packages.length === 2
+                    ? "grid-cols-1 md:grid-cols-2 max-w-3xl mx-auto"
+                    : "grid-cols-1 md:grid-cols-3"
+                }`}
+              >
+                {cat.packages.map((pkg) => (
+                  <Card
+                    key={pkg.id}
+                    className={`border relative flex flex-col justify-between rounded-xl overflow-hidden transition-all duration-200 ${
+                      pkg.highlight
+                        ? "border-primary/60 bg-card shadow-md ring-1 ring-primary/20"
+                        : "border-border/70 bg-card/80 hover:border-border"
+                    }`}
+                  >
+                    {pkg.badge && (
+                      <div className="absolute top-0 right-0 bg-primary text-primary-foreground text-[10px] font-bold px-3 py-1 rounded-bl-lg uppercase tracking-wider">
+                        {pkg.badge}
+                      </div>
+                    )}
 
-          <TabsContent value="mobile">
-            <div className="space-y-10">
-              <div>
-                <h3 className="text-2xl font-bold text-center mb-4">New Development</h3>
-                <PlanGrid plans={mobile.newDevelopment} />
+                    <CardHeader className="p-6 pb-4">
+                      <p className="text-xs font-medium text-primary mb-1">
+                        {pkg.subtitle}
+                      </p>
+                      <CardTitle className="text-xl font-bold text-foreground">
+                        {pkg.name}
+                      </CardTitle>
+
+                      <div className="mt-4 flex items-baseline gap-1.5">
+                        <span className="text-2xl sm:text-3xl font-bold tracking-tight text-foreground">
+                          {pkg.price}
+                        </span>
+                        <span className="text-xs text-muted-foreground uppercase font-medium">
+                          {pkg.period}
+                        </span>
+                      </div>
+                    </CardHeader>
+
+                    <CardContent className="p-6 pt-2 flex flex-col justify-between flex-grow">
+                      <div className="mb-6">
+                        <div className="h-px bg-border/50 my-3" />
+                        <ul className="space-y-2.5">
+                          {pkg.features.map((feature, idx) => (
+                            <li
+                              key={idx}
+                              className="flex items-start gap-2.5 text-xs sm:text-sm text-foreground/85"
+                            >
+                              <Check className="h-3.5 w-3.5 text-emerald-500 shrink-0 mt-0.5" />
+                              <span className="leading-snug">{feature}</span>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+
+                      <Button
+                        variant={pkg.highlight ? "default" : "outline"}
+                        onClick={() => handleSelectPackage(pkg.projectType)}
+                        className="w-full text-xs font-semibold h-10 gap-1.5 shadow-2xs"
+                      >
+                        <span>{pkg.cta}</span>
+                        <ArrowRight className="h-3.5 w-3.5" />
+                      </Button>
+                    </CardContent>
+                  </Card>
+                ))}
               </div>
-              <div>
-                <h3 className="text-2xl font-bold text-center mb-4">Maintenance</h3>
-                <PlanGrid plans={mobile.maintenance} />
-              </div>
-            </div>
-          </TabsContent>
+            </TabsContent>
+          ))}
         </Tabs>
 
-        {/* Custom Solution Banner */}
-        <div className="mt-16 bg-gradient-to-r from-primary/10 via-background to-accent/10 border border-border rounded-2xl p-8 sm:p-10 text-center max-w-4xl mx-auto shadow-lg relative overflow-hidden">
-          <div className="absolute top-0 left-0 w-2 h-full bg-primary" />
-          <h3 className="text-2xl sm:text-3xl font-bold mb-3 solana-gradient-text">Need a Custom Solution?</h3>
-          <p className="text-muted-foreground mb-6 max-w-2xl mx-auto text-base sm:text-lg leading-relaxed">
-            All pricing plans are fully flexible and can be tailored to your specific business goals, budget, and timeline. If you want a customized feature set or a unique package, let's connect and discuss!
+        {/* Transparent Disclaimer Box */}
+        <div className="mt-12 p-4 sm:p-5 rounded-xl border border-border/60 bg-muted/30 flex items-start gap-3 max-w-4xl mx-auto">
+          <Info className="h-4 w-4 text-primary shrink-0 mt-0.5" />
+          <div className="text-xs text-muted-foreground leading-relaxed">
+            <p className="font-semibold text-foreground mb-0.5">Transparent Terms</p>
+            <p>{pricingData.disclaimer}</p>
+          </div>
+        </div>
+
+        {/* Custom Quote CTA Banner */}
+        <div className="mt-8 text-center">
+          <p className="text-sm text-muted-foreground mb-3">
+            Looking for a specific multi-system integration or customized scope?
           </p>
-          <Button size="lg" className="professional-gradient text-white font-semibold px-8 h-12 text-base shadow-md hover:shadow-lg transition-all duration-300 hover:-translate-y-0.5" asChild>
-            <a href="#contact">Let's Connect</a>
+          <Button
+            variant="outline"
+            size="sm"
+            onClick={() => handleSelectPackage("Other")}
+            className="font-semibold text-xs h-9 px-5 gap-1.5"
+          >
+            <Sparkles className="h-3.5 w-3.5 text-primary" />
+            <span>Get a Custom Quote</span>
           </Button>
         </div>
       </div>

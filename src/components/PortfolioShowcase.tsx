@@ -9,15 +9,32 @@ import {
 } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { ExternalLink, ChevronLeft, ChevronRight, Monitor, Smartphone } from "lucide-react";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTitle,
+} from "@/components/ui/dialog";
+import {
+  ExternalLink,
+  ChevronLeft,
+  ChevronRight,
+  BookOpen,
+  Layers,
+  Sparkles,
+  CheckCircle2,
+  AlertCircle,
+  TrendingUp,
+} from "lucide-react";
 import portfolioData from "../data/portfolio.json";
 
 gsap.registerPlugin(ScrollTrigger);
 
-type ShowcaseProject = {
+export type ShowcaseProject = {
   id: string;
   name: string;
+  category?: string;
   description: string;
   caseStudy?: {
     problem: string;
@@ -26,11 +43,20 @@ type ShowcaseProject = {
   };
   technologies: string[];
   screenshots: string[];
-  live: string;
+  live?: string;
+  github?: string;
 };
 
-const ProjectImageCarousel = ({ screenshots, name }: { screenshots: string[]; name: string }) => {
+const ProjectCarousel = ({ screenshots, name }: { screenshots: string[]; name: string }) => {
   const [current, setCurrent] = useState(0);
+
+  if (!screenshots || screenshots.length === 0) {
+    return (
+      <div className="aspect-[16/10] bg-muted/50 rounded-t-xl flex items-center justify-center text-muted-foreground text-xs">
+        No preview available
+      </div>
+    );
+  }
 
   const prev = (e: React.MouseEvent) => {
     e.stopPropagation();
@@ -42,47 +68,50 @@ const ProjectImageCarousel = ({ screenshots, name }: { screenshots: string[]; na
   };
 
   return (
-    <div className="relative group/carousel">
-      <div className="aspect-[16/10] bg-muted rounded-t-xl overflow-hidden">
+    <div className="relative group/carousel overflow-hidden rounded-t-xl">
+      <div className="aspect-[16/10] bg-muted overflow-hidden relative">
         <img
           src={screenshots[current]}
           alt={`${name} screenshot ${current + 1}`}
-          className="w-full h-full object-cover object-top transition-all duration-500 group-hover/carousel:scale-[1.02]"
+          className="w-full h-full object-cover object-top transition-transform duration-500 group-hover/carousel:scale-[1.02]"
           loading="lazy"
+          onError={(e) => {
+            // Graceful fallback for broken image
+            (e.target as HTMLElement).style.display = "none";
+          }}
         />
-        {/* Subtle gradient overlay at bottom for dots visibility */}
-        <div className="absolute bottom-0 left-0 right-0 h-16 bg-gradient-to-t from-black/40 to-transparent pointer-events-none" />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent pointer-events-none opacity-40 group-hover/carousel:opacity-70 transition-opacity" />
       </div>
 
       {screenshots.length > 1 && (
         <>
           <button
             onClick={prev}
-            className="absolute left-3 top-1/2 -translate-y-1/2 p-2 rounded-full bg-background/90 backdrop-blur-sm border border-border/50 shadow-lg opacity-0 group-hover/carousel:opacity-100 transition-all duration-200 hover:bg-background hover:scale-110"
-            aria-label="Previous screenshot"
+            className="absolute left-2.5 top-1/2 -translate-y-1/2 p-1.5 rounded-full bg-background/80 backdrop-blur-sm border border-border/60 shadow-md opacity-0 group-hover/carousel:opacity-100 transition-all hover:bg-background"
+            aria-label="Previous image"
           >
-            <ChevronLeft className="h-4 w-4" />
+            <ChevronLeft className="h-3.5 w-3.5 text-foreground" />
           </button>
           <button
             onClick={next}
-            className="absolute right-3 top-1/2 -translate-y-1/2 p-2 rounded-full bg-background/90 backdrop-blur-sm border border-border/50 shadow-lg opacity-0 group-hover/carousel:opacity-100 transition-all duration-200 hover:bg-background hover:scale-110"
-            aria-label="Next screenshot"
+            className="absolute right-2.5 top-1/2 -translate-y-1/2 p-1.5 rounded-full bg-background/80 backdrop-blur-sm border border-border/60 shadow-md opacity-0 group-hover/carousel:opacity-100 transition-all hover:bg-background"
+            aria-label="Next image"
           >
-            <ChevronRight className="h-4 w-4" />
+            <ChevronRight className="h-3.5 w-3.5 text-foreground" />
           </button>
 
-          {/* Dots */}
-          <div className="absolute bottom-3 left-1/2 -translate-x-1/2 flex gap-1.5 z-10">
+          <div className="absolute bottom-2.5 left-1/2 -translate-x-1/2 flex gap-1 z-10">
             {screenshots.map((_, i) => (
               <button
                 key={i}
-                onClick={(e) => { e.stopPropagation(); setCurrent(i); }}
-                className={`h-1.5 rounded-full transition-all duration-300 ${
-                  i === current
-                    ? "bg-white w-5 shadow-md"
-                    : "bg-white/50 w-1.5 hover:bg-white/80"
+                onClick={(e) => {
+                  e.stopPropagation();
+                  setCurrent(i);
+                }}
+                className={`h-1 rounded-full transition-all duration-300 ${
+                  i === current ? "bg-white w-4" : "bg-white/40 w-1 hover:bg-white/70"
                 }`}
-                aria-label={`Go to screenshot ${i + 1}`}
+                aria-label={`Go to slide ${i + 1}`}
               />
             ))}
           </div>
@@ -91,138 +120,12 @@ const ProjectImageCarousel = ({ screenshots, name }: { screenshots: string[]; na
     </div>
   );
 };
-
-const MobileImageCarousel = ({ screenshots, name }: { screenshots: string[]; name: string }) => {
-  const [current, setCurrent] = useState(0);
-
-  const prev = (e: React.MouseEvent) => {
-    e.stopPropagation();
-    setCurrent((c) => (c === 0 ? screenshots.length - 1 : c - 1));
-  };
-  const next = (e: React.MouseEvent) => {
-    e.stopPropagation();
-    setCurrent((c) => (c === screenshots.length - 1 ? 0 : c + 1));
-  };
-
-  return (
-    <div className="relative group/carousel flex justify-center py-8">
-      {/* Phone frame */}
-      <div className="relative">
-        <div className="w-[200px] h-[420px] rounded-[2.5rem] border-[6px] border-foreground/15 bg-black overflow-hidden shadow-2xl shadow-primary/10 ring-1 ring-foreground/5">
-          {/* Notch */}
-          <div className="absolute top-0 left-1/2 -translate-x-1/2 w-24 h-6 bg-black rounded-b-2xl z-20" />
-          <img
-            src={screenshots[current]}
-            alt={`${name} screen ${current + 1}`}
-            className="w-full h-full object-cover transition-all duration-500"
-            loading="lazy"
-          />
-        </div>
-      </div>
-
-      {screenshots.length > 1 && (
-        <>
-          <button
-            onClick={prev}
-            className="absolute left-4 sm:left-8 top-1/2 -translate-y-1/2 p-2 rounded-full bg-background/90 backdrop-blur-sm border border-border/50 shadow-lg opacity-0 group-hover/carousel:opacity-100 transition-all duration-200 hover:bg-background hover:scale-110"
-            aria-label="Previous screen"
-          >
-            <ChevronLeft className="h-4 w-4" />
-          </button>
-          <button
-            onClick={next}
-            className="absolute right-4 sm:right-8 top-1/2 -translate-y-1/2 p-2 rounded-full bg-background/90 backdrop-blur-sm border border-border/50 shadow-lg opacity-0 group-hover/carousel:opacity-100 transition-all duration-200 hover:bg-background hover:scale-110"
-            aria-label="Next screen"
-          >
-            <ChevronRight className="h-4 w-4" />
-          </button>
-
-          <div className="absolute bottom-2 left-1/2 -translate-x-1/2 flex gap-1.5">
-            {screenshots.map((_, i) => (
-              <button
-                key={i}
-                onClick={(e) => { e.stopPropagation(); setCurrent(i); }}
-                className={`h-1.5 rounded-full transition-all duration-300 ${
-                  i === current
-                    ? "bg-primary w-5 shadow-md"
-                    : "bg-primary/30 w-1.5 hover:bg-primary/60"
-                }`}
-                aria-label={`Go to screen ${i + 1}`}
-              />
-            ))}
-          </div>
-        </>
-      )}
-    </div>
-  );
-};
-
-const ProjectCard = ({ project, isMobile = false }: { project: ShowcaseProject; isMobile?: boolean }) => (
-  <Card className="group glass-card h-full flex flex-col overflow-hidden">
-    {isMobile ? (
-      <MobileImageCarousel screenshots={project.screenshots} name={project.name} />
-    ) : (
-      <ProjectImageCarousel screenshots={project.screenshots} name={project.name} />
-    )}
-    <div className="p-5 sm:p-6 flex flex-col flex-grow">
-      <CardTitle className="text-xl font-bold mb-3 group-hover:text-primary transition-colors">
-        {project.name}
-      </CardTitle>
-
-      {project.caseStudy ? (
-        <div className="space-y-3 mb-6 flex-grow text-[13px] leading-relaxed">
-          <div className="bg-muted/40 p-3 rounded-lg border border-border/40">
-            <span className="font-bold text-foreground block mb-1 text-xs uppercase tracking-wider text-red-500/90">The Problem</span>
-            <span className="text-muted-foreground">{project.caseStudy.problem}</span>
-          </div>
-          <div className="bg-muted/40 p-3 rounded-lg border border-border/40">
-            <span className="font-bold text-foreground block mb-1 text-xs uppercase tracking-wider text-blue-500/90">What I Did</span>
-            <span className="text-muted-foreground">{project.caseStudy.solution}</span>
-          </div>
-          <div className="bg-primary/5 p-3 rounded-lg border border-primary/20">
-            <span className="font-bold text-primary block mb-1 text-xs uppercase tracking-wider">The Outcome</span>
-            <span className="text-foreground/90 font-medium">{project.caseStudy.outcome}</span>
-          </div>
-        </div>
-      ) : (
-        <CardDescription className="text-muted-foreground mb-6 flex-grow text-sm leading-relaxed">
-          {project.description}
-        </CardDescription>
-      )}
-
-      <div className="flex flex-wrap gap-1.5 mb-5">
-        {project.technologies.map((tech, index) => (
-          <Badge key={index} variant="secondary" className="text-[11px] font-medium px-2 py-0.5">
-            {tech}
-          </Badge>
-        ))}
-      </div>
-
-      <div className="mt-auto">
-        {project.live && project.live.length > 0 ? (
-          <Button
-            size="sm"
-            className="w-full professional-gradient text-white font-medium h-10"
-            asChild
-          >
-            <a href={project.live} target="_blank" rel="noopener noreferrer">
-              <ExternalLink className="h-3.5 w-3.5 mr-1.5" />
-              View Live
-            </a>
-          </Button>
-        ) : (
-          <div className="h-10" /> 
-        )}
-      </div>
-    </div>
-  </Card>
-);
 
 const PortfolioShowcase = () => {
   const sectionRef = useRef<HTMLElement>(null);
-  const titleRef = useRef<HTMLHeadingElement>(null);
-
-  const { webApps, mobileApps } = portfolioData.portfolioShowcase;
+  const titleRef = useRef<HTMLDivElement>(null);
+  const [activeCategory, setActiveCategory] = useState<string>("All");
+  const [selectedCaseStudy, setSelectedCaseStudy] = useState<ShowcaseProject | null>(null);
 
   useEffect(() => {
     const prefersReducedMotion = window.matchMedia(
@@ -251,62 +154,258 @@ const PortfolioShowcase = () => {
     return () => ctx.revert();
   }, []);
 
+  const webProjects: ShowcaseProject[] = portfolioData.portfolioShowcase.webApps || [];
+  const mobileProjects: ShowcaseProject[] = portfolioData.portfolioShowcase.mobileApps || [];
+  const allProjects: ShowcaseProject[] = [...webProjects, ...mobileProjects];
+
+  const categories = ["All", "Web Applications", "Mobile Applications", "Backend & APIs"];
+
+  const filteredProjects = allProjects.filter((project) => {
+    if (activeCategory === "All") return true;
+    if (activeCategory === "Web Applications") {
+      return webProjects.some((p) => p.id === project.id);
+    }
+    if (activeCategory === "Mobile Applications") {
+      return mobileProjects.some((p) => p.id === project.id);
+    }
+    if (activeCategory === "Backend & APIs") {
+      // Projects that heavily involve backend services, databases, or API infrastructure
+      const backendTechs = ["Node.js", "Express", "Prisma", "PostgreSQL", "MongoDB", "Supabase"];
+      return project.technologies.some((tech) => backendTechs.includes(tech));
+    }
+    return true;
+  });
+
   return (
-    <section id="portfolio" ref={sectionRef} className="py-20 sm:py-24 px-4 sm:px-6 bg-background">
+    <section id="projects" ref={sectionRef} className="py-24 sm:py-32 px-4 sm:px-6 lg:px-8 border-t border-border/40">
       <div className="max-w-7xl mx-auto">
-        <div className="text-center mb-14">
-          <span className="text-sm font-semibold text-primary uppercase tracking-wider">
-            My Work & Case Studies
-          </span>
-          <h2
-            ref={titleRef}
-            className="font-heading text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mt-3 mb-4 solana-gradient-text"
-          >
-            Portfolio Showcase
+        {/* Top Section Index Bar */}
+        <div className="flex items-center justify-between text-xs font-mono text-muted-foreground uppercase tracking-widest pb-8 border-b border-border/50 mb-12 sm:mb-16">
+          <div className="flex items-center gap-4">
+            <span className="font-bold text-foreground">(03)</span>
+            <span>FEATURED WORK</span>
+          </div>
+          <span>Production Web & Mobile Applications</span>
+        </div>
+
+        {/* Header */}
+        <div ref={titleRef} className="text-center mb-12">
+          <Badge variant="outline" className="text-xs font-semibold uppercase tracking-wider mb-3 px-3 py-1">
+            Engineered Work
+          </Badge>
+          <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-foreground mb-4">
+            Featured Projects & Applications
           </h2>
           <p className="text-base sm:text-lg text-muted-foreground max-w-2xl mx-auto">
-            Real projects I've designed and built — showcasing the problem, solution, and business outcome.
+            Production web platforms, mobile applications, and backend systems built with modern engineering standards.
           </p>
         </div>
 
-        <Tabs defaultValue="web" className="w-full">
-          <div className="flex justify-center mb-10">
-            <TabsList className="bg-muted/50 p-1.5 rounded-xl h-auto">
-              <TabsTrigger
-                value="web"
-                className="px-5 sm:px-6 py-2.5 text-sm font-semibold rounded-lg data-[state=active]:bg-background data-[state=active]:shadow-sm flex items-center gap-2"
-              >
-                <Monitor className="h-4 w-4" />
-                Web Apps
-                <Badge variant="secondary" className="ml-1 text-[10px] px-1.5 py-0 h-5">{webApps.length}</Badge>
-              </TabsTrigger>
-              <TabsTrigger
-                value="mobile"
-                className="px-5 sm:px-6 py-2.5 text-sm font-semibold rounded-lg data-[state=active]:bg-background data-[state=active]:shadow-sm flex items-center gap-2"
-              >
-                <Smartphone className="h-4 w-4" />
-                Mobile Apps
-                <Badge variant="secondary" className="ml-1 text-[10px] px-1.5 py-0 h-5">{mobileApps.length}</Badge>
-              </TabsTrigger>
-            </TabsList>
-          </div>
+        {/* Category Filters */}
+        <div className="flex flex-wrap items-center justify-center gap-2 mb-12">
+          {categories.map((cat) => (
+            <Button
+              key={cat}
+              variant={activeCategory === cat ? "default" : "outline"}
+              size="sm"
+              onClick={() => setActiveCategory(cat)}
+              className="text-xs sm:text-sm font-medium h-9 rounded-lg transition-all"
+            >
+              {cat}
+            </Button>
+          ))}
+        </div>
 
-          <TabsContent value="web">
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
-              {webApps.map((project) => (
-                <ProjectCard key={project.id} project={project} />
-              ))}
-            </div>
-          </TabsContent>
+        {/* Projects Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-7">
+          {filteredProjects.map((project) => {
+            const isMobile = mobileProjects.some((p) => p.id === project.id);
+            const isBackend = project.technologies.some((tech) =>
+              ["Node.js", "Express", "Prisma", "PostgreSQL", "MongoDB"].includes(tech)
+            );
 
-          <TabsContent value="mobile">
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
-              {mobileApps.map((project) => (
-                <ProjectCard key={project.id} project={project} isMobile />
-              ))}
-            </div>
-          </TabsContent>
-        </Tabs>
+            return (
+              <Card
+                key={project.id}
+                className="group border border-border/70 bg-card hover:border-border hover:shadow-md transition-all duration-200 flex flex-col justify-between overflow-hidden rounded-xl"
+              >
+                <div>
+                  <ProjectCarousel screenshots={project.screenshots} name={project.name} />
+
+                  <CardContent className="p-5 sm:p-6">
+                    {/* Category Label */}
+                    <div className="flex items-center justify-between gap-2 mb-2.5">
+                      <Badge variant="secondary" className="text-[11px] font-medium px-2 py-0.5">
+                        {isMobile ? "Mobile App" : isBackend ? "Full-Stack Web" : "Web App"}
+                      </Badge>
+                      {project.live && (
+                        <span className="inline-flex items-center gap-1 text-[11px] text-emerald-600 dark:text-emerald-400 font-medium">
+                          <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
+                          Live In Production
+                        </span>
+                      )}
+                    </div>
+
+                    <CardTitle className="text-xl font-bold text-foreground mb-2 group-hover:text-primary transition-colors">
+                      {project.name}
+                    </CardTitle>
+
+                    <CardDescription className="text-xs sm:text-sm text-muted-foreground line-clamp-3 mb-4 leading-relaxed">
+                      {project.description}
+                    </CardDescription>
+
+                    {/* Tech Badges */}
+                    <div className="flex flex-wrap gap-1.5 mb-5">
+                      {project.technologies.map((tech) => (
+                        <span
+                          key={tech}
+                          className="px-2 py-0.5 rounded-md text-[11px] font-medium bg-muted text-muted-foreground border border-border/40"
+                        >
+                          {tech}
+                        </span>
+                      ))}
+                    </div>
+                  </CardContent>
+                </div>
+
+                {/* Footer Buttons */}
+                <div className="p-5 sm:p-6 pt-0 border-t border-border/30 mt-auto flex items-center gap-2">
+                  {project.caseStudy && (
+                    <Button
+                      variant="outline"
+                      size="sm"
+                      onClick={() => setSelectedCaseStudy(project)}
+                      className="text-xs font-semibold flex-1 h-9 gap-1.5"
+                    >
+                      <BookOpen className="h-3.5 w-3.5" />
+                      <span>Case Study</span>
+                    </Button>
+                  )}
+
+                  {project.live && (
+                    <Button
+                      size="sm"
+                      asChild
+                      className="text-xs font-semibold flex-1 h-9 gap-1.5"
+                    >
+                      <a href={project.live} target="_blank" rel="noopener noreferrer">
+                        <span>Live Demo</span>
+                        <ExternalLink className="h-3.5 w-3.5" />
+                      </a>
+                    </Button>
+                  )}
+                </div>
+              </Card>
+            );
+          })}
+        </div>
+
+        {/* Case Study Modal Dialog */}
+        <Dialog open={!!selectedCaseStudy} onOpenChange={(open) => !open && setSelectedCaseStudy(null)}>
+          {selectedCaseStudy && (
+            <DialogContent className="max-w-2xl max-h-[90vh] overflow-y-auto p-6 sm:p-8">
+              <DialogHeader className="mb-4">
+                <div className="flex items-center gap-2 mb-2">
+                  <Badge variant="outline" className="text-xs">
+                    {selectedCaseStudy.category || "Case Study"}
+                  </Badge>
+                  {selectedCaseStudy.live && (
+                    <a
+                      href={selectedCaseStudy.live}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-xs text-primary hover:underline inline-flex items-center gap-1 font-medium"
+                    >
+                      <span>Visit Live Application</span>
+                      <ExternalLink className="h-3 w-3" />
+                    </a>
+                  )}
+                </div>
+                <DialogTitle className="font-heading text-2xl sm:text-3xl font-bold">
+                  {selectedCaseStudy.name}
+                </DialogTitle>
+                <DialogDescription className="text-sm text-muted-foreground mt-1">
+                  {selectedCaseStudy.description}
+                </DialogDescription>
+              </DialogHeader>
+
+              {/* Technologies */}
+              <div className="mb-6">
+                <p className="text-xs font-semibold text-foreground uppercase tracking-wider mb-2">
+                  Technology Stack
+                </p>
+                <div className="flex flex-wrap gap-1.5">
+                  {selectedCaseStudy.technologies.map((tech) => (
+                    <span
+                      key={tech}
+                      className="px-2.5 py-1 rounded-md text-xs font-medium bg-muted text-foreground border border-border/50"
+                    >
+                      {tech}
+                    </span>
+                  ))}
+                </div>
+              </div>
+
+              {/* Problem / Solution / Outcome Breakdown */}
+              {selectedCaseStudy.caseStudy && (
+                <div className="space-y-4">
+                  <div className="p-4 rounded-xl border border-red-500/20 bg-red-500/5 dark:bg-red-950/20">
+                    <div className="flex items-center gap-2 text-red-600 dark:text-red-400 font-semibold text-sm mb-1.5">
+                      <AlertCircle className="h-4 w-4" />
+                      <h4>The Problem</h4>
+                    </div>
+                    <p className="text-xs sm:text-sm text-foreground/90 leading-relaxed">
+                      {selectedCaseStudy.caseStudy.problem}
+                    </p>
+                  </div>
+
+                  <div className="p-4 rounded-xl border border-blue-500/20 bg-blue-500/5 dark:bg-blue-950/20">
+                    <div className="flex items-center gap-2 text-blue-600 dark:text-blue-400 font-semibold text-sm mb-1.5">
+                      <CheckCircle2 className="h-4 w-4" />
+                      <h4>The Engineering Solution</h4>
+                    </div>
+                    <p className="text-xs sm:text-sm text-foreground/90 leading-relaxed">
+                      {selectedCaseStudy.caseStudy.solution}
+                    </p>
+                  </div>
+
+                  <div className="p-4 rounded-xl border border-emerald-500/20 bg-emerald-500/5 dark:bg-emerald-950/20">
+                    <div className="flex items-center gap-2 text-emerald-600 dark:text-emerald-400 font-semibold text-sm mb-1.5">
+                      <TrendingUp className="h-4 w-4" />
+                      <h4>Business Outcome</h4>
+                    </div>
+                    <p className="text-xs sm:text-sm text-foreground/90 leading-relaxed">
+                      {selectedCaseStudy.caseStudy.outcome}
+                    </p>
+                  </div>
+                </div>
+              )}
+
+              {/* Screenshots preview */}
+              {selectedCaseStudy.screenshots && selectedCaseStudy.screenshots.length > 0 && (
+                <div className="mt-6 pt-6 border-t border-border/60">
+                  <p className="text-xs font-semibold text-foreground uppercase tracking-wider mb-3">
+                    Project Gallery
+                  </p>
+                  <div className="grid grid-cols-2 gap-2">
+                    {selectedCaseStudy.screenshots.slice(0, 4).map((shot, idx) => (
+                      <img
+                        key={idx}
+                        src={shot}
+                        alt={`${selectedCaseStudy.name} preview ${idx + 1}`}
+                        className="rounded-lg border border-border/50 object-cover w-full h-28"
+                        loading="lazy"
+                        onError={(e) => {
+                          (e.target as HTMLElement).style.display = "none";
+                        }}
+                      />
+                    ))}
+                  </div>
+                </div>
+              )}
+            </DialogContent>
+          )}
+        </Dialog>
       </div>
     </section>
   );

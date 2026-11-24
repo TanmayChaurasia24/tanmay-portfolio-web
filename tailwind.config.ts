@@ -122,6 +122,7 @@ export default {
         'float': 'float 3s ease-in-out infinite',
         'pulse-soft': 'pulse-soft 3s ease-in-out infinite',
         'rotate-slow': 'rotate-slow 8s linear infinite',
+        'spin-slow': 'rotate-slow 20s linear infinite',
         'wave': 'wave 2.5s ease-in-out infinite',
 			},
       fontFamily: {

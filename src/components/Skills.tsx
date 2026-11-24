@@ -1,75 +1,45 @@
-
-import React, { useRef, useEffect } from 'react';
-import { gsap } from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { Badge } from '@/components/ui/badge';
-import { 
-  Monitor, 
-  Server, 
-  Blocks, 
-  Wrench,
-  Code,
+import React, { useRef, useEffect } from "react";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
+import {
+  Monitor,
+  Server,
   Database,
-  Coins,
-  GitBranch,
+  Smartphone,
+  Cpu,
   Cloud,
-  Palette,
-  Smartphone
-} from 'lucide-react';
-import portfolioData from '../data/portfolio.json';
+  Layers,
+} from "lucide-react";
+import portfolioData from "../data/portfolio.json";
 
 gsap.registerPlugin(ScrollTrigger);
 
+const categoryIcons: Record<string, React.ComponentType<{ className?: string }>> = {
+  Frontend: Monitor,
+  Backend: Server,
+  Database: Database,
+  Mobile: Smartphone,
+  "AI & Automation": Cpu,
+  "DevOps & Cloud": Cloud,
+};
+
 const Skills = () => {
   const sectionRef = useRef<HTMLElement>(null);
-  const titleRef = useRef<HTMLHeadingElement>(null);
+  const titleRef = useRef<HTMLDivElement>(null);
   const skillsRef = useRef<HTMLDivElement>(null);
 
-  // Icon mapping for categories
-  const categoryIcons = {
-    'Frontend': Monitor,
-    'Backend': Server,
-    'Mobile': Smartphone,
-    'Blockchain': Blocks,
-    'Tools': Wrench,
-    'Devops': Cloud
-  };
-
-  // Icon mapping for individual skills
-  const skillIcons: { [key: string]: React.ComponentType<any> } = {
-    'React': Code,
-    'Next.js': Code,
-    'TypeScript': Code,
-    'JavaScript': Code,
-    'Tailwind CSS': Palette,
-    'Node.js': Server,
-    'Express': Server,
-    'Python': Code,
-    'PostgreSQL': Database,
-    'MongoDB': Database,
-    'Solana': Coins,
-    'Web3.js': Coins,
-    'Anchor Framework': Coins,
-    'Rust': Code,
-    'Smart Contracts': Coins,
-    'Git': GitBranch,
-    'Docker': Cloud,
-    'AWS': Cloud,
-    'Vercel': Cloud,
-    'Figma': Palette
-  };
-
   useEffect(() => {
-    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    
-    if (prefersReducedMotion) {
-      return;
-    }
+    const prefersReducedMotion = window.matchMedia(
+      "(prefers-reduced-motion: reduce)"
+    ).matches;
+
+    if (prefersReducedMotion) return;
 
     const ctx = gsap.context(() => {
-      // Optimized title animation
-      gsap.fromTo(titleRef.current, 
+      gsap.fromTo(
+        titleRef.current,
         { opacity: 0, y: 30 },
         {
           opacity: 1,
@@ -78,27 +48,27 @@ const Skills = () => {
           scrollTrigger: {
             trigger: titleRef.current,
             start: "top 85%",
-            toggleActions: "play none none none"
-          }
+            toggleActions: "play none none none",
+          },
         }
       );
 
-      // Optimized skills cards animation
       const skillCards = skillsRef.current?.children;
       if (skillCards) {
-        gsap.fromTo(skillCards,
+        gsap.fromTo(
+          skillCards,
           { opacity: 0, y: 30 },
           {
             opacity: 1,
             y: 0,
             duration: 0.5,
-            stagger: 0.08,
+            stagger: 0.1,
             ease: "power2.out",
             scrollTrigger: {
               trigger: skillsRef.current,
               start: "top 85%",
-              toggleActions: "play none none none"
-            }
+              toggleActions: "play none none none",
+            },
           }
         );
       }
@@ -108,52 +78,62 @@ const Skills = () => {
   }, []);
 
   return (
-    <section id="skills" ref={sectionRef} className="py-20 sm:py-24 px-4 sm:px-6 bg-muted/30">
-      <div className="max-w-7xl mx-auto">
-        <div className="text-center mb-14">
-          <span className="text-sm font-semibold text-primary uppercase tracking-wider">Expertise</span>
-          <h2 
-            ref={titleRef}
-            className="font-heading text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mt-3 mb-4 solana-gradient-text"
-          >
-            Skills & Technologies
+    <section id="skills" ref={sectionRef} className="py-24 sm:py-32 px-4 sm:px-6 lg:px-8 border-t border-border/40 bg-muted/20">
+      <div className="max-w-6xl mx-auto">
+        {/* Top Section Index Bar */}
+        <div className="flex items-center justify-between text-xs font-mono text-muted-foreground uppercase tracking-widest pb-8 border-b border-border/50 mb-12 sm:mb-16">
+          <div className="flex items-center gap-4">
+            <span className="font-bold text-foreground">(05)</span>
+            <span>TECH STACK</span>
+          </div>
+          <span>Frontend, Backend, DevOps & AI</span>
+        </div>
+
+        <div ref={titleRef} className="text-center mb-14">
+          <Badge variant="outline" className="text-xs font-semibold uppercase tracking-wider mb-3 px-3 py-1">
+            Tech Stack
+          </Badge>
+          <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-foreground mb-4">
+            Technical Skills & Technologies
           </h2>
           <p className="text-base sm:text-lg text-muted-foreground max-w-2xl mx-auto">
-            Modern tech stack and tools I use to build exceptional digital experiences
+            Tools, languages, frameworks, and automation platforms I work with in production.
           </p>
         </div>
-        
-        <div ref={skillsRef} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6 max-w-7xl mx-auto">
-          {portfolioData.skills.map((skillCategory, index) => {
-            const CategoryIcon = categoryIcons[skillCategory.category as keyof typeof categoryIcons] || Code;
-            
+
+        <div
+          ref={skillsRef}
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"
+        >
+          {portfolioData.skills.map((skillGroup) => {
+            const Icon = categoryIcons[skillGroup.category] || Layers;
+
             return (
-              <Card key={index} className="glass-card group hover:border-primary/30 transition-all">
-                <CardHeader>
-                  <div className="flex items-center justify-center mb-3 p-3 bg-primary/10 rounded-xl w-fit mx-auto group-hover:bg-primary/20 transition-colors">
-                    <CategoryIcon className="h-7 w-7 text-primary" />
+              <Card
+                key={skillGroup.category}
+                className="border border-border/70 bg-card hover:border-border transition-colors shadow-xs"
+              >
+                <CardHeader className="pb-3">
+                  <div className="flex items-center gap-2.5">
+                    <div className="p-2 rounded-lg bg-primary/10 text-primary">
+                      <Icon className="h-4 w-4" />
+                    </div>
+                    <CardTitle className="text-base font-semibold text-foreground">
+                      {skillGroup.category}
+                    </CardTitle>
                   </div>
-                  <CardTitle className="text-lg font-bold text-center">
-                    {skillCategory.category}
-                  </CardTitle>
                 </CardHeader>
-                
+
                 <CardContent>
-                  <div className="flex flex-wrap gap-2 justify-center">
-                    {skillCategory.items.map((skill, skillIndex) => {
-                      const SkillIcon = skillIcons[skill] || Code;
-                      
-                      return (
-                        <Badge 
-                          key={skillIndex} 
-                          variant="secondary" 
-                          className="hover:bg-primary/10 hover:text-primary hover:border-primary/20 transition-all cursor-default flex items-center gap-1.5 px-3 py-1"
-                        >
-                          <SkillIcon className="h-3 w-3" />
-                          <span className="text-xs font-medium">{skill}</span>
-                        </Badge>
-                      );
-                    })}
+                  <div className="flex flex-wrap gap-2">
+                    {skillGroup.items.map((skill) => (
+                      <span
+                        key={skill}
+                        className="px-2.5 py-1 rounded-md text-xs font-medium bg-muted/80 text-foreground border border-border/50 hover:border-primary/50 transition-colors"
+                      >
+                        {skill}
+                      </span>
+                    ))}
                   </div>
                 </CardContent>
               </Card>

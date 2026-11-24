@@ -1,99 +1,71 @@
-import React, { useEffect } from 'react';
-import { gsap } from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import NavBar from '../components/NavBar';
-import Hero from '../components/Hero';
-import PortfolioShowcase from '../components/PortfolioShowcase';
-import Services from '../components/Services';
-import Skills from '../components/Skills';
-import FreelanceClients from '../components/FreelanceClients';
-import Pricing from '../components/Pricing';
-import HowItWorks from '../components/HowItWorks';
-import Contact from '../components/Contact';
-import Footer from '../components/Footer';
-import BackgroundFX from "../components/BackgroundFX";
-import CustomCursor from "../components/CustomCursor";
+import React, { useEffect, useState } from "react";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import ParticleHero from "../components/ParticleHero";
+import NavBar from "../components/NavBar";
+import About from "../components/About";
+import PortfolioShowcase from "../components/PortfolioShowcase";
+import AIAutomation from "../components/AIAutomation";
+import Services from "../components/Services";
+import Skills from "../components/Skills";
+import FreelanceClients from "../components/FreelanceClients";
+// import Pricing from "../components/Pricing";
+import HowItWorks from "../components/HowItWorks";
+import Contact from "../components/Contact";
+import Footer from "../components/Footer";
+import FloatingDock from "../components/FloatingDock";
 
 const Index = () => {
-  // Initialize GSAP plugins with performance optimizations
+  const [menuOpen, setMenuOpen] = useState(false);
+
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
-    
-    // Configure ScrollTrigger for better performance
-    ScrollTrigger.config({
-      limitCallbacks: true,
-      syncInterval: 150,
-    });
-    
-    // Reduce motion for users who prefer it
-    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    
-    if (!prefersReducedMotion) {
-      // Only add parallax effects on desktop and if user doesn't prefer reduced motion
-      ScrollTrigger.matchMedia({
-        "(min-width: 1024px)": function() {
-          // Simplified parallax effect with better performance
-          const sections = document.querySelectorAll('section');
-          sections.forEach((section) => {
-            const background = section.querySelector('.background');
-            if (background) {
-              gsap.to(background, {
-                y: '20%',
-                ease: 'none',
-                scrollTrigger: {
-                  trigger: section,
-                  start: 'top bottom',
-                  end: 'bottom top',
-                  scrub: 1,
-                  invalidateOnRefresh: true
-                }
-              });
-            }
-          });
-        }
-      });
-    }
-    
+
     return () => {
-      // Clean up ScrollTrigger instances
-      ScrollTrigger.getAll().forEach(t => t.kill());
+      ScrollTrigger.getAll().forEach((t) => t.kill());
     };
   }, []);
 
   return (
-    <div id="home" className="min-h-screen relative">
-      <NavBar />
+    <div className="min-h-screen relative bg-background text-foreground selection:bg-[#4f46e5]/20 selection:text-[#4f46e5]">
+      {/* Hidden NavBar — only used for the Sheet menu drawer */}
+      <NavBar menuOpen={menuOpen} setMenuOpen={setMenuOpen} />
 
-      {/* Global background and cursor effects */}
-      <BackgroundFX />
-      <CustomCursor />
+      {/* Particle Portrait Hero (200vh — includes scroll dissolve) */}
+      <ParticleHero onMenuOpen={() => setMenuOpen(true)} />
 
-      {/* Hero Section */}
-      <Hero />
+      {/* Section 01: About Me with Rotating Circular Stamp */}
+      <About />
 
-      {/* Portfolio Showcase */}
+      {/* Section 02: What I Do (Full-Stack, AI Automations, RAG, DevOps wireframes) */}
+      <Services />
+
+      {/* Section 03: Featured Projects */}
       <PortfolioShowcase />
 
-      {/* Services Section */}
-      <Services />
-      
-      {/* Skills Section */}
+      {/* Section 04: AI & Workflow Automation Showcase */}
+      <AIAutomation />
+
+      {/* Section 05: Tech Stack & Skills */}
       <Skills />
 
-      {/* Testimonials Section */}
+      {/* Section 06: Verified Client Reviews */}
       <FreelanceClients />
 
-      {/* Pricing Section */}
-      <Pricing />
+      {/* Section 07: Pricing (commented out for now) */}
+      {/* <Pricing /> */}
 
-      {/* How It Works Section */}
+      {/* Section 08: Process & How It Works */}
       <HowItWorks />
 
-      {/* Contact Section */}
+      {/* Section 09: Contact & Booking */}
       <Contact />
 
-      {/* Footer */}
+      {/* Minimal Editorial Footer */}
       <Footer />
+
+      {/* Floating Bottom Center Dock & Floating Menu Toggle (for below-hero sections) */}
+      <FloatingDock onOpenMenu={() => setMenuOpen(true)} />
     </div>
   );
 };

@@ -70,7 +70,15 @@ const Projects = () => {
     return () => ctx.revert();
   }, []);
 
-  const renderCard = (project: any) => (
+  const renderCard = (project: {
+    id: string | number;
+    title: string;
+    description: string;
+    image: string;
+    technologies: string[];
+    github?: string;
+    live?: string;
+  }) => (
     <Card
       key={project.id}
       className="group glass-card max-w-sm w-full mx-auto h-full flex flex-col"

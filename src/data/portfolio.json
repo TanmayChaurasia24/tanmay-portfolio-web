@@ -1,36 +1,72 @@
 {
   "personal": {
-    "name": "Tanmay Kumar Chaurasia",
-    "title": "Freelance Web & Mobile App Developer",
-    "subtitle": "Building Premium Apps for Startups & Brands",
+    "name": "Tanmay Kumar",
+    "fullName": "Tanmay Kumar Chaurasia",
+    "title": "Software Engineer & AI Automation Developer",
+    "subtitle": "Building Full-Stack Applications & Autonomous AI Workflows",
     "email": "tanmaykumar.kanpur@gmail.com",
     "phone": "+91-7985764433",
     "location": "India",
-    "bio": "I design and develop high-performance web and mobile applications for startups, brands, and businesses. From landing pages to full-stack SaaS platforms — I handle the entire stack so you can focus on growing your business.",
+    "bio": "I am a Software Engineer and AI Automation Developer who builds end-to-end web applications, robust backend APIs, and production AI workflow automations. Whether creating SaaS MVPs from scratch or automating operational bottlenecks using n8n and RAG systems, I turn complex business problems into reliable, working software.",
     "avatar": "",
     "resume": "https://drive.google.com/file/d/1NSZEuoYvxj-P_KfPpxg_zbTacAHzjTOF/view",
     "calendarUrl": "https://cal.com/tammm2026"
   },
   "navLinks": [
     { "name": "Home", "href": "#home" },
-    { "name": "Portfolio", "href": "#portfolio" },
+    { "name": "About", "href": "#about" },
+    { "name": "Projects", "href": "#projects" },
+    { "name": "AI Automation", "href": "#ai-automation" },
     { "name": "Services", "href": "#services" },
     { "name": "Skills", "href": "#skills" },
-    { "name": "Testimonials", "href": "#testimonials" },
-    { "name": "Pricing", "href": "#pricing" },
     { "name": "Contact", "href": "#contact" }
   ],
   "hero": {
-    "tagline": "Freelance · Web & Mobile Apps",
-    "heading": "I build apps that grow your business.",
-    "subtitle": "Web & Mobile development for startups, brands, and entrepreneurs.",
-    "description": "From landing pages to full-stack SaaS platforms and mobile apps — I handle design, frontend, backend, and launch. Premium quality, clean code, on-time delivery.",
-    "ctaPrimary": "See My Work",
-    "ctaSecondary": "Book a Discovery Call",
-    "stats": [
-      { "value": "12+", "label": "Apps Built" },
-      { "value": "3+", "label": "Happy Clients" },
-      { "value": "100%", "label": "On-Time Delivery" }
+    "badge": "Software Engineer · Full-Stack · AI Automation",
+    "heading": "I build software and automate the work behind your business.",
+    "subtitle": "I help startups and businesses build web applications, backend systems, and AI-powered automations that simplify operations and turn ideas into working products.",
+    "ctaPrimary": "View My Work",
+    "ctaSecondary": "Let's Discuss Your Project",
+    "pillars": [
+      {
+        "title": "Full-Stack Development",
+        "description": "Production-grade React, Next.js, and TypeScript applications with clean architectures."
+      },
+      {
+        "title": "AI & Workflow Automation",
+        "description": "Custom n8n workflows, RAG assistants, and intelligent API orchestrations."
+      },
+      {
+        "title": "Backend & Cloud Architecture",
+        "description": "Robust REST APIs, secure databases, Docker containerization, and AWS deployments."
+      }
+    ]
+  },
+  "about": {
+    "title": "About Me",
+    "subtitle": "Engineering Reliable Software & Scalable Automations",
+    "description": "I work at the intersection of full-stack software engineering and AI workflow automation. My focus is on building practical, high-impact digital solutions — whether that means engineering a responsive web application from the ground up, constructing secure backend APIs, or automating critical business workflows using n8n and generative AI.",
+    "highlights": [
+      {
+        "icon": "code",
+        "title": "Full-Stack Development",
+        "description": "Modern frontend architectures using React, Next.js, and TypeScript paired with responsive, accessible user interfaces."
+      },
+      {
+        "icon": "server",
+        "title": "Backend & API Engineering",
+        "description": "Scalable REST APIs and backend services built with Node.js, Express, Go, PostgreSQL, and MongoDB."
+      },
+      {
+        "icon": "bot",
+        "title": "AI & Workflow Automation",
+        "description": "End-to-end n8n workflow pipelines, RAG-based knowledge retrieval, and intelligent task automation."
+      },
+      {
+        "icon": "cloud",
+        "title": "Cloud Infrastructure & DevOps",
+        "description": "Containerized setups with Docker, Nginx reverse proxies, AWS infrastructure, and reliable CI/CD pipelines."
+      }
     ]
   },
   "social": [
@@ -74,22 +110,49 @@
         "Node.js",
         "Express",
         "Golang",
-        "kafka",
-        "Pub Subs",
-        "Message queues"
+        "Kafka",
+        "Pub/Sub",
+        "Message Queues"
       ]
     },
     {
       "category": "Database",
-      "items": ["PostgreSQL", "MongoDB", "Mongoose", "Prisma", "Firebase"]
+      "items": [
+        "PostgreSQL",
+        "MongoDB",
+        "Mongoose",
+        "Prisma",
+        "Firebase"
+      ]
     },
     {
       "category": "Mobile",
-      "items": ["React Native", "Expo", "iOS", "Android"]
+      "items": [
+        "React Native",
+        "Expo",
+        "iOS",
+        "Android"
+      ]
     },
     {
-      "category": "Devops",
-      "items": ["Docker", "Nginx", "CI/CD", "Jenkins", "AWS"]
+      "category": "AI & Automation",
+      "items": [
+        "n8n",
+        "RAG",
+        "AI API Integrations",
+        "Workflow Automation",
+        "AI Agents"
+      ]
+    },
+    {
+      "category": "DevOps & Cloud",
+      "items": [
+        "Docker",
+        "Nginx",
+        "CI/CD",
+        "Jenkins",
+        "AWS"
+      ]
     }
   ],
   "portfolioShowcase": {
@@ -97,11 +160,12 @@
       {
         "id": "tanforge",
         "name": "TanForge",
+        "category": "Web Applications",
         "description": "A developer tools platform with a modern dark UI, providing code generation and productivity utilities for developers.",
         "caseStudy": {
           "problem": "Developers were wasting hours switching between scattered online utilities, formatting tools, and snippet generators, disrupting their workflow.",
-          "solution": "Built a unified, blazing-fast developer productivity suite with a sleek dark UI, custom code generation pipelines, and local caching.",
-          "outcome": "Boosted daily workflow efficiency by 40%, giving developers a single reliable workspace for all daily utility needs."
+          "solution": "Built a unified developer productivity suite with a sleek dark UI, custom code generation pipelines, and local caching.",
+          "outcome": "Improved daily developer workflow efficiency with a single reliable workspace for common utility needs."
         },
         "technologies": ["React", "TypeScript", "Tailwind CSS", "Node.js"],
         "screenshots": [
@@ -110,16 +174,18 @@
           "/freelance/web-apps/tanforge/tanforge-3.png",
           "/freelance/web-apps/tanforge/tanforge-4.png"
         ],
-        "live": ""
+        "live": "",
+        "github": ""
       },
       {
         "id": "achiverr",
         "name": "Achiverr",
-        "description": "AI-powered goal-setting and tracking platform with smart roadmaps, helping users increase goal completion rates.",
+        "category": "Web Applications",
+        "description": "AI-powered goal-setting and tracking platform with smart roadmaps, helping users break down milestones and track progress.",
         "caseStudy": {
-          "problem": "Traditional goal-setting apps lacked actionable guidance, leaving users overwhelmed by big milestones and leading to an 80% drop-off rate.",
-          "solution": "Integrated GenAI to automatically break down high-level goals into bite-sized, daily roadmap milestones with automated progress tracking.",
-          "outcome": "Increased user goal completion rates by 3.5x and significantly boosted daily active engagement through AI-generated encouragement."
+          "problem": "Traditional goal-setting tools lacked actionable guidance, leaving users overwhelmed by big milestones and leading to high abandonment rates.",
+          "solution": "Integrated generative AI to break down high-level goals into bite-sized, daily roadmap milestones with automated progress tracking.",
+          "outcome": "Delivered an intuitive roadmap generator that keeps users engaged with structured, achievable goals."
         },
         "technologies": ["React", "Prisma", "PostgreSQL", "TypeScript", "Express", "GenAI", "Supabase"],
         "screenshots": [
@@ -128,16 +194,18 @@
           "/freelance/web-apps/achiverr/achiverr-3.png",
           "/freelance/web-apps/achiverr/achiverr-4.png"
         ],
-        "live": "https://achiverr.vercel.app/"
+        "live": "https://achiverr.vercel.app/",
+        "github": ""
       },
       {
         "id": "redefine",
         "name": "Redefine Gaming",
+        "category": "Web Applications",
         "description": "Immersive gaming landing page with 3D visuals, scroll-driven animations, and cinematic UI built with Three.js and GSAP.",
         "caseStudy": {
-          "problem": "A premium gaming brand needed an ultra-immersive web presence that stood out from generic templates to captivate hardcore gamers.",
-          "solution": "Developed a breathtaking 3D web experience using Three.js and GSAP, featuring cinematic scroll-driven animations and dynamic lighting.",
-          "outcome": "Achieved a 65% increase in time-on-page and a record high conversion rate for waitlist signups during the launch campaign."
+          "problem": "A gaming brand needed an ultra-immersive web presence that stood out from standard templates to captivate competitive players.",
+          "solution": "Developed a 3D web experience using Three.js and GSAP, featuring cinematic scroll-driven animations and dynamic lighting.",
+          "outcome": "Created an engaging visual experience that significantly enhanced brand immersion and time spent on page."
         },
         "technologies": ["Three.js", "GSAP", "React", "Tailwind CSS"],
         "screenshots": [
@@ -147,16 +215,18 @@
           "/freelance/web-apps/redefine/redefine-4.png",
           "/freelance/web-apps/redefine/redefine-5.png"
         ],
-        "live": "https://redefine-gaming.onrender.com/"
+        "live": "https://redefine-gaming.onrender.com/",
+        "github": ""
       },
       {
         "id": "mangalam_events",
         "name": "Mangalam Events",
+        "category": "Web Applications",
         "description": "Professional landing page for an event management firm with elegant design, service showcase, and booking inquiry flow.",
         "caseStudy": {
-          "problem": "A luxury event management firm relied on word-of-mouth and had an outdated online presence that failed to convey their premium service quality.",
-          "solution": "Designed and engineered an elegant, high-end portfolio showcase with a seamless lead-capture funnel and automated booking inquiry flows.",
-          "outcome": "Generated a 300% increase in qualified inbound digital inquiries and elevated the brand's perceived market value."
+          "problem": "An event management firm needed an updated digital storefront to showcase their portfolio and capture direct client inquiries.",
+          "solution": "Designed and engineered an elegant portfolio showcase with responsive design, service highlights, and a structured booking inquiry funnel.",
+          "outcome": "Established a professional web presence that generates consistent digital client inquiries."
         },
         "technologies": ["React", "TypeScript", "Tailwind CSS"],
         "screenshots": [
@@ -165,16 +235,18 @@
           "/freelance/web-apps/mangalam_events/mangalam_events-3.png",
           "/freelance/web-apps/mangalam_events/mangalam_events-4.png"
         ],
-        "live": "https://manglamevents.onrender.com/"
+        "live": "https://manglamevents.onrender.com/",
+        "github": ""
       },
       {
         "id": "adytan",
         "name": "Adytan",
+        "category": "Web Applications",
         "description": "Complete business website and integrated Shopify store for a brand, with clean product pages, checkout flow, and responsive design.",
         "caseStudy": {
-          "problem": "An emerging brand struggled with poor e-commerce conversion rates due to a clunky checkout flow and slow page loading speeds.",
-          "solution": "Crafted a custom, highly optimized frontend integrated seamlessly with Shopify's robust backend, emphasizing clean typography and fast checkout.",
-          "outcome": "Reduced cart abandonment by 25% and delivered a lightning-fast shopping experience that doubled monthly online revenue."
+          "problem": "An emerging brand needed an integrated e-commerce solution with custom frontend branding and reliable checkout performance.",
+          "solution": "Engineered a custom frontend connected with Shopify's backend, featuring clean typography, fast image rendering, and optimized product navigation.",
+          "outcome": "Provided a seamless shopping experience with simplified product and order management for the business owner."
         },
         "technologies": ["React", "TypeScript", "Tailwind CSS", "Shopify"],
         "screenshots": [
@@ -182,16 +254,18 @@
           "/freelance/web-apps/adytan/adytan-2.png",
           "/freelance/web-apps/adytan/adytan-3.png"
         ],
-        "live": "https://adytan.in/"
+        "live": "https://adytan.in/",
+        "github": ""
       },
       {
         "id": "interfere",
         "name": "Interfere",
+        "category": "Web Applications",
         "description": "Modern corporate website with sleek animations, responsive layout, and professional design tailored for a tech company.",
         "caseStudy": {
-          "problem": "A fast-growing tech enterprise needed a highly professional, modern web identity to attract top-tier enterprise clients and investors.",
-          "solution": "Designed a sleek, corporate UI complete with sophisticated micro-animations, responsive data presentations, and clear conversion paths.",
-          "outcome": "Established strong institutional credibility, directly assisting the firm in securing multiple high-value enterprise contracts."
+          "problem": "A growing technology company required an authoritative digital identity with smooth performance across all device viewports.",
+          "solution": "Developed a corporate web application featuring subtle micro-animations, structured product descriptions, and clear conversion paths.",
+          "outcome": "Delivered a high-performance web experience that elevated the company's brand credibility."
         },
         "technologies": ["React", "TypeScript", "Tailwind CSS"],
         "screenshots": [
@@ -200,16 +274,18 @@
           "/freelance/web-apps/interfere/interfere-3.png",
           "/freelance/web-apps/interfere/interfere-4.png"
         ],
-        "live": "https://interfere.netlify.app/"
+        "live": "https://interfere.netlify.app/",
+        "github": ""
       },
       {
         "id": "vibely",
         "name": "Vibely",
-        "description": "Social events and community platform with vibrant UI, event discovery, interactive feeds, and modern glassmorphism design.",
+        "category": "Web Applications",
+        "description": "Social events and community platform with vibrant UI, event discovery, interactive feeds, and modern design.",
         "caseStudy": {
-          "problem": "Young professionals found it difficult to discover authentic local social events and connect with like-minded community members.",
-          "solution": "Engineered a vibrant, mobile-first web app featuring modern glassmorphism aesthetics, real-time interactive feeds, and smart filtering.",
-          "outcome": "Successfully onboarded thousands of local active users within the first month, creating a highly engaged, self-sustaining community."
+          "problem": "Users needed an intuitive platform to discover local events and interact within dedicated community channels.",
+          "solution": "Engineered a full-stack social web app with responsive layouts, real-time event feeds, and structured MongoDB data schemas.",
+          "outcome": "Built a scalable community platform supporting dynamic event posting, filtering, and social feeds."
         },
         "technologies": ["React", "Node.js", "MongoDB", "Tailwind CSS"],
         "screenshots": [
@@ -220,16 +296,18 @@
           "/freelance/web-apps/vibely/vibely-5.png",
           "/freelance/web-apps/vibely/vibely-6.png"
         ],
-        "live": ""
+        "live": "",
+        "github": ""
       },
       {
         "id": "pizzaexpress",
         "name": "Pizza Express",
-        "description": "Food ordering web app for a pizza restaurant with menu browsing, cart management, order placement, and responsive mobile-first design.",
+        "category": "Web Applications",
+        "description": "Food ordering web app for a restaurant with menu browsing, cart management, order placement, and responsive mobile-first design.",
         "caseStudy": {
-          "problem": "A popular local pizza restaurant was losing up to 30% of their revenue to third-party delivery app commissions and faced customer retention issues.",
-          "solution": "Deployed a robust, custom online ordering platform with an intuitive menu catalog, live cart management, and seamless order checkout.",
-          "outcome": "Eliminated third-party commission fees entirely and boosted repeat customer orders by 45% through a frictionless direct ordering experience."
+          "problem": "A local restaurant required a direct online ordering portal to avoid third-party commissions and streamline order intake.",
+          "solution": "Built a responsive ordering platform with interactive menu filtering, dynamic cart calculations, and backend order processing.",
+          "outcome": "Enabled direct online customer orders with an easy-to-use checkout interface."
         },
         "technologies": ["React", "Node.js", "Express", "MongoDB"],
         "screenshots": [
@@ -238,16 +316,18 @@
           "/freelance/web-apps/pizzaexpress/pizzaexpress-3.png",
           "/freelance/web-apps/pizzaexpress/pizzaexpress-4.png"
         ],
-        "live": ""
+        "live": "",
+        "github": ""
       },
       {
         "id": "pressery",
         "name": "Pressery",
+        "category": "Web Applications",
         "description": "Content publishing and blog platform with rich text editing, article management, and a clean reader-focused interface.",
         "caseStudy": {
-          "problem": "Content creators felt bogged down by bloated, slow legacy CMS platforms that offered poor writing ergonomics and sluggish read times.",
-          "solution": "Developed a lightweight, modern publishing engine with a distraction-free rich text editor, clean typography, and instant server-side rendering.",
-          "outcome": "Improved reader engagement metrics by 50% and provided editors with a lightning-fast publishing workflow that saved hours weekly."
+          "problem": "Writers needed a lightweight publishing tool without the bloat of traditional heavy content management systems.",
+          "solution": "Engineered a streamlined editorial workflow featuring rich text markdown formatting, instant previewing, and a PostgreSQL backend.",
+          "outcome": "Provided a distraction-free writing environment and fast-loading reading experience."
         },
         "technologies": ["React", "TypeScript", "Node.js", "PostgreSQL"],
         "screenshots": [
@@ -256,16 +336,18 @@
           "/freelance/web-apps/pressery/pressery-3.png",
           "/freelance/web-apps/pressery/pressery-4.png"
         ],
-        "live": ""
+        "live": "",
+        "github": ""
       },
       {
         "id": "postspark",
         "name": "PostSpark",
+        "category": "Web Applications",
         "description": "Social media content creation tool with templates, scheduling, and post preview for multiple platforms.",
         "caseStudy": {
-          "problem": "Marketing managers were spending excessive time manually formatting, scheduling, and previewing posts across multiple social platforms individually.",
-          "solution": "Built a centralized content scheduling dashboard featuring live cross-platform UI previews, AI-assisted caption templates, and automated queuing.",
-          "outcome": "Cut weekly social media management time in half for marketing teams, leading to highly positive customer satisfaction scores."
+          "problem": "Content managers struggled with manually drafting and previewing formatting across multiple social networks.",
+          "solution": "Developed a centralized content assistant featuring responsive live UI previews, templates, and structured queue scheduling.",
+          "outcome": "Reduced formatting friction and helped creators draft multi-platform content from a single dashboard."
         },
         "technologies": ["React", "TypeScript", "Tailwind CSS", "Node.js"],
         "screenshots": [
@@ -276,16 +358,18 @@
           "/freelance/web-apps/postspark/postspark-5.png",
           "/freelance/web-apps/postspark/postspark-6.png"
         ],
-        "live": ""
+        "live": "",
+        "github": ""
       },
       {
         "id": "tamfragarences",
         "name": "Tam Fragrances",
+        "category": "Web Applications",
         "description": "Premium e-commerce storefront for a fragrance brand with product catalog, elegant product pages, and a luxury shopping experience.",
         "caseStudy": {
-          "problem": "A luxury fragrance brand needed a digital storefront that mirrored the sensory, high-end experience of a physical boutique.",
-          "solution": "Combined luxurious visual storytelling with an optimized Shopify architecture, implementing smooth image transitions and elegant product layouts.",
-          "outcome": "Elevated average order value (AOV) by 35% and established a highly prestigious online footprint that captivated high-end buyers."
+          "problem": "A boutique fragrance brand required a high-end visual showcase that reflected premium product positioning.",
+          "solution": "Created an elegant storefront integrated with Shopify, featuring high-resolution image galleries and smooth product discovery.",
+          "outcome": "Delivered a visually refined e-commerce site tailored for boutique retail."
         },
         "technologies": ["React", "TypeScript", "Tailwind CSS", "Shopify"],
         "screenshots": [
@@ -295,18 +379,20 @@
           "/freelance/web-apps/tamfragarences/tamfragarences-4.png",
           "/freelance/web-apps/tamfragarences/tamfragarences-5.png"
         ],
-        "live": ""
+        "live": "",
+        "github": ""
       }
     ],
     "mobileApps": [
       {
         "id": "money_management",
         "name": "Money Management",
-        "description": "Personal finance tracker mobile app with expense categorization, budget visualization, income tracking, and beautiful charts.",
+        "category": "Mobile Applications",
+        "description": "Personal finance tracker mobile app with expense categorization, budget visualization, income tracking, and responsive charts.",
         "caseStudy": {
-          "problem": "Existing budgeting apps were cluttered, confusing, and relied on tedious manual data entry, causing users to abandon budget tracking quickly.",
-          "solution": "Built a gorgeous, intuitive React Native mobile application featuring automated expense categorization, beautiful visual analytics, and custom goal alerts.",
-          "outcome": "Achieved a 4.8-star user rating, helping users save an average of 20% more monthly through clear visual financial insights."
+          "problem": "Users found spreadsheet budgeting tedious and existing mobile apps too complex for daily transaction logging.",
+          "solution": "Built a clean React Native mobile app with fast category tagging, monthly budget targets, and visual spending analytics.",
+          "outcome": "Enabled effortless daily transaction entry and clear visual summaries of personal finances on iOS and Android."
         },
         "technologies": ["React Native", "Expo", "TypeScript"],
         "screenshots": [
@@ -317,315 +403,478 @@
           "/freelance/mobile-apps/money_management/money_management-5.png",
           "/freelance/mobile-apps/money_management/money_management-6.png"
         ],
-        "live": ""
+        "live": "",
+        "github": ""
       }
     ]
   },
+  "aiAutomation": [
+    {
+      "id": "lead-capture",
+      "name": "Automated Lead Capture & Qualification Workflow",
+      "badge": "n8n · Inbound Automation",
+      "description": "An automated lead capture and qualification system that collects detailed prospect information across channels, validates inputs, and organizes data for rapid follow-up.",
+      "problem": "Manual lead handling leads to delayed response times, dropped inquiries, and unstructured customer records scattered across disparate channels.",
+      "solution": "Constructed an automated n8n workflow pipeline that receives webhook triggers from forms, validates and normalizes contact details, applies intent rules, pushes real-time alerts to team channels, and syncs structured records directly into Google Sheets and CRM databases.",
+      "outcome": "Eliminates manual entry delay, standardizes prospect qualification data, and alerts the team instantly on new high-intent inquiries.",
+      "technologies": ["n8n", "Webhooks", "Google Sheets API", "Slack API", "Data Enrichment", "Email Automation"],
+      "capabilities": [
+        "Instant webhook ingestion from landing page and contact forms",
+        "Contact format validation and automated data sanitization",
+        "Custom rule-based qualification and routing logic",
+        "Real-time team notification dispatch via Slack and Email",
+        "Structured data persistence into Google Sheets and CRM"
+      ],
+      "media": {
+        "reelUrl": "[ADD_LEAD_CAPTURE_REEL_URL]",
+        "workflowImage": "[ADD_LEAD_CAPTURE_WORKFLOW_IMAGE]",
+        "demoUrl": ""
+      }
+    },
+    {
+      "id": "rag-chatbot",
+      "name": "RAG-Based AI Knowledge Assistant",
+      "badge": "RAG · AI Knowledge Agent",
+      "description": "A retrieval-augmented generation chatbot that indexes custom business knowledge to retrieve verified context and generate accurate, context-aware answers.",
+      "problem": "Standard LLMs frequently hallucinate or fail when asked company-specific questions, while customer support teams waste hours answering repetitive documentation queries.",
+      "solution": "Built a specialized RAG pipeline that processes knowledge base files, generates vector embeddings, queries a vector store for semantic similarity, and feeds relevant passages into language model prompts for accurate, citation-backed answers.",
+      "outcome": "Delivers instant, contextually accurate answers strictly grounded in company documentation, cutting support response times.",
+      "technologies": ["n8n", "OpenAI / Claude API", "Vector Embeddings", "Semantic Search", "LangChain / RAG", "Custom Webhooks"],
+      "capabilities": [
+        "Automated document parsing and semantic text chunking",
+        "Vector embedding generation and indexing in vector database",
+        "Similarity search and context-aware prompt synthesis",
+        "Chatbot conversational interface with streaming responses",
+        "Built-in fallback handling for out-of-scope inquiries"
+      ],
+      "media": {
+        "reelUrl": "[ADD_RAG_CHATBOT_REEL_URL]",
+        "chatbotImage": "[ADD_RAG_CHATBOT_IMAGE]",
+        "workflowImage": "[ADD_RAG_WORKFLOW_IMAGE]",
+        "demoUrl": ""
+      }
+    },
+    {
+      "id": "linkedin-automation",
+      "name": "LinkedIn AI Content Automation",
+      "badge": "n8n Cloud · Social Automation",
+      "description": "An n8n automation workflow that generates structured technical content using AI and publishes it automatically to a LinkedIn profile via official OAuth2 API integration.",
+      "problem": "Writing, formatting, and consistently publishing high-value technical insights on LinkedIn takes hours of manual effort every week.",
+      "solution": "Designed a scheduled n8n workflow that ingests industry topics, invokes AI to generate formatted thought-leadership posts with hooks and hashtags, reviews formatting constraints, and publishes directly to a LinkedIn account using secure official LinkedIn OAuth2 API endpoints.",
+      "outcome": "Maintains an active, consistent presence on LinkedIn with zero manual publishing friction. (Single-account supported).",
+      "technologies": ["n8n Cloud", "OpenAI API", "LinkedIn OAuth2 API", "JSON Parsing", "Scheduled Cron Trigger"],
+      "capabilities": [
+        "Automated cron schedule triggering content generation cycles",
+        "Engineered prompts for technical hooks, formatting, and hashtags",
+        "Direct publishing integration via official LinkedIn OAuth2 protocol",
+        "Single-account authorization and token refresh handling",
+        "Execution history logging and error alert webhooks"
+      ],
+      "media": {
+        "reelUrl": "",
+        "workflowImage": "[ADD_LINKEDIN_WORKFLOW_IMAGE]",
+        "postImage": "[ADD_LINKEDIN_POST_IMAGE]",
+        "demoUrl": "[ADD_LINKEDIN_DEMO_URL]"
+      }
+    },
+    {
+      "id": "blog-publishing",
+      "name": "Automated Blog Generation & Publishing",
+      "badge": "n8n · Content Distribution",
+      "description": "An AI-powered workflow that generates comprehensive technical blog articles and automatically publishes them to DEV.to with proper tags and markdown formatting.",
+      "problem": "Formatting technical articles with markdown syntax, code snippets, SEO tags, and publishing manually across developer platforms is repetitive and time-consuming.",
+      "solution": "Engineered an n8n workflow that accepts topic inputs, conducts structured outline generation, writes detailed technical sections with code blocks, validates frontmatter, and publishes directly to DEV.to via its REST API.",
+      "outcome": "Accelerates developer content publishing from a brief outline to a live formatted DEV.to article in minutes.",
+      "technologies": ["n8n", "OpenAI API", "DEV.to API", "Markdown Parser", "Webhooks"],
+      "capabilities": [
+        "Structured topic and outline ingestion via webhook triggers",
+        "Automated section drafting with syntax-highlighted code blocks",
+        "Markdown sanitization and frontmatter metadata generation",
+        "Direct article publishing and draft scheduling via DEV.to API",
+        "Automated confirmation callback and URL recording"
+      ],
+      "media": {
+        "reelUrl": "[ADD_BLOG_AUTOMATION_REEL_URL]",
+        "workflowImage": "[ADD_BLOG_WORKFLOW_IMAGE]",
+        "articleUrl": "[ADD_DEVTO_ARTICLE_URL]",
+        "demoUrl": ""
+      }
+    }
+  ],
   "services": [
     {
-      "id": "web",
-      "title": "Web App Development",
-      "description": "Custom web applications built for performance, scalability, and beautiful user experiences.",
+      "id": "web-dev",
+      "title": "Full-Stack Web Development",
+      "projectType": "Full-Stack Application",
+      "description": "Custom websites and web applications designed to solve business problems and support growth.",
       "icon": "monitor",
       "features": [
-        "Custom web applications & SaaS platforms",
-        "Landing pages & marketing websites",
-        "Admin dashboards & portals",
-        "E-commerce stores & Shopify integration",
-        "SEO optimization & analytics setup",
-        "Responsive design for all devices"
+        "Business websites and landing pages",
+        "SaaS applications and MVPs",
+        "Admin dashboards and internal tools",
+        "Frontend and backend development",
+        "Authentication and role-based authorization",
+        "Database design and optimization",
+        "REST API development",
+        "E-commerce and Shopify integrations"
       ]
     },
     {
-      "id": "mobile",
-      "title": "Mobile App Development",
-      "description": "Cross-platform mobile apps for iOS and Android, built with React Native for native performance.",
-      "icon": "smartphone",
+      "id": "ai-automation",
+      "title": "AI & Workflow Automation",
+      "projectType": "AI Automation",
+      "description": "Automate repetitive business operations using AI, APIs, and workflow orchestration.",
+      "icon": "workflow",
       "features": [
-        "iOS & Android apps with React Native",
-        "App Store & Play Store publishing",
-        "Push notifications & real-time updates",
-        "Offline-first architecture",
-        "Payment gateway integration",
-        "Analytics & crash reporting"
+        "n8n workflow architecture and deployment",
+        "AI-powered content generation pipelines",
+        "Lead capture, validation, and qualification",
+        "Social media content automation",
+        "Automated technical blog publishing",
+        "Business process automation and routing",
+        "Third-party API integrations and webhooks",
+        "Autonomous AI agent orchestration"
+      ]
+    },
+    {
+      "id": "ai-chatbots",
+      "title": "AI Chatbots & RAG Systems",
+      "projectType": "AI Chatbot / RAG",
+      "description": "Build intelligent assistants that use your business information to provide relevant answers.",
+      "icon": "bot",
+      "features": [
+        "RAG (Retrieval-Augmented Generation) chatbots",
+        "Knowledge-base document ingestion",
+        "Document-based question answering",
+        "Custom AI API integrations (OpenAI, Claude)",
+        "Conversational user interfaces",
+        "Backend database and API integrations"
+      ]
+    },
+    {
+      "id": "cloud-devops",
+      "title": "Backend, Cloud & DevOps",
+      "projectType": "Backend / API Development",
+      "description": "Build reliable backend systems and deploy applications with production-focused infrastructure.",
+      "icon": "server",
+      "features": [
+        "REST API development and architecture",
+        "Relational and NoSQL database modeling",
+        "Docker containerization and compose setups",
+        "AWS setup and server configuration",
+        "CI/CD pipeline configuration",
+        "Application deployment and maintenance",
+        "Infrastructure automation and reverse proxies",
+        "System reliability and error logging"
       ]
     }
   ],
-  "howItWorks": {
-    "subtitle": "The Process",
-    "title": "How It Works",
-    "description": "A simple, transparent process from idea to launch",
-    "steps": [
+  "pricing": {
+    "subtitle": "Transparent Investment",
+    "title": "Introductory Freelancer Pricing",
+    "description": "Affordable, competitive introductory pricing tailored for startups and businesses. All rates are starting estimates — final quotes are customized based on your specific requirements and scope.",
+    "disclaimer": "Note: Hosting, cloud infrastructure, AI API tokens, n8n instances, domain registrations, and third-party subscription costs are separate and billed directly by the respective providers. Support scope and usage limits are agreed upon before engagement.",
+    "categories": [
       {
-        "icon": "phone",
-        "title": "Discovery Call",
-        "description": "We discuss your idea, business goals, target audience, and requirements. I'll give you an honest estimate of timeline and cost.",
-        "color": "from-blue-500 to-cyan-400",
-        "bg": "bg-blue-500/10"
+        "id": "web",
+        "name": "Web Development",
+        "packages": [
+          {
+            "id": "web-landing",
+            "name": "Landing Page",
+            "subtitle": "Conversion-focused single page",
+            "price": "₹7,999",
+            "period": "starting at",
+            "highlight": false,
+            "projectType": "Web Development",
+            "features": [
+              "Responsive design for all devices",
+              "Up to 5 custom sections",
+              "Interactive contact inquiry form",
+              "Basic SEO and metadata setup",
+              "Production deployment to Vercel/Netlify",
+              "Clear handover documentation"
+            ],
+            "cta": "Discuss This Package"
+          },
+          {
+            "id": "web-business",
+            "name": "Business Website",
+            "subtitle": "Multi-page brand presence",
+            "price": "₹11,999",
+            "period": "starting at",
+            "highlight": false,
+            "projectType": "Web Development",
+            "features": [
+              "Up to 5 responsive pages",
+              "Custom branded UI design",
+              "Contact and inquiry capture forms",
+              "On-page SEO optimization",
+              "Fast loading speed optimization",
+              "Deployment and domain configuration"
+            ],
+            "cta": "Discuss This Package"
+          },
+          {
+            "id": "web-mvp",
+            "name": "Full-Stack MVP",
+            "subtitle": "Production-ready starter application",
+            "price": "₹24,999",
+            "period": "starting at",
+            "highlight": true,
+            "badge": "Recommended",
+            "projectType": "Full-Stack Application",
+            "features": [
+              "Frontend web application (React/Next.js)",
+              "Custom backend APIs and services",
+              "Database integration (PostgreSQL/MongoDB)",
+              "User authentication and security",
+              "Basic admin management dashboard",
+              "Cloud deployment and setup"
+            ],
+            "cta": "Discuss This Package"
+          }
+        ]
       },
       {
-        "icon": "pen",
-        "title": "Design & Plan",
-        "description": "I create wireframes, choose the tech stack, and share a detailed roadmap. You review and approve before any code is written.",
-        "color": "from-violet-500 to-purple-400",
-        "bg": "bg-violet-500/10"
+        "id": "automation",
+        "name": "AI & Workflow Automation",
+        "packages": [
+          {
+            "id": "auto-basic",
+            "name": "Basic Automation",
+            "subtitle": "Single targeted workflow",
+            "price": "₹4,999",
+            "period": "starting at",
+            "highlight": false,
+            "projectType": "AI Automation",
+            "features": [
+              "One custom n8n workflow",
+              "Core API integration",
+              "Basic data transformation and routing",
+              "Built-in error handling and alerts",
+              "Testing, verification, and deployment",
+              "Workflow documentation"
+            ],
+            "cta": "Discuss This Package"
+          },
+          {
+            "id": "auto-content",
+            "name": "AI Content Automation",
+            "subtitle": "Generative publishing pipeline",
+            "price": "₹6,999",
+            "period": "starting at",
+            "highlight": false,
+            "projectType": "AI Automation",
+            "features": [
+              "AI content generation workflow",
+              "Configurable prompts and guidelines",
+              "Dynamic content formatting & hashtags",
+              "Publishing integration where supported",
+              "Automated scheduling configuration",
+              "Full testing and walkthrough"
+            ],
+            "cta": "Discuss This Package"
+          },
+          {
+            "id": "auto-business",
+            "name": "Business Automation",
+            "subtitle": "Multi-step operational system",
+            "price": "₹9,999",
+            "period": "starting at",
+            "highlight": true,
+            "badge": "Recommended",
+            "projectType": "AI Automation",
+            "features": [
+              "Multi-step, complex n8n workflow",
+              "Multiple third-party integrations",
+              "Advanced conditional logic and filters",
+              "Team notifications (Slack / Email)",
+              "Robust error catching and fallback handling",
+              "Complete workflow documentation"
+            ],
+            "cta": "Discuss This Package"
+          }
+        ]
       },
       {
-        "icon": "code",
-        "title": "Build & Iterate",
-        "description": "Development begins with regular updates. You see working previews and can request changes at any point — unlimited revisions.",
-        "color": "from-orange-500 to-amber-400",
-        "bg": "bg-orange-500/10"
+        "id": "chatbots",
+        "name": "AI Chatbots & RAG",
+        "packages": [
+          {
+            "id": "chat-basic",
+            "name": "Basic AI Chatbot",
+            "subtitle": "Interactive conversational UI",
+            "price": "₹9,999",
+            "period": "starting at",
+            "highlight": false,
+            "projectType": "AI Chatbot / RAG",
+            "features": [
+              "Custom chat interface component",
+              "AI API integration (OpenAI/Claude)",
+              "Configurable system prompts",
+              "Initial testing and tuning",
+              "Website embedding and styling",
+              "Handover guide"
+            ],
+            "cta": "Discuss This Package"
+          },
+          {
+            "id": "chat-rag",
+            "name": "RAG Knowledge Chatbot",
+            "subtitle": "Custom knowledge-grounded assistant",
+            "price": "₹14,999",
+            "period": "starting at",
+            "highlight": true,
+            "badge": "Recommended",
+            "projectType": "AI Chatbot / RAG",
+            "features": [
+              "Knowledge-base ingestion pipeline",
+              "Semantic vector document retrieval",
+              "Context-aware, grounded responses",
+              "Responsive web chat interface",
+              "Backend API integration",
+              "Hallucination mitigation prompt design"
+            ],
+            "cta": "Discuss This Package"
+          }
+        ]
       },
       {
-        "icon": "rocket",
-        "title": "Launch & Support",
-        "description": "I deploy your app, run final QA, and handle store publishing if needed. Post-launch support and maintenance plans available.",
-        "color": "from-green-500 to-emerald-400",
-        "bg": "bg-green-500/10"
+        "id": "backend",
+        "name": "Backend, Cloud & DevOps",
+        "packages": [
+          {
+            "id": "be-api",
+            "name": "Backend API Setup",
+            "subtitle": "Secure data endpoints",
+            "price": "₹7,999",
+            "period": "starting at",
+            "highlight": false,
+            "projectType": "Backend / API Development",
+            "features": [
+              "REST API development (Node/Express/Go)",
+              "Database connection and schemas",
+              "Basic authentication (JWT/API keys)",
+              "Input validation and error handling",
+              "Interactive API documentation",
+              "Deployment support"
+            ],
+            "cta": "Discuss This Package"
+          },
+          {
+            "id": "be-devops",
+            "name": "Deployment & DevOps",
+            "subtitle": "Production server configuration",
+            "price": "₹5,999",
+            "period": "starting at",
+            "highlight": true,
+            "badge": "Recommended",
+            "projectType": "DevOps / Cloud",
+            "features": [
+              "Docker setup and containerization",
+              "Server / cloud host configuration",
+              "Environment variable security",
+              "Nginx reverse proxy setup",
+              "Basic CI/CD pipeline automation",
+              "SSL certificate and domain mapping"
+            ],
+            "cta": "Discuss This Package"
+          }
+        ]
+      },
+      {
+        "id": "maintenance",
+        "name": "Monthly Maintenance & Support",
+        "packages": [
+          {
+            "id": "maint-basic",
+            "name": "Basic Support",
+            "subtitle": "Essential upkeep",
+            "price": "₹1,999",
+            "period": "/month",
+            "highlight": false,
+            "projectType": "Other",
+            "features": [
+              "Minor bug fixes and patches",
+              "Basic uptime monitoring checks",
+              "Email support with 48h response",
+              "Security dependency updates",
+              "Scope and limits agreed in advance"
+            ],
+            "cta": "Choose Basic Support"
+          },
+          {
+            "id": "maint-standard",
+            "name": "Standard Support",
+            "subtitle": "Proactive monitoring & maintenance",
+            "price": "₹3,999",
+            "period": "/month",
+            "highlight": true,
+            "badge": "Recommended",
+            "projectType": "Other",
+            "features": [
+              "Ongoing application maintenance",
+              "Automated workflow health checks",
+              "Priority bug fixes",
+              "Deployment and environment assistance",
+              "Email & chat support with 24h response",
+              "Monthly maintenance summary"
+            ],
+            "cta": "Choose Standard Support"
+          },
+          {
+            "id": "maint-extended",
+            "name": "Extended Support",
+            "subtitle": "Comprehensive technical partnership",
+            "price": "₹6,999",
+            "period": "/month",
+            "highlight": false,
+            "projectType": "Other",
+            "features": [
+              "Regular minor feature improvements",
+              "Continuous workflow maintenance",
+              "Third-party integration & API checks",
+              "Priority direct assistance",
+              "Rapid turnaround on critical issues",
+              "Architecture and scaling guidance"
+            ],
+            "cta": "Choose Extended Support"
+          }
+        ]
       }
     ]
   },
-  "pricing": {
-    "subtitle": "Investment",
-    "title": "Pricing",
-    "description": "Transparent, value-focused plans. All prices are flexible and negotiable based on your exact requirements. If you want a customized package or specific features, let's connect!",
-    "web": {
-      "newDevelopment": [
-        {
-          "id": "web-basic",
-          "name": "Basic Website Package",
-          "subtitle": "Frontend Development",
-          "price": "$499",
-          "period": "USD",
-          "features": [
-            "Clean, responsive website for your users",
-            "Converting your design into a working website",
-            "Connecting to external services (forms, CMS, analytics)",
-            "Smooth animations and modern UI transitions",
-            "Direct support when you need it",
-            "10-20 Day Delivery",
-            "Unlimited revisions until you are 100% happy"
-          ],
-          "cta": "Start Your Project"
-        },
-        {
-          "id": "web-mvp",
-          "name": "MVP Development",
-          "subtitle": "Complete Starter Package",
-          "price": "$999",
-          "period": "USD",
-          "highlight": true,
-          "badge": "Recommended",
-          "features": [
-            "Full website plus admin dashboard",
-            "Converting designs into a working site",
-            "Building your site's backend (APIs, auth, database)",
-            "1-2 Month Delivery",
-            "Deploying your site and configuring SEO",
-            "Thorough testing so everything works perfectly",
-            "Unlimited revisions until you are 100% happy"
-          ],
-          "cta": "Start Your Project"
-        },
-        {
-          "id": "web-full",
-          "name": "Full-Cycle Web Development",
-          "subtitle": "Everything You Need",
-          "price": "$1699",
-          "period": "USD",
-          "features": [
-            "User site, client portal & admin dashboard",
-            "Converting designs into a working site",
-            "Complete backend system built for rapid growth",
-            "2-3 Month Delivery",
-            "Publishing & advanced SEO setup",
-            "Thorough testing for flawless performance",
-            "Full control with admin dashboard",
-            "Unlimited revisions until you are 100% happy"
-          ],
-          "cta": "Start Your Project"
-        }
-      ],
-      "maintenance": [
-        {
-          "id": "web-maint-basic",
-          "name": "Basic",
-          "subtitle": "Essential Care Plan",
-          "price": "$199",
-          "period": "/month",
-          "features": [
-            "Fix up to 5 issues each week",
-            "Add 1 small feature every 2 months",
-            "Monthly site speed improvements",
-            "Email help (24-hour response)",
-            "Basic site security checks",
-            "Updates for browser and dependency changes",
-            "Monthly progress summaries"
-          ],
-          "cta": "Get Started"
-        },
-        {
-          "id": "web-maint-standard",
-          "name": "Standard",
-          "subtitle": "Most Popular Plan",
-          "price": "$499",
-          "period": "/month",
-          "highlight": true,
-          "badge": "Most Popular",
-          "features": [
-            "Fix up to 10 issues each week",
-            "Add 2 new features each month",
-            "Speed improvements every two weeks",
-            "Urgent help within 6 hours",
-            "Monthly security check-ups",
-            "Monthly planning call",
-            "Quarterly security deep dive",
-            "Priority support when you need help"
-          ],
-          "cta": "Get Started"
-        },
-        {
-          "id": "web-maint-premium",
-          "name": "Premium",
-          "subtitle": "Complete Care Package",
-          "price": "$899",
-          "period": "/month",
-          "features": [
-            "Unlimited fixes and changes",
-            "Custom feature roadmap for your growth",
-            "Weekly speed and performance updates",
-            "Round-the-clock help (2-hour response)",
-            "Advanced monthly security reviews",
-            "Your own personal tech manager",
-            "First-in-line for feature requests",
-            "Detailed site health reports",
-            "Long-term growth planning"
-          ],
-          "cta": "Get Started"
-        }
-      ]
-    },
-    "mobile": {
-      "newDevelopment": [
-        {
-          "id": "mobile-basic",
-          "name": "Basic App Package",
-          "subtitle": "Frontend Development",
-          "price": "$799",
-          "period": "USD",
-          "highlight": false,
-          "features": [
-            "Clean, responsive mobile app for your users",
-            "Converting your design into a working app",
-            "Connecting to external services & APIs",
-            "Smooth animations and native UI transitions",
-            "Direct support when you need it",
-            "10-30 Day Delivery",
-            "Unlimited revisions until you are 100% happy"
-          ],
-          "cta": "Start Your Project"
-        },
-        {
-          "id": "mobile-mvp",
-          "name": "MVP Development",
-          "subtitle": "Complete Starter Package",
-          "price": "$2,499",
-          "period": "USD",
-          "highlight": true,
-          "badge": "Recommended",
-          "features": [
-            "Mobile app plus admin dashboard",
-            "Custom premium design for your brand",
-            "Converting designs into a working app",
-            "Building your app's backend (APIs, auth, database)",
-            "1-3 Month Delivery",
-            "Getting your app on App Store & Play Store",
-            "Thorough testing so everything works perfectly",
-            "Unlimited revisions until you are 100% happy"
-          ],
-          "cta": "Start Your Project"
-        },
-        {
-          "id": "mobile-full",
-          "name": "Full-Cycle App Development",
-          "subtitle": "Everything You Need",
-          "price": "$4,499",
-          "period": "USD",
-          "highlight": false,
-          "features": [
-            "User app, business app & admin dashboard",
-            "Premium design customized for your brand",
-            "Converting designs into a working app",
-            "Complete backend system built for rapid growth",
-            "2-4 Month Delivery",
-            "Publishing on App Store & Play Store",
-            "Thorough testing for flawless performance",
-            "Full control with admin dashboard",
-            "Unlimited revisions until you are 100% happy"
-          ],
-          "cta": "Start Your Project"
-        }
-      ],
-      "maintenance": [
-        {
-          "id": "mobile-maint-basic",
-          "name": "Basic",
-          "subtitle": "Essential Care Plan",
-          "price": "$399",
-          "period": "/month",
-          "features": [
-            "Fix up to 5 bugs each week",
-            "Add 1 small feature every 2 months",
-            "Monthly app speed improvements",
-            "Email help (24-hour response)",
-            "Basic app security checks",
-            "Updates for new phone OS versions",
-            "Monthly progress summaries"
-          ],
-          "cta": "Get Started"
-        },
-        {
-          "id": "mobile-maint-standard",
-          "name": "Standard",
-          "subtitle": "Most Popular Plan",
-          "price": "$799",
-          "period": "/month",
-          "highlight": true,
-          "badge": "Most Popular",
-          "features": [
-            "Fix up to 10 bugs each week",
-            "Add 2 new features each month",
-            "Speed improvements every two weeks",
-            "Urgent help within 6 hours",
-            "Monthly security check-ups",
-            "Monthly planning call",
-            "Quarterly security deep dive",
-            "Priority support when you need help"
-          ],
-          "cta": "Get Started"
-        },
-        {
-          "id": "mobile-maint-premium",
-          "name": "Premium",
-          "subtitle": "Complete Care Package",
-          "price": "$1,199",
-          "period": "/month",
-          "features": [
-            "Unlimited bug fixes anytime",
-            "Custom feature roadmap for your growth",
-            "Weekly speed and performance updates",
-            "Round-the-clock help (2-hour response)",
-            "Advanced monthly security reviews",
-            "Your own personal tech manager",
-            "First-in-line for feature requests",
-            "Detailed app health reports",
-            "Long-term app growth planning"
-          ],
-          "cta": "Get Started"
-        }
-      ]
-    }
+  "howItWorks": {
+    "subtitle": "The Process",
+    "title": "How We Work Together",
+    "description": "A clear, transparent four-step process from initial concept to live deployment.",
+    "steps": [
+      {
+        "step": "01",
+        "icon": "phone",
+        "title": "Discovery",
+        "description": "We discuss your business problem, specific requirements, and desired outcomes. I'll outline a clear, honest project scope and feasibility assessment."
+      },
+      {
+        "step": "02",
+        "icon": "pen",
+        "title": "Planning",
+        "description": "We finalize project scope, choose the appropriate tech stack or workflow architecture, define deliverables, and set realistic development milestones."
+      },
+      {
+        "step": "03",
+        "icon": "code",
+        "title": "Development",
+        "description": "I build the software application or automation pipeline with regular progress updates and working previews so you remain informed throughout."
+      },
+      {
+        "step": "04",
+        "icon": "rocket",
+        "title": "Delivery & Support",
+        "description": "We test, deploy, and verify everything in production. I hand over clean documentation and provide the agreed-upon post-launch support."
+      }
+    ]
   },
   "freelanceClients": [
     {
@@ -671,26 +920,26 @@
   "achievements": [
     {
       "id": 1,
-      "title": "",
-      "organization": "Google",
-      "date": "2023-2024",
-      "description": "Led a community of 200+ developers, organized 15+ workshops and hackathons.",
+      "title": "Google Developer Student Clubs Lead",
+      "organization": "Google Developer Community",
+      "date": "2023 - 2024",
+      "description": "Led an active developer community of 200+ students, organized 15+ technical workshops and developer hackathons.",
       "icon": "award"
     },
     {
       "id": 2,
-      "title": "Microsoft Azure Fundamentals",
+      "title": "Microsoft Certified: Azure Fundamentals",
       "organization": "Microsoft",
       "date": "2024",
-      "description": "Certified in Azure cloud services and infrastructure management.",
+      "description": "Certified in cloud fundamentals, core Azure architectural services, security, privacy, and compliance.",
       "icon": "award"
     },
     {
       "id": 3,
       "title": "Open Source Contributor",
-      "organization": "GitHub",
-      "date": "2023-Present",
-      "description": "Contributed to 10+ open source projects with 500+ stars combined.",
+      "organization": "GitHub Open Source",
+      "date": "2023 - Present",
+      "description": "Active contributor to open-source developer tooling, libraries, and web ecosystems.",
       "icon": "star"
     },
     {
@@ -698,17 +947,17 @@
       "title": "Solana Summer Camp Graduate",
       "organization": "Solana Foundation",
       "date": "2024",
-      "description": "Completed intensive blockchain development program focused on Solana ecosystem.",
+      "description": "Completed intensive ecosystem training covering Rust, Anchor framework, and decentralized applications.",
       "icon": "award"
     }
   ],
   "education": [
     {
       "degree": "Bachelor of Technology",
-      "field": "Computer Science",
+      "field": "Computer Science & Engineering",
       "school": "Graphic Era Deemed to be University",
       "year": "2022 - 2026",
-      "location": "Dehradun, Uttarakhand"
+      "location": "Dehradun, Uttarakhand, India"
     }
   ]
 }

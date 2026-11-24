@@ -40,7 +40,9 @@ const CustomCursor: React.FC = () => {
       }
       raf.current = requestAnimationFrame(() => {
         if (Math.hypot(target.current.x - pos.current.x, target.current.y - pos.current.y) < 0.5) {
-          raf.current && cancelAnimationFrame(raf.current);
+          if (raf.current) {
+            cancelAnimationFrame(raf.current);
+          }
           raf.current = null;
           return;
         }
@@ -54,9 +56,9 @@ const CustomCursor: React.FC = () => {
 
     return () => {
       document.body.classList.remove('cursor-none');
-      window.removeEventListener('mousemove', move as any);
-      window.removeEventListener('mousedown', down as any);
-      window.removeEventListener('mouseup', up as any);
+      window.removeEventListener('mousemove', move);
+      window.removeEventListener('mousedown', down);
+      window.removeEventListener('mouseup', up);
       if (raf.current) cancelAnimationFrame(raf.current);
     };
   }, []);

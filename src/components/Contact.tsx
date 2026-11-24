@@ -1,29 +1,89 @@
-
-import React, { useRef, useEffect } from 'react';
-import { gsap } from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { Button } from '@/components/ui/button';
-import { Mail, Phone, MapPin, MessageCircle, Calendar } from 'lucide-react';
-import portfolioData from '../data/portfolio.json';
-import SocialLinks from './SocialLinks';
+import React, { useRef, useEffect, useState } from "react";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
+import { Badge } from "@/components/ui/badge";
+import {
+  Mail,
+  Phone,
+  MapPin,
+  Calendar,
+  Send,
+  CheckCircle2,
+  Copy,
+  ExternalLink,
+  Sparkles,
+} from "lucide-react";
+import { toast } from "sonner";
+import portfolioData from "../data/portfolio.json";
+import SocialLinks from "./SocialLinks";
 
 gsap.registerPlugin(ScrollTrigger);
 
+const projectTypeOptions = [
+  "Web Development",
+  "Full-Stack Application",
+  "Mobile Application",
+  "Backend / API Development",
+  "AI Automation",
+  "AI Chatbot / RAG",
+  "DevOps / Cloud",
+  "Other",
+];
+
+const budgetRanges = [
+  "₹5,000 - ₹10,000",
+  "₹10,000 - ₹25,000",
+  "₹25,000 - ₹50,000",
+  "₹50,000+",
+  "To be discussed",
+];
+
 const Contact = () => {
   const sectionRef = useRef<HTMLElement>(null);
-  const titleRef = useRef<HTMLHeadingElement>(null);
-  const contentRef = useRef<HTMLDivElement>(null);
+  const titleRef = useRef<HTMLDivElement>(null);
+
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    projectType: "Full-Stack Application",
+    budget: "₹10,000 - ₹25,000",
+    projectUrl: "",
+    message: "",
+  });
+
+  const [isSubmitted, setIsSubmitted] = useState(false);
 
   useEffect(() => {
-    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    
-    if (prefersReducedMotion) {
-      return;
-    }
+    // Listen for custom event triggered by Services, Pricing, or AI Automation cards
+    const handleProjectTypeSelect = (e: Event) => {
+      const customEvent = e as CustomEvent<{ projectType: string }>;
+      if (customEvent.detail?.projectType) {
+        setFormData((prev) => ({
+          ...prev,
+          projectType: customEvent.detail.projectType,
+        }));
+      }
+    };
+
+    window.addEventListener("select-project-type", handleProjectTypeSelect);
+    return () =>
+      window.removeEventListener("select-project-type", handleProjectTypeSelect);
+  }, []);
+
+  useEffect(() => {
+    const prefersReducedMotion = window.matchMedia(
+      "(prefers-reduced-motion: reduce)"
+    ).matches;
+
+    if (prefersReducedMotion) return;
 
     const ctx = gsap.context(() => {
-      gsap.fromTo(titleRef.current, 
+      gsap.fromTo(
+        titleRef.current,
         { opacity: 0, y: 30 },
         {
           opacity: 1,
@@ -32,151 +92,341 @@ const Contact = () => {
           scrollTrigger: {
             trigger: titleRef.current,
             start: "top 85%",
-            toggleActions: "play none none none"
-          }
+            toggleActions: "play none none none",
+          },
         }
       );
-
-      const children = contentRef.current?.children;
-      if (children) {
-        gsap.fromTo(children,
-          { opacity: 0, y: 30 },
-          {
-            opacity: 1,
-            y: 0,
-            duration: 0.5,
-            stagger: 0.1,
-            ease: "power2.out",
-            scrollTrigger: {
-              trigger: contentRef.current,
-              start: "top 85%",
-              toggleActions: "play none none none"
-            }
-          }
-        );
-      }
     }, sectionRef);
 
     return () => ctx.revert();
   }, []);
 
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
+  ) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({ ...prev, [name]: value }));
+  };
+
+  const constructEmailBody = () => {
+    return `Hi Tanmay,
+
+I would like to discuss a project with you.
+
+Here are the details:
+- Name: ${formData.name}
+- Email: ${formData.email}
+- Project Type: ${formData.projectType}
+- Estimated Budget: ${formData.budget}
+- Reference URL: ${formData.projectUrl || "N/A"}
+
+Project Overview:
+${formData.message}
+
+Looking forward to your response!`;
+  };
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+
+    if (!formData.name.trim() || !formData.email.trim() || !formData.message.trim()) {
+      toast.error("Please fill in your name, email, and project description.");
+      return;
+    }
+
+    const emailSubject = encodeURIComponent(
+      `Project Inquiry: ${formData.projectType} - ${formData.name}`
+    );
+    const emailBody = encodeURIComponent(constructEmailBody());
+    const mailtoUrl = `mailto:${portfolioData.personal.email}?subject=${emailSubject}&body=${emailBody}`;
+
+    // Open mailto handler
+    window.location.href = mailtoUrl;
+
+    // Also copy to clipboard for convenience if webmail is used
+    if (navigator?.clipboard) {
+      navigator.clipboard.writeText(constructEmailBody());
+    }
+
+    setIsSubmitted(true);
+    toast.success("Draft prepared! Your email client has been launched.", {
+      description: "Project details have also been copied to your clipboard.",
+    });
+  };
+
+  const copyToClipboard = () => {
+    if (navigator?.clipboard) {
+      navigator.clipboard.writeText(constructEmailBody());
+      toast.success("Copied to clipboard!");
+    }
+  };
+
   return (
-    <section id="contact" ref={sectionRef} className="py-20 sm:py-24 px-4 sm:px-6 bg-muted/30">
-      <div className="max-w-5xl mx-auto">
-        <div className="text-center mb-14">
-          <span className="text-sm font-semibold text-primary uppercase tracking-wider">Let's Talk</span>
-          <h2 
-            ref={titleRef}
-            className="font-heading text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mt-3 mb-4 solana-gradient-text"
-          >
-            Get a Free Quote
+    <section id="contact" ref={sectionRef} className="py-24 sm:py-32 px-4 sm:px-6 lg:px-8 border-t border-border/40">
+      <div className="max-w-6xl mx-auto">
+        {/* Top Section Index Bar */}
+        <div className="flex items-center justify-between text-xs font-mono text-muted-foreground uppercase tracking-widest pb-8 border-b border-border/50 mb-12 sm:mb-16">
+          <div className="flex items-center gap-4">
+            <span className="font-bold text-foreground">(07)</span>
+            <span>GET IN TOUCH</span>
+          </div>
+          <span>Direct Inquiry & Booking</span>
+        </div>
+
+        {/* Section Header */}
+        <div ref={titleRef} className="text-center mb-14">
+          <Badge variant="outline" className="text-xs font-semibold uppercase tracking-wider mb-3 px-3 py-1">
+            Get In Touch
+          </Badge>
+          <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-foreground mb-4">
+            Let's Discuss Your Project
           </h2>
           <p className="text-base sm:text-lg text-muted-foreground max-w-2xl mx-auto">
-            Have a project idea? Reach out and I'll get back to you within 24 hours with a free estimate.
+            Have an application to build or a business workflow to automate? Reach out directly and I'll reply within 24 hours.
           </p>
         </div>
 
-        <div ref={contentRef} className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          {/* Contact Info */}
-          <Card className="glass-card">
-            <CardHeader>
-              <CardTitle className="text-2xl font-bold">Contact Information</CardTitle>
-            </CardHeader>
-            
-            <CardContent>
-              <div className="space-y-6">
-                <div className="flex items-start group">
-                  <div className="flex-shrink-0 p-3 bg-primary/10 rounded-xl group-hover:bg-primary/20 transition-colors">
-                    <Mail className="h-5 w-5 text-primary" />
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+          {/* Contact Details & Discovery Call */}
+          <div className="lg:col-span-5 space-y-6">
+            <Card className="border border-border/70 bg-card/90 shadow-xs">
+              <CardHeader className="pb-3">
+                <CardTitle className="text-lg font-bold text-foreground">
+                  Direct Contact
+                </CardTitle>
+              </CardHeader>
+              <CardContent className="space-y-5">
+                <div className="flex items-start gap-3">
+                  <div className="p-2.5 rounded-lg bg-primary/10 text-primary shrink-0">
+                    <Mail className="h-4 w-4" />
                   </div>
-                  <div className="ml-4">
-                    <p className="text-sm font-semibold text-muted-foreground mb-1">Email</p>
-                    <a 
+                  <div>
+                    <p className="text-xs text-muted-foreground font-medium">Email</p>
+                    <a
                       href={`mailto:${portfolioData.personal.email}`}
-                      className="text-foreground font-medium hover:text-primary transition-colors"
+                      className="text-xs sm:text-sm font-semibold text-foreground hover:text-primary transition-colors"
                     >
                       {portfolioData.personal.email}
                     </a>
                   </div>
                 </div>
-                
-                <div className="flex items-start group">
-                  <div className="flex-shrink-0 p-3 bg-primary/10 rounded-xl group-hover:bg-primary/20 transition-colors">
-                    <Phone className="h-5 w-5 text-primary" />
+
+                <div className="flex items-start gap-3">
+                  <div className="p-2.5 rounded-lg bg-primary/10 text-primary shrink-0">
+                    <Phone className="h-4 w-4" />
                   </div>
-                  <div className="ml-4">
-                    <p className="text-sm font-semibold text-muted-foreground mb-1">Phone / WhatsApp</p>
-                    <a 
+                  <div>
+                    <p className="text-xs text-muted-foreground font-medium">Phone / WhatsApp</p>
+                    <a
                       href={`tel:${portfolioData.personal.phone}`}
-                      className="text-foreground font-medium hover:text-primary transition-colors"
+                      className="text-xs sm:text-sm font-semibold text-foreground hover:text-primary transition-colors"
                     >
                       {portfolioData.personal.phone}
                     </a>
                   </div>
                 </div>
-                
-                <div className="flex items-start group">
-                  <div className="flex-shrink-0 p-3 bg-primary/10 rounded-xl group-hover:bg-primary/20 transition-colors">
-                    <MapPin className="h-5 w-5 text-primary" />
+
+                <div className="flex items-start gap-3">
+                  <div className="p-2.5 rounded-lg bg-primary/10 text-primary shrink-0">
+                    <MapPin className="h-4 w-4" />
                   </div>
-                  <div className="ml-4">
-                    <p className="text-sm font-semibold text-muted-foreground mb-1">Location</p>
-                    <p className="text-foreground font-medium">{portfolioData.personal.location}</p>
+                  <div>
+                    <p className="text-xs text-muted-foreground font-medium">Location</p>
+                    <p className="text-xs sm:text-sm font-semibold text-foreground">
+                      {portfolioData.personal.location} (IST / UTC+5:30)
+                    </p>
                   </div>
                 </div>
-              </div>
-            </CardContent>
-          </Card>
+              </CardContent>
+            </Card>
 
-          {/* Social Links, Calendar & Message */}
-          <div className="space-y-6">
-            {/* Calendar Booking Card */}
-            <Card className="glass-card border-primary/30 bg-gradient-to-br from-primary/10 via-background to-background overflow-hidden relative">
-              <div className="absolute top-0 left-0 w-1.5 h-full bg-primary" />
-              <CardHeader>
-                <CardTitle className="text-2xl font-bold flex items-center gap-3">
-                  <Calendar className="h-6 w-6 text-primary" />
-                  Book a Discovery Call
-                </CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-foreground/80 mb-6 leading-relaxed text-sm sm:text-base">
-                  Ready to discuss your project? Pick a convenient time on my calendar for a free 30-minute discovery consultation.
+            {/* Direct Cal.com Booking Card */}
+            <Card className="border border-primary/40 bg-card/90 shadow-xs relative overflow-hidden">
+              <CardContent className="p-6">
+                <div className="flex items-center gap-2 text-primary font-semibold text-xs uppercase tracking-wider mb-2">
+                  <Calendar className="h-4 w-4" />
+                  <span>Prefer a 15-Min Quick Call?</span>
+                </div>
+                <h3 className="font-bold text-foreground text-base mb-2">
+                  Book a Discovery Call Directly
+                </h3>
+                <p className="text-xs text-muted-foreground leading-relaxed mb-4">
+                  Schedule a convenient 15-minute Google Meet to discuss requirements, architecture, or workflow automation feasibility.
                 </p>
-                <Button size="lg" className="w-full professional-gradient text-white font-semibold h-12 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-0.5" asChild>
-                  <a href={portfolioData.personal.calendarUrl} target="_blank" rel="noopener noreferrer">
-                    <Calendar className="h-5 w-5 mr-2" />
-                    Schedule on Cal.com
+                <Button
+                  size="sm"
+                  asChild
+                  className="w-full font-semibold text-xs h-9 gap-1.5"
+                >
+                  <a
+                    href={portfolioData.personal.calendarUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <span>Open Calendar (Cal.com)</span>
+                    <ExternalLink className="h-3.5 w-3.5" />
                   </a>
                 </Button>
               </CardContent>
             </Card>
 
-            <Card className="glass-card">
-              <CardHeader>
-                <CardTitle className="text-2xl font-bold">Connect With Me</CardTitle>
+            <div className="pt-2 flex justify-center lg:justify-start">
+              <SocialLinks />
+            </div>
+          </div>
+
+          {/* Interactive Lead Capture Form */}
+          <div className="lg:col-span-7">
+            <Card className="border border-border/70 bg-card shadow-sm p-6 sm:p-8 rounded-xl">
+              <CardHeader className="p-0 pb-6 border-b border-border/50">
+                <CardTitle className="text-xl font-bold text-foreground">
+                  Send a Project Brief
+                </CardTitle>
+                <p className="text-xs sm:text-sm text-muted-foreground mt-1">
+                  Fill in your requirements below. The form prepares your inquiry and connects directly to my inbox.
+                </p>
               </CardHeader>
-              <CardContent>
-                <SocialLinks />
-              </CardContent>
-            </Card>
-            
-            <Card className="glass-card">
-              <CardContent className="pt-6">
-                <div className="flex items-start gap-3 mb-4">
-                  <div className="p-2 bg-green-500/10 rounded-lg">
-                    <MessageCircle className="h-5 w-5 text-green-500" />
+
+              {isSubmitted ? (
+                <div className="py-8 text-center space-y-4">
+                  <div className="w-12 h-12 rounded-full bg-emerald-500/10 text-emerald-500 flex items-center justify-center mx-auto">
+                    <CheckCircle2 className="h-6 w-6" />
                   </div>
-                  <div>
-                    <p className="font-semibold mb-1">Quick Response Guaranteed</p>
-                    <p className="text-sm text-muted-foreground">I typically respond within 2-4 hours during business hours.</p>
+                  <h3 className="text-lg font-bold text-foreground">
+                    Project Brief Created!
+                  </h3>
+                  <p className="text-xs sm:text-sm text-muted-foreground max-w-md mx-auto leading-relaxed">
+                    Your inquiry has been formulated. If your mail client didn't open automatically, you can copy the full brief text and send it directly.
+                  </p>
+
+                  <div className="flex flex-col sm:flex-row items-center justify-center gap-3 pt-3">
+                    <Button
+                      variant="outline"
+                      size="sm"
+                      onClick={copyToClipboard}
+                      className="text-xs font-semibold gap-1.5 w-full sm:w-auto"
+                    >
+                      <Copy className="h-3.5 w-3.5" />
+                      <span>Copy Brief to Clipboard</span>
+                    </Button>
+
+                    <Button
+                      size="sm"
+                      onClick={() => setIsSubmitted(false)}
+                      className="text-xs font-semibold w-full sm:w-auto"
+                    >
+                      <span>Edit Brief</span>
+                    </Button>
                   </div>
                 </div>
-                <p className="text-foreground/80 mb-4 leading-relaxed">
-                  Whether you need a landing page, a full web app, or a mobile app — drop me a message with your idea and budget, and I'll get back to you with a detailed proposal.
-                </p>
-                <p className="text-foreground font-semibold text-lg">Let's build something amazing together!</p>
-              </CardContent>
+              ) : (
+                <form onSubmit={handleSubmit} className="space-y-4 pt-6">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div>
+                      <label className="block text-xs font-semibold text-foreground mb-1.5">
+                        Your Name *
+                      </label>
+                      <Input
+                        name="name"
+                        value={formData.name}
+                        onChange={handleChange}
+                        placeholder="e.g. Alex Johnson"
+                        required
+                        className="text-xs sm:text-sm h-10"
+                      />
+                    </div>
+
+                    <div>
+                      <label className="block text-xs font-semibold text-foreground mb-1.5">
+                        Your Email *
+                      </label>
+                      <Input
+                        type="email"
+                        name="email"
+                        value={formData.email}
+                        onChange={handleChange}
+                        placeholder="alex@example.com"
+                        required
+                        className="text-xs sm:text-sm h-10"
+                      />
+                    </div>
+                  </div>
+
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div>
+                      <label className="block text-xs font-semibold text-foreground mb-1.5">
+                        Project Type
+                      </label>
+                      <select
+                        name="projectType"
+                        value={formData.projectType}
+                        onChange={handleChange}
+                        className="w-full h-10 rounded-md border border-input bg-background px-3 py-2 text-xs sm:text-sm shadow-xs focus-visible:outline-hidden focus-visible:ring-1 focus-visible:ring-ring"
+                      >
+                        {projectTypeOptions.map((opt) => (
+                          <option key={opt} value={opt}>
+                            {opt}
+                          </option>
+                        ))}
+                      </select>
+                    </div>
+
+                    <div>
+                      <label className="block text-xs font-semibold text-foreground mb-1.5">
+                        Estimated Budget
+                      </label>
+                      <select
+                        name="budget"
+                        value={formData.budget}
+                        onChange={handleChange}
+                        className="w-full h-10 rounded-md border border-input bg-background px-3 py-2 text-xs sm:text-sm shadow-xs focus-visible:outline-hidden focus-visible:ring-1 focus-visible:ring-ring"
+                      >
+                        {budgetRanges.map((range) => (
+                          <option key={range} value={range}>
+                            {range}
+                          </option>
+                        ))}
+                      </select>
+                    </div>
+                  </div>
+
+                  <div>
+                    <label className="block text-xs font-semibold text-foreground mb-1.5">
+                      Project Reference / Existing Website URL (Optional)
+                    </label>
+                    <Input
+                      name="projectUrl"
+                      value={formData.projectUrl}
+                      onChange={handleChange}
+                      placeholder="https://yourwebsite.com or competitor example"
+                      className="text-xs sm:text-sm h-10"
+                    />
+                  </div>
+
+                  <div>
+                    <label className="block text-xs font-semibold text-foreground mb-1.5">
+                      Project Description *
+                    </label>
+                    <Textarea
+                      name="message"
+                      value={formData.message}
+                      onChange={handleChange}
+                      rows={4}
+                      placeholder="Tell me about what you are building, the problem you're looking to solve, or the workflow you want automated..."
+                      required
+                      className="text-xs sm:text-sm resize-none"
+                    />
+                  </div>
+
+                  <Button
+                    type="submit"
+                    className="w-full font-semibold text-xs sm:text-sm h-11 gap-2 shadow-sm"
+                  >
+                    <Send className="h-4 w-4" />
+                    <span>Send Project Inquiry</span>
+                  </Button>
+                </form>
+              )}
             </Card>
           </div>
         </div>

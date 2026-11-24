@@ -1,21 +1,22 @@
 import React, { useRef, useEffect } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { PhoneCall, PenTool, Code2, Rocket } from "lucide-react";
+import { Search, Compass, Code2, Rocket, ArrowRight } from "lucide-react";
+import { Badge } from "@/components/ui/badge";
 import portfolioData from "../data/portfolio.json";
 
 gsap.registerPlugin(ScrollTrigger);
 
-const iconMap: Record<string, React.ComponentType<any>> = {
-  phone: PhoneCall,
-  pen: PenTool,
+const iconMap: Record<string, React.ComponentType<{ className?: string }>> = {
+  phone: Search,
+  pen: Compass,
   code: Code2,
   rocket: Rocket,
 };
 
 const HowItWorks = () => {
   const sectionRef = useRef<HTMLElement>(null);
-  const titleRef = useRef<HTMLHeadingElement>(null);
+  const titleRef = useRef<HTMLDivElement>(null);
   const stepsRef = useRef<HTMLDivElement>(null);
 
   const { subtitle, title, description, steps } = portfolioData.howItWorks;
@@ -43,16 +44,16 @@ const HowItWorks = () => {
         }
       );
 
-      const stepItems = stepsRef.current?.children;
-      if (stepItems) {
+      const items = stepsRef.current?.children;
+      if (items) {
         gsap.fromTo(
-          stepItems,
-          { opacity: 0, y: 40 },
+          items,
+          { opacity: 0, y: 30 },
           {
             opacity: 1,
             y: 0,
             duration: 0.5,
-            stagger: 0.12,
+            stagger: 0.1,
             ease: "power2.out",
             scrollTrigger: {
               trigger: stepsRef.current,
@@ -68,16 +69,13 @@ const HowItWorks = () => {
   }, []);
 
   return (
-    <section id="process" ref={sectionRef} className="py-20 sm:py-24 px-4 sm:px-6 bg-muted/30">
+    <section ref={sectionRef} className="py-20 sm:py-24 px-4 sm:px-6 lg:px-8 border-t border-border/40 bg-muted/20">
       <div className="max-w-6xl mx-auto">
-        <div className="text-center mb-14">
-          <span className="text-sm font-semibold text-primary uppercase tracking-wider">
+        <div ref={titleRef} className="text-center mb-16">
+          <Badge variant="outline" className="text-xs font-semibold uppercase tracking-wider mb-3 px-3 py-1">
             {subtitle}
-          </span>
-          <h2
-            ref={titleRef}
-            className="font-heading text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mt-3 mb-4 solana-gradient-text"
-          >
+          </Badge>
+          <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-foreground mb-4">
             {title}
           </h2>
           <p className="text-base sm:text-lg text-muted-foreground max-w-2xl mx-auto">
@@ -85,52 +83,39 @@ const HowItWorks = () => {
           </p>
         </div>
 
-        <div ref={stepsRef} className="relative">
-          {/* Connector line - desktop only */}
-          <div className="hidden lg:block absolute top-[52px] left-[calc(12.5%+28px)] right-[calc(12.5%+28px)] h-px bg-border" />
+        <div
+          ref={stepsRef}
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 relative"
+        >
+          {steps.map((step, idx) => {
+            const Icon = iconMap[step.icon] || Code2;
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 sm:gap-10">
-            {steps.map((step, index) => {
-              const Icon = iconMap[step.icon] || PhoneCall;
-
-              return (
-                <div
-                  key={index}
-                  className="relative flex flex-col items-center text-center group"
-                >
-                  {/* Icon container */}
-                  <div className="relative mb-6">
-                    <div className={`w-[68px] h-[68px] rounded-2xl ${step.bg} flex items-center justify-center group-hover:scale-110 transition-transform duration-300 ring-4 ring-background`}>
-                      <Icon className="h-7 w-7 text-primary" />
+            return (
+              <div
+                key={idx}
+                className="p-6 rounded-xl border border-border/70 bg-card hover:border-border transition-colors flex flex-col justify-between shadow-xs relative"
+              >
+                <div>
+                  <div className="flex items-center justify-between mb-4">
+                    <div className="p-2.5 rounded-lg bg-primary/10 text-primary">
+                      <Icon className="h-5 w-5" />
                     </div>
-                    {/* Step number */}
-                    <div className="absolute -top-2 -right-2 w-6 h-6 rounded-full professional-gradient flex items-center justify-center shadow-md">
-                      <span className="text-[10px] font-bold text-white">
-                        {index + 1}
-                      </span>
-                    </div>
+                    <span className="font-mono text-2xl font-bold text-muted-foreground/40">
+                      {step.step}
+                    </span>
                   </div>
 
-                  {/* Content */}
-                  <h3 className="text-base sm:text-lg font-bold mb-2">{step.title}</h3>
-                  <p className="text-sm text-muted-foreground leading-relaxed max-w-[260px]">
+                  <h3 className="text-lg font-bold text-foreground mb-2">
+                    {step.title}
+                  </h3>
+
+                  <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed">
                     {step.description}
                   </p>
                 </div>
-              );
-            })}
-          </div>
-        </div>
-
-        {/* CTA */}
-        <div className="text-center mt-14">
-          <a
-            href="#contact"
-            className="inline-flex items-center gap-2 px-8 py-3.5 professional-gradient text-white font-semibold rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-0.5 text-sm sm:text-base"
-          >
-            Start Your Project
-            <Rocket className="h-4 w-4" />
-          </a>
+              </div>
+            );
+          })}
         </div>
       </div>
     </section>

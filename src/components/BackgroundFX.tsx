@@ -22,7 +22,9 @@ const BackgroundFX: React.FC = () => {
       }
       rafRef.current = requestAnimationFrame(() => {
         if (Math.hypot(target.current.x - current.current.x, target.current.y - current.current.y) < 0.5) {
-          rafRef.current && cancelAnimationFrame(rafRef.current);
+          if (rafRef.current) {
+            cancelAnimationFrame(rafRef.current);
+          }
           rafRef.current = null;
           return;
         }
@@ -32,7 +34,7 @@ const BackgroundFX: React.FC = () => {
 
     window.addEventListener("mousemove", onMove, { passive: true });
     return () => {
-      window.removeEventListener("mousemove", onMove as any);
+      window.removeEventListener("mousemove", onMove);
       if (rafRef.current) cancelAnimationFrame(rafRef.current);
     };
   }, []);

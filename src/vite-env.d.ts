@@ -1,9 +1,9 @@
-
 /// <reference types="vite/client" />
 /// <reference types="@react-three/fiber" />
-/// <reference path="./types/three.d.ts" />
+
+import './types/three.d.ts';
 
 declare module '*.json' {
-  const value: any;
+  const value: Record<string, unknown>;
   export default value;
 }
