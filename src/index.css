@@ -270,6 +270,28 @@ section {
   animation: bubble-float-alt 4s ease-in-out infinite;
 }
 
+/* Split-flap board 3D utilities */
+.perspective-dramatic {
+  perspective: 1000px;
+}
+.transform-3d {
+  transform-style: preserve-3d;
+}
+.backface-hidden {
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+.aspect-3\/6 {
+  aspect-ratio: 3 / 6;
+}
+.aspect-3\/5 {
+  aspect-ratio: 3 / 5;
+}
+.mask-t-from-50\% {
+  -webkit-mask-image: linear-gradient(to bottom, black 50%, transparent 100%);
+  mask-image: linear-gradient(to bottom, black 50%, transparent 100%);
+}
+
 /* Reduce motion for accessibility */
 @media (prefers-reduced-motion: reduce) {
   *,

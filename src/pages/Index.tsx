@@ -11,6 +11,7 @@ import Skills from "../components/Skills";
 import FreelanceClients from "../components/FreelanceClients";
 import Pricing from "../components/Pricing";
 import ArticlesAndLinks from "../components/ArticlesAndLinks";
+import TextFlippingBoardDemo from "../components/text-flipping-board-demo";
 import Footer from "../components/Footer";
 import FloatingDock from "../components/FloatingDock";
 
@@ -56,6 +57,11 @@ const Index = () => {
 
       {/* Section 08: Technical Writing, Dev.to Articles & All Verified Links */}
       <ArticlesAndLinks />
+
+      {/* Split-Flap Live Board (Aceternity UI) at the very end of the website */}
+      <section className="relative w-full border-t border-border/40 bg-card/20 overflow-hidden">
+        <TextFlippingBoardDemo />
+      </section>
 
       {/* Minimal Editorial Footer */}
       <Footer />
