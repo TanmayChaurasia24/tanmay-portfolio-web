@@ -10,7 +10,7 @@ import Services from "../components/Services";
 import Skills from "../components/Skills";
 import FreelanceClients from "../components/FreelanceClients";
 import Pricing from "../components/Pricing";
-import Contact from "../components/Contact";
+import ArticlesAndLinks from "../components/ArticlesAndLinks";
 import Footer from "../components/Footer";
 import FloatingDock from "../components/FloatingDock";
 
@@ -54,8 +54,8 @@ const Index = () => {
       {/* Section 07: Pricing & Custom Scope ("Let's Discuss on a Call") */}
       <Pricing />
 
-      {/* Section 08: Contact & Booking */}
-      <Contact />
+      {/* Section 08: Technical Writing, Dev.to Articles & All Verified Links */}
+      <ArticlesAndLinks />
 
       {/* Minimal Editorial Footer */}
       <Footer />

@@ -97,10 +97,16 @@ const NavBar: React.FC<NavBarProps> = ({
                 Automations
               </button>
               <button
-                onClick={() => handleNavClick("#contact")}
+                onClick={() => handleNavClick("#pricing")}
                 className="hover:text-foreground transition-colors"
               >
-                Contact
+                Pricing
+              </button>
+              <button
+                onClick={() => handleNavClick("#links")}
+                className="hover:text-foreground transition-colors"
+              >
+                Writing & Links
               </button>
             </nav>
 
@@ -144,7 +150,7 @@ const NavBar: React.FC<NavBarProps> = ({
                 { number: "06", name: "Skills", href: "#skills" },
                 { number: "07", name: "Client Reviews", href: "#testimonials" },
                 { number: "08", name: "Pricing & Scope", href: "#pricing" },
-                { number: "09", name: "Contact & Booking", href: "#contact" },
+                { number: "09", name: "Writing & All Links", href: "#links" },
               ].map((item) => (
                 <button
                   key={item.href}
@@ -164,7 +170,7 @@ const NavBar: React.FC<NavBarProps> = ({
 
           <div className="pt-6 border-t border-border/60 space-y-4">
             <Button
-              onClick={() => handleNavClick("#contact")}
+              onClick={() => handleNavClick("#links")}
               className="w-full font-semibold gap-2 rounded-xl h-11 bg-[#4f46e5] hover:bg-[#4338ca] text-white"
             >
               <span>Let's Talk</span>

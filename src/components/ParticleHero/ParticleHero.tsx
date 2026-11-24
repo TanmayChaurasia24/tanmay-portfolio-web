@@ -30,8 +30,10 @@ interface ParticleHeroProps {
   onMenuOpen: () => void;
 }
 
-const LINE1_WORDS = ["I", "build", "software", "and", "automate"];
-const LINE2_WORDS = ["the", "work", "behind", "your", "business."];
+const HEADLINE_WORDS = [
+  "I", "build", "software", "and", "automate",
+  "the", "work", "behind", "your", "business."
+];
 
 /* ─── Component ────────────────────────────────────── */
 const ParticleHero: React.FC<ParticleHeroProps> = ({ onMenuOpen }) => {
@@ -44,8 +46,7 @@ const ParticleHero: React.FC<ParticleHeroProps> = ({ onMenuOpen }) => {
   const headerRef = useRef<HTMLElement>(null);
   // Headline refs
   const headlineRef = useRef<HTMLDivElement>(null);
-  const line1Ref = useRef<HTMLDivElement>(null);
-  const line2Ref = useRef<HTMLDivElement>(null);
+  const line1Ref = useRef<HTMLHeadingElement>(null);
   const wordRefs = useRef<(HTMLSpanElement | null)[]>([]);
   const paraRef = useRef<HTMLParagraphElement>(null);
   const ctaRef = useRef<HTMLDivElement>(null);
@@ -78,14 +79,17 @@ const ParticleHero: React.FC<ParticleHeroProps> = ({ onMenuOpen }) => {
   const updatePortraitLayout = useCallback(() => {
     const h = window.innerHeight;
     const w = window.innerWidth;
-    const portraitH = h * CONFIG.PORTRAIT_HEIGHT_RATIO;
+    const isMobile = w < CONFIG.MOBILE_BREAKPOINT;
+    const heightRatio = isMobile ? 0.65 : CONFIG.PORTRAIT_HEIGHT_RATIO;
+    const xOffset = isMobile ? 0.0 : CONFIG.PORTRAIT_X_OFFSET;
+    const portraitH = h * heightRatio;
     const portraitW = (portraitH / 1024) * 768;
-    const offsetX = w * (0.5 + CONFIG.PORTRAIT_X_OFFSET) - portraitW / 2;
+    const offsetX = w * (0.5 + xOffset) - portraitW / 2;
     const offsetY = h - portraitH;
     layoutRef.current = { portraitW, portraitH, offsetX, offsetY };
 
     if (colorPortraitRef.current) {
-      colorPortraitRef.current.style.width = `${portraitW}px`;
+      colorPortraitRef.current.style.width = `${portraitH * (768 / 1024)}px`;
       colorPortraitRef.current.style.height = `${portraitH}px`;
       colorPortraitRef.current.style.left = `${offsetX}px`;
       colorPortraitRef.current.style.top = `${offsetY}px`;
@@ -221,57 +225,62 @@ const ParticleHero: React.FC<ParticleHeroProps> = ({ onMenuOpen }) => {
 
   /* ── GSAP Text Reveal + Scroll ─────────────────── */
   useEffect(() => {
-    if (!sceneReady) return;
-
     const prefersReducedMotion = window.matchMedia(
       "(prefers-reduced-motion: reduce)"
     ).matches;
 
     const ctx = gsap.context(() => {
-      // ── Intro timeline ─────────────────────────
-      const introTL = gsap.timeline({ defaults: { ease: "power3.out" } });
+      const validWords = wordRefs.current.filter((w): w is HTMLSpanElement => w !== null);
 
-      if (!prefersReducedMotion) {
-        // t≈0.5-1.0s: The headline words reveal by rising from below a mask (translateY 100%→0, clipped line reveal, stagger 0.04s, ease power3.out)
-        const validWords = wordRefs.current.filter((w): w is HTMLSpanElement => w !== null);
+      if (prefersReducedMotion) {
+        gsap.set(validWords, { opacity: 1, y: 0 });
+        if (paraRef.current) gsap.set(paraRef.current, { opacity: 1, y: 0 });
+        if (ctaRef.current) gsap.set(ctaRef.current, { opacity: 1, y: 0 });
+        if (headerRef.current) gsap.set(headerRef.current, { opacity: 1, y: 0 });
+        if (globeRef.current) gsap.set(globeRef.current, { opacity: 1, x: 0 });
+        if (dockRef.current) gsap.set(dockRef.current, { opacity: 1, y: 0 });
+      } else {
+        // Immediate smooth text entrance on page load without waiting for WebGL asset parsing
+        const introTL = gsap.timeline({ defaults: { ease: "power3.out" } });
+
         introTL
           .fromTo(
             validWords,
-            { yPercent: 110, opacity: 0 },
-            { yPercent: 0, opacity: 1, duration: 0.9, stagger: 0.04, ease: "power3.out" },
-            0.5
+            { y: 22, opacity: 0 },
+            { y: 0, opacity: 1, duration: 0.75, stagger: 0.03, ease: "power3.out" },
+            0.15
           )
           // Paragraph and buttons fade up
           .fromTo(
             paraRef.current,
-            { y: 20, opacity: 0 },
-            { y: 0, opacity: 1, duration: 0.7 },
-            1.0
+            { y: 15, opacity: 0 },
+            { y: 0, opacity: 1, duration: 0.6 },
+            0.55
           )
           .fromTo(
             ctaRef.current,
-            { y: 15, opacity: 0 },
-            { y: 0, opacity: 1, duration: 0.6 },
-            1.1
+            { y: 12, opacity: 0 },
+            { y: 0, opacity: 1, duration: 0.5 },
+            0.7
           )
-          // Header, globe, dock fade in around t≈1.5
+          // Header, globe, dock fade in
           .fromTo(
             headerRef.current,
-            { y: -15, opacity: 0 },
-            { y: 0, opacity: 1, duration: 0.6 },
-            1.3
+            { y: -10, opacity: 0 },
+            { y: 0, opacity: 1, duration: 0.55 },
+            0.85
           )
           .fromTo(
             globeRef.current,
-            { x: -20, opacity: 0 },
-            { x: 0, opacity: 1, duration: 0.6 },
-            1.5
+            { x: -15, opacity: 0 },
+            { y: 0, opacity: 1, duration: 0.55 },
+            1.0
           )
           .fromTo(
             dockRef.current,
-            { y: 20, opacity: 0 },
+            { y: 15, opacity: 0 },
             { y: 0, opacity: 1, duration: 0.5 },
-            1.7
+            1.1
           );
       }
 
@@ -382,7 +391,7 @@ const ParticleHero: React.FC<ParticleHeroProps> = ({ onMenuOpen }) => {
     }, heroRef);
 
     return () => ctx.revert();
-  }, [sceneReady]);
+  }, []);
 
   /* ── Lenis Smooth Scroll ───────────────────────── */
   useEffect(() => {
@@ -422,8 +431,8 @@ const ParticleHero: React.FC<ParticleHeroProps> = ({ onMenuOpen }) => {
     <div
       ref={heroRef}
       id="home"
-      className="relative w-full"
-      style={{ height: "350vh", cursor: "none" }}
+      className="relative w-full cursor-auto md:cursor-none"
+      style={{ height: "350vh" }}
     >
       {/* ── Sticky viewport container ───────────────── */}
       <div className="sticky top-0 left-0 w-full h-screen overflow-hidden" style={{ background: "#101010" }}>
@@ -463,10 +472,10 @@ const ParticleHero: React.FC<ParticleHeroProps> = ({ onMenuOpen }) => {
           />
         </noscript>
 
-        {/* ── Custom cursor ──────────────────────────── */}
+        {/* ── Custom cursor (desktop reticle) ────────── */}
         <div
           ref={cursorRef}
-          className="fixed top-0 left-0 pointer-events-none z-50 transition-opacity duration-200 flex items-center justify-center"
+          className="fixed top-0 left-0 pointer-events-none z-50 transition-opacity duration-200 hidden md:flex items-center justify-center"
           style={{
             width: 14,
             height: 14,
@@ -514,12 +523,20 @@ const ParticleHero: React.FC<ParticleHeroProps> = ({ onMenuOpen }) => {
           {/* Right: Nav + Menu pill */}
           <div className="flex items-center gap-5 sm:gap-6">
             <nav className="hidden sm:flex items-center gap-5 text-[11px] font-medium text-white/50">
-              {["About", "Work", "Contact"].map((item) => (
+              {["About", "Work", "Pricing", "Writing & Links"].map((item) => (
                 <button
                   key={item}
-                  onClick={() => handleNavClick(
-                    item === "About" ? "#about" : item === "Work" ? "#projects" : "#contact"
-                  )}
+                  onClick={() =>
+                    handleNavClick(
+                      item === "About"
+                        ? "#about"
+                        : item === "Work"
+                        ? "#projects"
+                        : item === "Pricing"
+                        ? "#pricing"
+                        : "#links"
+                    )
+                  }
                   className="hover:text-white transition-colors"
                   style={{ cursor: "none" }}
                 >
@@ -550,53 +567,36 @@ const ParticleHero: React.FC<ParticleHeroProps> = ({ onMenuOpen }) => {
           </div>
         </div>
 
-        {/* ── HEADLINE BLOCK (right side) ────────────── */}
+        {/* ── HEADLINE BLOCK ────────────────────────── */}
         <div
           ref={headlineRef}
-          className="absolute z-20 right-6 sm:right-10 lg:right-[12%] bottom-[15%] sm:bottom-auto sm:top-1/2 sm:-translate-y-1/2 max-w-md lg:max-w-lg"
+          className="absolute z-20 left-5 right-5 top-[15%] sm:top-1/2 sm:-translate-y-1/2 sm:left-auto sm:right-8 md:right-10 lg:right-[8%] xl:right-[12%] max-w-lg lg:max-w-xl"
         >
-          {/* Line 1 */}
-          <div ref={line1Ref} className="overflow-hidden flex flex-wrap gap-x-[0.28em]">
-            {LINE1_WORDS.map((word, i) => (
+          {/* Main Headline */}
+          <h1
+            ref={line1Ref}
+            className="font-heading font-light tracking-tight text-white leading-[1.12] flex flex-wrap gap-x-[0.24em] gap-y-[0.08em]"
+            style={{
+              fontSize: "clamp(26px, 4.2vw, 46px)",
+            }}
+          >
+            {HEADLINE_WORDS.map((word, i) => (
               <span
-                key={word}
+                key={`${word}-${i}`}
                 ref={(el) => { wordRefs.current[i] = el; }}
-                className="inline-block text-white font-light tracking-tight leading-[1.1] will-change-transform"
-                style={{
-                  fontSize: "clamp(28px, 3.6vw, 44px)",
-                  fontFamily: "'Inter', 'Instrument Sans', sans-serif",
-                  opacity: 0,
-                  transform: "translateY(110%)",
-                }}
+                className="inline-block text-white will-change-transform"
+                style={{ opacity: 0 }}
               >
                 {word}
               </span>
             ))}
-          </div>
-          {/* Line 2 */}
-          <div ref={line2Ref} className="overflow-hidden mt-1 flex flex-wrap gap-x-[0.28em]">
-            {LINE2_WORDS.map((word, i) => (
-              <span
-                key={word}
-                ref={(el) => { wordRefs.current[LINE1_WORDS.length + i] = el; }}
-                className="inline-block text-white font-light tracking-tight leading-[1.1] will-change-transform"
-                style={{
-                  fontSize: "clamp(28px, 3.6vw, 44px)",
-                  fontFamily: "'Inter', 'Instrument Sans', sans-serif",
-                  opacity: 0,
-                  transform: "translateY(110%)",
-                }}
-              >
-                {word}
-              </span>
-            ))}
-          </div>
+          </h1>
 
           {/* Supporting paragraph */}
           <p
             ref={paraRef}
-            className="mt-5 text-white/40 leading-relaxed max-w-sm"
-            style={{ fontSize: "13px", opacity: 0 }}
+            className="mt-4 sm:mt-5 text-white/60 dark:text-white/50 leading-relaxed max-w-sm sm:max-w-md text-xs sm:text-sm"
+            style={{ opacity: 0 }}
           >
             I help startups and businesses build web applications, backend systems,
             and AI-powered automations that simplify operations and turn ideas into
@@ -604,17 +604,17 @@ const ParticleHero: React.FC<ParticleHeroProps> = ({ onMenuOpen }) => {
           </p>
 
           {/* CTA row */}
-          <div ref={ctaRef} className="flex items-center gap-5 mt-6" style={{ opacity: 0 }}>
+          <div ref={ctaRef} className="flex flex-wrap items-center gap-4 sm:gap-5 mt-5 sm:mt-6" style={{ opacity: 0 }}>
             <button
-              onClick={() => handleNavClick("#contact")}
-              className="px-7 py-2.5 rounded-full text-white text-sm font-semibold transition-all hover:scale-105 active:scale-95"
+              onClick={() => handleNavClick("#links")}
+              className="px-6 sm:px-7 py-2.5 rounded-full text-white text-xs sm:text-sm font-semibold transition-all hover:scale-105 active:scale-95 shadow-md shadow-indigo-500/20"
               style={{ backgroundColor: CONFIG.ACCENT_INDIGO, cursor: "none" }}
             >
               Let's talk
             </button>
             <button
               onClick={() => handleNavClick("#projects")}
-              className="text-white/60 text-sm font-medium hover:text-white transition-colors inline-flex items-center gap-1 group"
+              className="text-white/70 text-xs sm:text-sm font-medium hover:text-white transition-colors inline-flex items-center gap-1 group"
               style={{ cursor: "none" }}
             >
               <span>See the work</span>

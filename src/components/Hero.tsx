@@ -104,7 +104,7 @@ const Hero = () => {
             {/* Action Buttons */}
             <div className="flex flex-wrap items-center gap-4 pt-2">
               <Button
-                onClick={() => scrollTo("#contact")}
+                onClick={() => scrollTo("#links")}
                 className="rounded-full bg-[#4f46e5] hover:bg-[#4338ca] text-white px-7 py-2.5 h-11 text-xs sm:text-sm font-semibold shadow-md transition-all hover:scale-105 active:scale-95"
               >
                 <span>Let's talk</span>

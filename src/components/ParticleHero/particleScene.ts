@@ -154,9 +154,12 @@ export class ParticleScene {
       : CONFIG.PARTICLE_COUNT_DESKTOP;
 
     // ── Sample image into offscreen canvas ──────────
-    const portraitH = this.height * CONFIG.PORTRAIT_HEIGHT_RATIO;
+    const isMobile = this.width < CONFIG.MOBILE_BREAKPOINT;
+    const heightRatio = isMobile ? 0.65 : CONFIG.PORTRAIT_HEIGHT_RATIO;
+    const xOffset = isMobile ? 0.0 : CONFIG.PORTRAIT_X_OFFSET;
+    const portraitH = this.height * heightRatio;
     const portraitW = (portraitH / img.height) * img.width;
-    const offsetX = this.width * (0.5 + CONFIG.PORTRAIT_X_OFFSET) - portraitW / 2;
+    const offsetX = this.width * (0.5 + xOffset) - portraitW / 2;
     const offsetY = this.height - portraitH; // bottom-aligned
 
     const offCanvas = document.createElement("canvas");

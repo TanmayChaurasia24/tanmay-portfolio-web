@@ -10,7 +10,9 @@
     "bio": "I am a Software Engineer and AI Automation Developer who builds end-to-end web applications, robust backend APIs, and production AI workflow automations. Whether creating SaaS MVPs from scratch or automating operational bottlenecks using n8n and RAG systems, I turn complex business problems into reliable, working software.",
     "avatar": "",
     "resume": "https://drive.google.com/file/d/1NSZEuoYvxj-P_KfPpxg_zbTacAHzjTOF/view",
-    "calendarUrl": "https://cal.com/tammm2026"
+    "calendarUrl": "https://cal.com/tammm2026",
+    "instagram": "https://www.instagram.com/tanmaykumarchaurasia/",
+    "devto": "https://dev.to/tanmay2627"
   },
   "navLinks": [
     { "name": "Home", "href": "#home" },
@@ -19,7 +21,9 @@
     { "name": "AI Automation", "href": "#ai-automation" },
     { "name": "Services", "href": "#services" },
     { "name": "Skills", "href": "#skills" },
-    { "name": "Contact", "href": "#contact" }
+    { "name": "Reviews", "href": "#reviews" },
+    { "name": "Pricing", "href": "#pricing" },
+    { "name": "Articles & Links", "href": "#links" }
   ],
   "hero": {
     "badge": "Software Engineer · Full-Stack · AI Automation",
@@ -73,22 +77,125 @@
     {
       "name": "GitHub",
       "url": "https://github.com/TanmayChaurasia24",
-      "icon": "github"
+      "icon": "github",
+      "handle": "@TanmayChaurasia24",
+      "description": "Open source code, repositories, and technical projects"
     },
     {
       "name": "LinkedIn",
       "url": "https://www.linkedin.com/in/tanmay-kumar-chaurasia-851806245/",
-      "icon": "linkedin"
+      "icon": "linkedin",
+      "handle": "tanmay-kumar-chaurasia",
+      "description": "Professional experience, endorsements, and project collaborations"
     },
     {
-      "name": "Twitter",
+      "name": "Twitter / X",
       "url": "https://x.com/tanmayKumar2026",
-      "icon": "twitter"
+      "icon": "twitter",
+      "handle": "@tanmayKumar2026",
+      "description": "Thoughts on full-stack architecture, AI automations, and engineering"
+    },
+    {
+      "name": "Instagram",
+      "url": "https://www.instagram.com/tanmaykumarchaurasia/",
+      "icon": "instagram",
+      "handle": "@tanmaykumarchaurasia",
+      "description": "Visual updates, engineering journey, and life behind the code"
+    },
+    {
+      "name": "Dev.to",
+      "url": "https://dev.to/tanmay2627",
+      "icon": "devto",
+      "handle": "@tanmay2627",
+      "description": "In-depth engineering articles on backend systems, AI agents, and DevOps"
+    },
+    {
+      "name": "Cal.com",
+      "url": "https://cal.com/tammm2026",
+      "icon": "calendar",
+      "handle": "tammm2026",
+      "description": "Schedule a direct 1:1 technical discussion or project discovery call"
     },
     {
       "name": "Email",
       "url": "mailto:tanmaykumar.kanpur@gmail.com",
-      "icon": "mail"
+      "icon": "mail",
+      "handle": "tanmaykumar.kanpur@gmail.com",
+      "description": "Direct communication for project proposals, hiring, and inquiries"
+    }
+  ],
+  "articles": [
+    {
+      "id": 5109478,
+      "title": "Moving from Scheduled Polling to Event-Driven Business Automation",
+      "description": "A surprising amount of modern business automation still relies on scheduled polling. A cron job runs every 5 minutes, checks a database, queries an API, and acts if something changed. This wastes compute and delays actions.",
+      "url": "https://dev.to/tanmay2627/moving-from-scheduled-polling-to-event-driven-business-automation-2d64",
+      "published_at": "2026-11-24T16:35:09Z",
+      "readable_publish_date": "Nov 24",
+      "reading_time_minutes": 3,
+      "tags": ["backend", "devops", "architecture", "python"],
+      "cover_image": "https://media2.dev.to/dynamic/image/width=1200,height=627,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.us-east-2.amazonaws.com%2Fuploads%2Farticles%2Fwe7zbi935gx6t7xfvyxr.png",
+      "reactions": 1
+    },
+    {
+      "id": 5108749,
+      "title": "How to Evaluate AI Agents: Stop Relying on Vibes and Start Measuring",
+      "description": "When developers build their first AI agent, evaluation usually looks like this: send a prompt, read the output, nod, and deploy. Learn how to systematically benchmark task completion and tool accuracy.",
+      "url": "https://dev.to/tanmay2627/how-to-evaluate-ai-agents-stop-relying-on-vibes-and-start-measuring-3oh6",
+      "published_at": "2026-11-24T14:40:03Z",
+      "readable_publish_date": "Nov 24",
+      "reading_time_minutes": 3,
+      "tags": ["ai", "python", "backend", "devops"],
+      "cover_image": "https://media2.dev.to/dynamic/image/width=1200,height=627,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.us-east-2.amazonaws.com%2Fuploads%2Farticles%2Fc4gsrmoqdfbly1lwt65y.png",
+      "reactions": 0
+    },
+    {
+      "id": 5108410,
+      "title": "Building Staging Environments That Actually Mirror Production",
+      "description": "Most production outages don't originate in production. They start one deployment earlier, inside the staging environment that was configured slightly differently. Here is how to achieve true parity.",
+      "url": "https://dev.to/tanmay2627/building-staging-environments-that-actually-mirror-production-1nhk",
+      "published_at": "2026-11-24T14:03:40Z",
+      "readable_publish_date": "Nov 24",
+      "reading_time_minutes": 3,
+      "tags": ["devops", "backend", "testing", "automation"],
+      "cover_image": "https://media2.dev.to/dynamic/image/width=1200,height=627,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.us-east-2.amazonaws.com%2Fuploads%2Farticles%2Fs0n6ak8ucf1hh8epkot6.png",
+      "reactions": 0
+    },
+    {
+      "id": 5108237,
+      "title": "Stop Data Leaks in Multi-Tenant Apps with PostgreSQL Row-Level Security",
+      "description": "Most multi-tenant SaaS bugs are not complex logic failures. They are simple, silent data leaks where a missing WHERE tenant_id clause exposes one customer's private data to another.",
+      "url": "https://dev.to/tanmay2627/stop-data-leaks-in-multi-tenant-apps-with-postgresql-row-level-security-1blk",
+      "published_at": "2026-11-24T13:33:17Z",
+      "readable_publish_date": "Nov 24",
+      "reading_time_minutes": 3,
+      "tags": ["postgres", "architecture", "backend", "database"],
+      "cover_image": "https://media2.dev.to/dynamic/image/width=1200,height=627,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.us-east-2.amazonaws.com%2Fuploads%2Farticles%2Fwci1v0m0u6m7ul6u0ipk.png",
+      "reactions": 0
+    },
+    {
+      "id": 5108053,
+      "title": "Building an Automated Email Triage System with LLMs and Python",
+      "description": "Most software teams and business operators do not need another custom rule or keyword filter in their inbox. They need an intelligent system that understands context, extracts intent, and drafts actions.",
+      "url": "https://dev.to/tanmay2627/building-an-automated-email-triage-system-with-llms-and-python-48o3",
+      "published_at": "2026-11-24T13:03:23Z",
+      "readable_publish_date": "Nov 24",
+      "reading_time_minutes": 3,
+      "tags": ["python", "ai", "automation", "backend"],
+      "cover_image": "https://media2.dev.to/dynamic/image/width=1200,height=627,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.us-east-2.amazonaws.com%2Fuploads%2Farticles%2Flqby5htkwqqsza5gk584.png",
+      "reactions": 0
+    },
+    {
+      "id": 5107889,
+      "title": "Proactive Backend Alerting: Catch Outages Before Your Users Do",
+      "description": "There is a specific kind of dread every backend engineer knows: opening Twitter or your support inbox to find users complaining about an error that began an hour ago.",
+      "url": "https://dev.to/tanmay2627/proactive-backend-alerting-catch-outages-before-your-users-do-8gl",
+      "published_at": "2026-11-24T12:34:00Z",
+      "readable_publish_date": "Nov 24",
+      "reading_time_minutes": 3,
+      "tags": ["devops", "backend", "monitoring", "python"],
+      "cover_image": "https://media2.dev.to/dynamic/image/width=1200,height=627,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.us-east-2.amazonaws.com%2Fuploads%2Farticles%2F1cdo0i8qg066xtgxi5fn.png",
+      "reactions": 0
     }
   ],
   "skills": [

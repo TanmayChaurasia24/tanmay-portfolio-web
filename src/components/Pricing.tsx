@@ -164,7 +164,7 @@ const Pricing: React.FC = () => {
     window.dispatchEvent(
       new CustomEvent("select-project-type", { detail: { projectType } })
     );
-    document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" });
+    document.getElementById("links")?.scrollIntoView({ behavior: "smooth" });
   };
 
   return (
